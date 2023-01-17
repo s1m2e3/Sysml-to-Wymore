@@ -7,8 +7,8 @@ from system import Output
 if __name__=="__main__":
     
     S = {1,0}
-    I = {1,0}
-    O = {"1","0"}
+    I = {1:Input(4),2:Input(3),3:Input(feedback=True)}
+    O = {1:Output(),2:Output(),3:Output()}
     # tf1=Tran_func(lambda a: sum(a))
     # tf1.validate((1,2))
     # tf1.validate((1,"a"))

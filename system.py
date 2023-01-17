@@ -26,10 +26,18 @@ class System:
     def __init__(self,states={},inputs={},outputs={}):
         
         #inputs have the following structure: {1:Input_object,2:Input_object,...}
+        #It will be required that all the non-feedback inputs go before the feedback inputs
         #where each of the indexes is the stream of inputs. Similarly for the outputs
         #{1: Output_object, 2:Output_object,...}
         #states are just described in the states set, and the current state could only be one element of the states,
         #however one element of the states could be a vector or a higher dimension array
+
+        compare = []
+        for stream_index in inputs:
+            if not inputs[stream_index].feedback:
+                compare.append(stream_index)
+        if compare!=np.arange(len(compare)):
+            raise ValueError("all not-feedback inputs must be written before the feedback inputs")
 
         self.states = states  
         self.inputs = inputs
@@ -47,9 +55,11 @@ class System:
         
         for element in self.outputs:
             element.current_system = self
-        
+
     def add_transition_function(self,pair, function):
         #pair is a tuple of (state,(input_object,input_object))
+        #functions take the tuple state and data.
+        #states could be single elements, arrays or arrays of arrays
         
         if pair[0] in self.states and len(pair[1]) == len(self.inputs):
             try:
@@ -84,35 +94,39 @@ class System:
         else:
             raise ValueError("state not in states set")
 
+    def get_num_nofeed(self):
+        return sum([Input.feedback for Input in self.inputs])
 
     def transition(self,sys_input,initial_state=None):
 
         #sys input would be the tuple (input_object1.data,input_object2.data,...)
         #if its a feedback input, extract from readoutfunction and there is no need for the second 
         #element of the tuple to be used  
-        
-        if initial_state in self.states:
-            self.current_state = initial_state
-        elif self.current_state == None: 
-            raise ValueError("can't transition without initial state")
-        else:
-            data = ()
-            data = data + sys_input
-            print("current state:",self.current_state)
-            #retrieve inputs from output feedbacks 
-            for stream_index in self.inputs:
-                if self.inputs[stream_index].feedback:
-                    = self.readout_functions[self.current_state]
+        if len(sys_input) == self.get_num_nofeed():
             
-            if self.inputs[sys_input[0]].feedback:
-                print("feedback input stream: ", sys_input[0])
-                data = sys_input
+            if initial_state in self.states:
+                self.current_state = initial_state
+            elif self.current_state == None: 
+                raise ValueError("can't transition without initial state")
             else:
-                self.inputs[sys_input[0]].data=sys_input[1]
-                print("updated last input")
-                pair = (sys_input[1],self.current_state)
-                self.current_state=self.transition_functions[pair](pair)
-                print("transitioned to state:" ,self.current_state)
+                print("current state:",self.current_state)
+                #retrieve inputs from output feedbacks 
+                for stream_index in self.inputs:
+                    if self.inputs[stream_index].feedback:
+                        self.inputs[stream_index].data = self.readout_functions[self.current_state]
+                    
+                if self.inputs[sys_input[0]].feedback:
+                    print("feedback input stream: ", sys_input[0])
+                    data = sys_input
+                
+                else:
+                    self.inputs[sys_input[0]].data=sys_input[1]
+                    print("updated last input")
+                    pair = (sys_input[1],self.current_state)
+                    self.current_state=self.transition_functions[pair](pair)
+                    print("transitioned to state:" ,self.current_state)
+        else:
+            raise ValueError("number of inputs doesn't match number of non-feedback input streams")
 
     def validate_system(self):
          
