@@ -5,22 +5,30 @@ import numpy as np
 class Input:
     def __init__(self,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
         
+        #sets of input data, they would be "RR" for any number in the real set
+        #                    "II" for any integer
+        #                    "CHAR" for any string
+        #                    {} for any finite set of inputs // must use frozenset
         self.available_data = data
+        #current input data
         self.data = current_data
-        #specify data types ? 
-        #specify data in a set ? How ?
+        #whether or not the input stream is feedback of another output
         self.feedback = feedback
+        #output object connected to the input object through feedback
         self.output = attached_output
+        #system which receives the input
         self.current_system = current_system
+        #attached systems through coupling to the system receiving the input
         self.attached_system = attached_system
 
 class Output:
-    def __init__(self,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
+    def __init__(self,data,current_data=None,feedback=False,attached_input=None,current_system=None,attached_system=None):
         
+        #similar behavior as the Input class
         self.available_data = data
         self.data = current_data
         self.feedback = feedback
-        self.output = attached_output
+        self.input = attached_input
         self.current_system = current_system
         self.attached_system = attached_system
 
@@ -29,10 +37,10 @@ class System:
 
     def __init__(self,states={},inputs={},outputs={}):
         
-        #inputs have the following structure: {1:Input_object,2:Input_object,...}
+        #inputs have the following structure: {0:Input_object,1:Input_object,...}
         #It will be required that all the non-feedback inputs go before the feedback inputs
         #where each of the indexes is the stream of inputs. Similarly for the outputs
-        #{1: Output_object, 2:Output_object,...}
+        #{0: Output_object, 1:Output_object,...}
         #states are just described in the states set, and the current state could only be one element of the states,
         #however one element of the states could be a vector or a higher dimension array
 
@@ -41,12 +49,21 @@ class System:
             if not inputs[stream_index].feedback:
                 compare.append(stream_index)
         if compare!=np.arange(len(compare)):
-            raise ValueError("all not-feedback inputs must be written before the feedback inputs")
+            raise ValueError("all not-feedback inputs must be written after the feedback inputs")
+
+        #sets of states behave similarly as inputs and outputs, would be: 
+        #                         "RR" for any number in the real set
+        #                         "II" for any integer
+        #                         "CHAR" for any string
+        #                         {} for any finite set of inputs // must use frozenset
 
         self.states = states  
         self.inputs = inputs
         self.outputs = outputs
-        self.states_x_inputs = product(self.states,self.inputs)
+        
+        #self.states_x_inputs = product(self.states,self.inputs)
+        #do we want to map all possible states_x_inputs?
+
         self.transition_functions = {}
         self.readout_functions = {}
         self.current_state = None
@@ -61,7 +78,7 @@ class System:
             element.current_system = self
 
     def add_transition_function(self,pair, function):
-        #pair is a tuple of (state,(input_object,input_object))
+        #pair is a tuple of (state,(input_object_1,..,input_object_n))
         #functions take the tuple state and data.
         #states could be single elements, arrays or arrays of arrays
         
