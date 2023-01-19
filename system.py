@@ -3,18 +3,22 @@ import networkx as nx
 import numpy as np
 
 class Input:
-    def __init__(self,data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
+    def __init__(self,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
         
-        self.data = data
+        self.available_data = data
+        self.data = current_data
+        #specify data types ? 
+        #specify data in a set ? How ?
         self.feedback = feedback
         self.output = attached_output
         self.current_system = current_system
         self.attached_system = attached_system
 
 class Output:
-    def __init__(self,data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
+    def __init__(self,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
         
-        self.data = data
+        self.available_data = data
+        self.data = current_data
         self.feedback = feedback
         self.output = attached_output
         self.current_system = current_system
@@ -67,7 +71,7 @@ class System:
                 next_state = function((pair[0],data))
                 if next_state in self.states: 
                     print("properly defined function added to transition functions")
-                    self.transition_functions[pair]=function
+                    self.transition_functions[pair[0]]=function
                 else:
                     raise ValueError("function didn't compute valid state")
             except:
@@ -100,6 +104,7 @@ class System:
     def transition(self,sys_input,initial_state=None):
 
         #sys input would be the tuple (input_object1.data,input_object2.data,...)
+        #how to validate that data in inputs is correct? 
         #if its a feedback input, extract from readoutfunction and there is no need for the second 
         #element of the tuple to be used  
         if len(sys_input) == self.get_num_nofeed():
@@ -114,17 +119,20 @@ class System:
                 for stream_index in self.inputs:
                     if self.inputs[stream_index].feedback:
                         self.inputs[stream_index].data = self.readout_functions[self.current_state]
+                        feedback_ = (self.inputs[stream_index].data)
+                        sys_input = sys_input + feedback_
+                        print("added feedback input to input data")
+
+                    elif sys_input[stream_index] in self.inputs[stream_index].available_data:
+                        self.inputs[stream_index].data = sys_input[stream_index]
                     
-                if self.inputs[sys_input[0]].feedback:
-                    print("feedback input stream: ", sys_input[0])
-                    data = sys_input
+                    else:
+                        raise ValueError("input not in input set")
                 
-                else:
-                    self.inputs[sys_input[0]].data=sys_input[1]
-                    print("updated last input")
-                    pair = (sys_input[1],self.current_state)
-                    self.current_state=self.transition_functions[pair](pair)
-                    print("transitioned to state:" ,self.current_state)
+                pair = (self.current_state,sys_input)
+                self.current_state = self.transition_functions[self.current_state](pair)
+                print("transitioned to state:" ,self.current_state)
+                
         else:
             raise ValueError("number of inputs doesn't match number of non-feedback input streams")
 
