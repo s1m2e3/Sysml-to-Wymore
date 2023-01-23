@@ -3,13 +3,25 @@ import networkx as nx
 import numpy as np
 
 class Input:
-    def __init__(self,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
+
+    def __init__(self,name,input_type,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
         
+        self.name = name
+        self.type = input_type 
         #sets of input data, they would be "RR" for any number in the real set
         #                    "II" for any integer
         #                    "CHAR" for any string
         #                    {} for any finite set of inputs // must use frozenset
-        self.available_data = data
+        
+        self.available_data = data.unique()
+        if self.type == "RR" and self.available_data.dtype == np.dtype('float64'):
+            pass
+        elif self.type == "II" and self.available_data.dtype == np.dtype('int32'):
+            pass
+        elif self.type == "CHAR" and self.available_data.dtype.char == "U":
+            pass
+        else:
+            raise ValueError("type and provided set don't match")
         #current input data
         self.data = current_data
         #whether or not the input stream is feedback of another output
@@ -22,15 +34,79 @@ class Input:
         self.attached_system = attached_system
 
 class Output:
-    def __init__(self,data,current_data=None,feedback=False,attached_input=None,current_system=None,attached_system=None):
+    
+    def __init__(self,name,output_type,data,current_data=None,feedback=False,attached_input=None,current_system=None,attached_system=None):
         
         #similar behavior as the Input class
-        self.available_data = data
+        self.name = name
+        self.type = output_type 
+        #sets of input data, they would be "RR" for any number in the real set
+        #                    "II" for any integer
+        #                    "CHAR" for any string
+        #                    {} for any finite set of inputs // must use frozenset
+        
+        self.available_data = data.unique()
+        if self.type == "RR" and self.available_data.dtype == np.dtype('float64'):
+            pass
+        elif self.type == "II" and self.available_data.dtype == np.dtype('int32'):
+            pass
+        elif self.type == "CHAR" and self.available_data.dtype.char == "U":
+            pass
+        else:
+            raise ValueError("type and provided set don't match")
+        
         self.data = current_data
         self.feedback = feedback
         self.input = attached_input
         self.current_system = current_system
         self.attached_system = attached_system
+
+class State:
+
+    def __init__(self,name,state_type,data,current_data=None,current_system=None,attached_system=None):
+        
+        self.name = name
+        self.type = state_type
+        self.available_data = data.unique()
+        
+        if self.type == "RR" and self.available_data.dtype == np.dtype('float64'):
+            pass
+        elif self.type == "II" and self.available_data.dtype == np.dtype('int32'):
+            pass
+        elif self.type == "CHAR" and self.available_data.dtype.char == "U":
+            pass
+        else:
+            raise ValueError("type and provided set don't match")
+        
+        self.data = current_data
+        self.current_system = current_system
+        self.attached_system = attached_system
+
+
+
+class TransitionFunction:
+    def __init__(self,states_tuple,inputs_tuple,function):
+
+        #states tuple is not the states objects but the state themselves
+        self.states_tuple = states_tuple
+        #inputs tuple is not the input objects but the inputs themselves
+        self.inputs_tuple = inputs_tuple
+        self.function = function
+        try:
+            self.function(states_tuple,self.inputs_tuple)
+        except:
+            raise ValueError("function is not computing given states tuple and inputs tuple")
+
+class ReadoutFunction:
+    def __init__(self,states_tuple,function):
+
+        #states tuple is not the states objects but the state themselves
+        self.states_tuple = states_tuple
+        self.function = function
+        try:
+            self.function(states_tuple,self)
+        except:
+            raise ValueError("function is not computing given states tuple")
 
 
 class System:
@@ -41,7 +117,8 @@ class System:
         #It will be required that all the non-feedback inputs go before the feedback inputs
         #where each of the indexes is the stream of inputs. Similarly for the outputs
         #{0: Output_object, 1:Output_object,...}
-        #states are just described in the states set, and the current state could only be one element of the states,
+        #states have the following structure: {0:state_object,1:state_object,...} 
+        #  are just described in the states set, and the current state could only be one element of the states,
         #however one element of the states could be a vector or a higher dimension array
 
         compare = []
@@ -57,38 +134,47 @@ class System:
         #                         "CHAR" for any string
         #                         {} for any finite set of inputs // must use frozenset
 
-        self.states = states  
+        self.states = states
+        for state in self.states:
+            state.current_system = self  
         self.inputs = inputs
+        for input_ in self.inputs:
+            input_.current_system = self
         self.outputs = outputs
+        for output in self.outputs:
+            output.current_system = self
         
-        #self.states_x_inputs = product(self.states,self.inputs)
-        #do we want to map all possible states_x_inputs?
-
+        self.all_states = self.get_all_possible(self.states)
+        self.all_inputs = self.get_all_possible(self.inputs)
+        self.all_outputs = self.get_all_possible(self.outputs)
+        
+        self.states_x_inputs = list(product(self.all_states,self.all_inputs))
+        
         self.transition_functions = {}
         self.readout_functions = {}
         self.current_state = None
         self.states_graph = None
-        self.systems = {}
-        self.feedback = False
+        self.parent_system = None
+        self.child_system = None
+        self.feedback = sum([input_.feedback for input_ in self.inputs])>0
 
-        for element in self.inputs:
-            element.current_system = self
-        
-        for element in self.outputs:
-            element.current_system = self
 
-    def add_transition_function(self,pair, function):
-        #pair is a tuple of (state,(input_object_1,..,input_object_n))
-        #functions take the tuple state and data.
-        #states could be single elements, arrays or arrays of arrays
+    def get_all_possible(self,sets):
+
+        object_set = list(sets)
+        object_set = [state.available_data for state in object_set]
+        return [element for element in product(object_set)]
+
+    def add_transition_function(self, function):
         
-        if pair[0] in self.states and len(pair[1]) == len(self.inputs):
+        #function objects have the tuple state and input.
+        #validate that state and input in function exists in states x input set:
+        if (function.states_tuple,function.inputs_tuple) in self.states_x_inputs:
             try:
-                data = tuple([Input.data for Input in pair[1]])
-                next_state = function((pair[0],data))
-                if next_state in self.states: 
-                    print("properly defined function added to transition functions")
-                    self.transition_functions[pair[0]]=function
+                next_state = function.function(function.states_tuple,function.inputs_tuple)
+                if next_state in self.all_states: 
+                    print("properly defined transition function added to transition functions")
+                    self.transition_functions[(function.states_tuple,function.inputs_tuple)]=function.function
                 else:
                     raise ValueError("function didn't compute valid state")
             except:
@@ -96,72 +182,79 @@ class System:
         else:
             raise ValueError("either state or inputs not in states_x_inputs set")
 
-    def add_readout_function(self,state, function):
-        if state in self.states:
+    def add_readout_function(self, function):
+        
+        #function objects have the tuple state 
+        #validate that state exists in states set:
+        if function.states_tuple in self.all_states:
             try:
-                output = function(state)
-                found = False
-                for out in self.outputs: 
-                    if output in out.data: 
-                        print("properly defined function added to readout functions")
-                        self.readout_functions[state]=function
-                        found=True
-                        break
-                if not found:        
-                    raise ValueError("function didn't compute valid output")
-
+                output = function.function(function.states_tuple)
+                if output in self.all_outputs: 
+                    print("properly defined readout function added to readout functions")
+                    self.readout_functions[function.states_tuple]=function.function
+                else:
+                    raise ValueError("function didn't compute valid state")
             except:
                 raise Exception("function didn't compute")
         else:
-            raise ValueError("state not in states set")
+            raise ValueError("either state or inputs not in states_x_inputs set")
 
     def get_num_nofeed(self):
         return sum([Input.feedback for Input in self.inputs])
-
+    def prep_transition(self,sys_input):
+        for i in range(len(sys_input)):
+            self.inputs[i].data = sys_input[i]
+            current_input = tuple([input_.data for input_ in self.inputs])
+        return current_input
+    
     def transition(self,sys_input,initial_state=None):
-
-        #sys input would be the tuple (input_object1.data,input_object2.data,...)
-        #how to validate that data in inputs is correct? 
-        #if its a feedback input, extract from readoutfunction and there is no need for the second 
-        #element of the tuple to be used  
-        if len(sys_input) == self.get_num_nofeed():
+        #initial_state is a tuple of states
+        #sys input would be the tuple (input_object1.data,input_object2.data,...) containing only data from non-feedback inputs
+        #check that input_objects are inside their validated sets given feedback or not:
+        if self.check_current_state(initial_state):
             
-            if initial_state in self.states:
-                self.current_state = initial_state
-            elif self.current_state == None: 
-                raise ValueError("can't transition without initial state")
-            else:
-                print("current state:",self.current_state)
-                #retrieve inputs from output feedbacks 
-                for stream_index in self.inputs:
-                    if self.inputs[stream_index].feedback:
-                        self.inputs[stream_index].data = self.readout_functions[self.current_state]
-                        feedback_ = (self.inputs[stream_index].data)
-                        sys_input = sys_input + feedback_
-                        print("added feedback input to input data")
+            if self.feedback:
+                output = self.readout_functions[self.current_state]
+                for i in range(len(output)):
+                    self.outputs[i].data = output[i]
+                    if self.outputs[i].feedback:
+                        self.outputs[i].input.data = output[i]
+                indexes = []
+                for i in range(len(self.inputs)):
+                    if self.inputs[i].feedback:
+                        indexes.append(i)
+                        sys_input = sys_input + (self.inputs[i].data,)  
+                print("current state:", self.current_state)
+                print("updating stored inputs")
+                current_input = self.prep_transition(sys_input)
+                self.current_state=self.transition_functions[(self.current_state,current_input)](self.current_state,current_input)
+                print("transitioned to state:",self.current_state)
 
-                    elif sys_input[stream_index] in self.inputs[stream_index].available_data:
-                        self.inputs[stream_index].data = sys_input[stream_index]
-                    
-                    else:
-                        raise ValueError("input not in input set")
-                
-                pair = (self.current_state,sys_input)
-                self.current_state = self.transition_functions[self.current_state](pair)
-                print("transitioned to state:" ,self.current_state)
-                
+            elif sys_input in self.all_inputs:
+            
+                if self.check_current_state(initial_state):
+                    print("current state:", self.current_state)
+                    print("updating stored inputs")
+                    current_input = self.prep_transition(sys_input)
+                    self.current_state=self.transition_functions[(self.current_state,current_input)](self.current_state,current_input)
+                    print("transitioned to state:",self.current_state)
+
+            else:
+                raise ValueError("input stream not in input set")
         else:
-            raise ValueError("number of inputs doesn't match number of non-feedback input streams")
+            raise ValueError("can't transition without initial state")
+        
 
     def validate_system(self):
          
-        if len(self.readout_functions)>0 and len(self.transition_functions)>0:
+         
+        if len(self.transition_functions)>=len(self.states)-1 and len()==len(self.outputs):
 
             transition_index = list(self.transition_functions)
-            edges = [(pair[0],self.transition_functions[pair](pair)) for pair in transition_index]
+            edges = [(pair[0],self.transition_functions[pair](pair[0],pair[1])) for pair in transition_index]
             self.states_graph = nx.DiGraph()
             self.states_graph.add_edges_from(edges)
-            return nx.is_connected(self.states_graph)
+            reachability = nx.is_connected(self.states_graph)
 
         else:
             raise Exception("need more transition or readout functions")
