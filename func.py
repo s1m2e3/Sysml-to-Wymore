@@ -4,3 +4,4 @@ class Func():
         self.trans_function = {}
         self.readout_function = {}
         
+        #NSGAII algorithm
