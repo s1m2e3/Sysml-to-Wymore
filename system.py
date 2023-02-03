@@ -1,6 +1,8 @@
 from itertools import product
 import networkx as nx 
 import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 
 class Input:
 
@@ -13,12 +15,12 @@ class Input:
         #                    "CHAR" for any string
         #                    {} for any finite set of inputs // must use frozenset
         
-        self.available_data = data.unique()
-        if self.type == "RR" and self.available_data.dtype == np.dtype('float64'):
+        self.available_data = list(set(data))
+        if self.type == "RR" and np.all(np.array([type(i)==type(1.) for i in self.available_data])==True):
             pass
-        elif self.type == "II" and self.available_data.dtype == np.dtype('int32'):
+        elif self.type == "II" and np.all(np.array([type(i)==type(1) for i in self.available_data])==True):
             pass
-        elif self.type == "CHAR" and self.available_data.dtype.char == "U":
+        elif self.type == "CHAR" and np.all(np.array([type(i)==type("1.") for i in self.available_data])==True):
             pass
         else:
             raise ValueError("type and provided set don't match")
@@ -45,12 +47,12 @@ class Output:
         #                    "CHAR" for any string
         #                    {} for any finite set of inputs // must use frozenset
         
-        self.available_data = data.unique()
-        if self.type == "RR" and self.available_data.dtype == np.dtype('float64'):
+        self.available_data = list(set(data))
+        if self.type == "RR" and np.all(np.array([type(i)==type(1.) for i in self.available_data])==True):
             pass
-        elif self.type == "II" and self.available_data.dtype == np.dtype('int32'):
+        elif self.type == "II" and np.all(np.array([type(i)==type(1) for i in self.available_data])==True):
             pass
-        elif self.type == "CHAR" and self.available_data.dtype.char == "U":
+        elif self.type == "CHAR" and np.all(np.array([type(i)==type("1.") for i in self.available_data])==True):
             pass
         else:
             raise ValueError("type and provided set don't match")
@@ -67,13 +69,12 @@ class State:
         
         self.name = name
         self.type = state_type
-        self.available_data = data.unique()
-        
-        if self.type == "RR" and self.available_data.dtype == np.dtype('float64'):
+        self.available_data = list(set(data))
+        if self.type == "RR" and np.all(np.array([type(i)==type(1.) for i in self.available_data])==True):
             pass
-        elif self.type == "II" and self.available_data.dtype == np.dtype('int32'):
+        elif self.type == "II" and np.all(np.array([type(i)==type(1) for i in self.available_data])==True):
             pass
-        elif self.type == "CHAR" and self.available_data.dtype.char == "U":
+        elif self.type == "CHAR" and np.all(np.array([type(i)==type("1.") for i in self.available_data])==True):
             pass
         else:
             raise ValueError("type and provided set don't match")
@@ -81,7 +82,6 @@ class State:
         self.data = current_data
         self.current_system = current_system
         self.attached_system = attached_system
-
 
 
 class TransitionFunction:
@@ -104,7 +104,7 @@ class ReadoutFunction:
         self.states_tuple = states_tuple
         self.function = function
         try:
-            self.function(states_tuple,self)
+            self.function(states_tuple)
         except:
             raise ValueError("function is not computing given states tuple")
 
@@ -125,7 +125,10 @@ class System:
         for stream_index in inputs:
             if not inputs[stream_index].feedback:
                 compare.append(stream_index)
-        if compare!=np.arange(len(compare)):
+        
+        
+        
+        if np.all(np.array(compare)!=np.arange(len(compare))):
             raise ValueError("all not-feedback inputs must be written after the feedback inputs")
 
         #sets of states behave similarly as inputs and outputs, would be: 
@@ -135,19 +138,18 @@ class System:
         #                         {} for any finite set of inputs // must use frozenset
 
         self.states = states
-        for state in self.states:
+        for state in self.states.values():
             state.current_system = self  
         self.inputs = inputs
-        for input_ in self.inputs:
+        for input_ in self.inputs.values():
             input_.current_system = self
         self.outputs = outputs
-        for output in self.outputs:
+        for output in self.outputs.values():
             output.current_system = self
         
         self.all_states = self.get_all_possible(self.states)
         self.all_inputs = self.get_all_possible(self.inputs)
         self.all_outputs = self.get_all_possible(self.outputs)
-        
         self.states_x_inputs = list(product(self.all_states,self.all_inputs))
         
         self.transition_functions = {}
@@ -156,14 +158,16 @@ class System:
         self.states_graph = None
         self.parent_system = None
         self.child_system = None
-        self.feedback = sum([input_.feedback for input_ in self.inputs])>0
-
+        self.feedback = sum([input_.feedback for input_ in self.inputs.values()])>0
 
     def get_all_possible(self,sets):
 
         object_set = list(sets)
-        object_set = [state.available_data for state in object_set]
-        return [element for element in product(object_set)]
+        object_set = [list(sets[i].available_data) for i in range(len(object_set))]
+        final = []
+        for element in product(*object_set):
+            final.append(element)
+        return final
 
     def add_transition_function(self, function):
         
@@ -193,6 +197,8 @@ class System:
                     print("properly defined readout function added to readout functions")
                     self.readout_functions[function.states_tuple]=function.function
                 else:
+                    print(output)
+                    print(self.all_outputs)
                     raise ValueError("function didn't compute valid state")
             except:
                 raise Exception("function didn't compute")
@@ -248,50 +254,64 @@ class System:
     def validate_system(self):
          
          
-        if len(self.transition_functions)>=len(self.states)-1 and len()==len(self.outputs):
+        if len(self.transition_functions)>=len(self.states)-1 and len(self.readout_functions)==len(self.all_states):
 
             transition_index = list(self.transition_functions)
             edges = [(pair[0],self.transition_functions[pair](pair[0],pair[1])) for pair in transition_index]
-            self.states_graph = nx.DiGraph()
+            edges_labels = [pair[1] for pair in transition_index]
+            edges_labels = dict(zip(edges,edges_labels))
+            self.states_graph = nx.Graph()
+            
             self.states_graph.add_edges_from(edges)
             reachability = nx.is_connected(self.states_graph)
-
+            fig, ax = plt.subplots(figsize=(15,8))
+            nx.draw(self.states_graph,pos=nx.shell_layout(self.states_graph),with_labels=True,node_size=[1000 for state in self.states_graph.nodes],width=3)
+            nx.draw_networkx_edge_labels(self.states_graph,pos=nx.shell_layout(self.states_graph),label_pos=0.5,font_color='red', font_size=16, font_weight='bold',edge_labels=edges_labels)
+            plt.savefig("graph.png")
+            return True
         else:
             raise Exception("need more transition or readout functions")
-
+    
     def run_experiment(self,time_steps,inputs_vector,initial_state=None):
-        if validate_system():
+
+        if self.validate_system():
             table = {}
+            if initial_state is not None:
+                self.current_state = initial_state
+            elif self.current_state is not None: 
+                pass 
+            else: 
+                raise Exception("can't run experiment without initial state")
             for time_step in np.arange(time_steps):
-                table[time_step] = [self.current_state,inputs_vector[time_step],self.readout_functions[self.current_state]]
-                self.current_state = self.transition_functions[(self.current_state,inputs_vector[time_step])]
+                table[time_step] = [self.current_state,inputs_vector[time_step],self.readout_functions[self.current_state](self.current_state)]
+                self.current_state = self.transition_functions[(self.current_state,inputs_vector[time_step])](self.current_state,inputs_vector[time_step])
             return table 
         else:
             raise Exception("can't run experiment without proper validation")
 
-    def couple(self,recipes={},system2=None,new_states={},new_inputs={},new_outputs={}):
-        #check recipes are properly created
-        """
-        four type of recipes exist, output 1 onto input 1, output 1 onto 2, output 2 onto input 2, output 2 onto input 2
-        the recipes dictionary has the following shape: recipes = {(a,b):(output of system a,input of system b)}
-        """
+    # def couple(self,recipes={},system2=None,new_states={},new_inputs={},new_outputs={}):
+    #     #check recipes are properly created
+    #     """
+    #     four type of recipes exist, output 1 onto input 1, output 1 onto 2, output 2 onto input 2, output 2 onto input 2
+    #     the recipes dictionary has the following shape: recipes = {(a,b):(output of system a,input of system b)}
+    #     """
         
 
 
-        #check pure feedback loops:
-        for recipe in recipes:
-            if recipe == (1,1):
-                print("pure feedback coupling of system 1")
-                if recipes[recipe][0] in self.outputs and recipes[recipe][1] in self.inputs:
-                    print("updating transition function from ")
-                else:
-                    raise ValueError(" inputs and outputs don't match recipe")
+    #     #check pure feedback loops:
+    #     for recipe in recipes:
+    #         if recipe == (1,1):
+    #             print("pure feedback coupling of system 1")
+    #             if recipes[recipe][0] in self.outputs and recipes[recipe][1] in self.inputs:
+    #                 print("updating transition function from ")
+    #             else:
+    #                 raise ValueError(" inputs and outputs don't match recipe")
                 
-                except:
+    #             except:
                 
-            elif recipe == (2,2):
-                print("pure feedback coupling of system 2")
-            elif recipe == (1,2):
-                print("output 1 onto system 2")
-            elif recipe == (2,1):
-                print("output 2 onto system 1")
+    #         elif recipe == (2,2):
+    #             print("pure feedback coupling of system 2")
+    #         elif recipe == (1,2):
+    #             print("output 1 onto system 2")
+    #         elif recipe == (2,1):
+    #             print("output 2 onto system 1")
