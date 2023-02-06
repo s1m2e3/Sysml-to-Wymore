@@ -4,9 +4,30 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+def input_output_feedback(input_,output_):
+    
+    input_.output = output_
+    input_.feedback = True
+    output_.feedback = True
+    output_.input = input_
+    if input_.current_system == output_.current_system:
+        
+        print("feedback on same system")
+        input_.current_system.feedback = True
+
+    else:
+
+        input_.current_system.attached_systems[0].append(output_.current_system)
+        input_.current_system.feedback = True
+        output_.current_system.attached_systems[1].append(input_.current_system)
+
+    return input_,output_
+
+
+
 class Input:
 
-    def __init__(self,name,input_type,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=None):
+    def __init__(self,name,input_type,data,current_data=None,feedback=False,attached_output=None,current_system=None,attached_system=[]):
         
         self.name = name
         self.type = input_type 
@@ -34,10 +55,11 @@ class Input:
         self.current_system = current_system
         #attached systems through coupling to the system receiving the input
         self.attached_system = attached_system
+        self.order = 0
 
 class Output:
     
-    def __init__(self,name,output_type,data,current_data=None,feedback=False,attached_input=None,current_system=None,attached_system=None):
+    def __init__(self,name,output_type,data,current_data=None,feedback=False,attached_input=None,current_system=None,attached_system=[]):
         
         #similar behavior as the Input class
         self.name = name
@@ -62,6 +84,7 @@ class Output:
         self.input = attached_input
         self.current_system = current_system
         self.attached_system = attached_system
+        self.order = 0
 
 class State:
 
@@ -108,7 +131,6 @@ class ReadoutFunction:
         except:
             raise ValueError("function is not computing given states tuple")
 
-
 class System:
 
     def __init__(self,states={},inputs={},outputs={}):
@@ -125,9 +147,7 @@ class System:
         for stream_index in inputs:
             if not inputs[stream_index].feedback:
                 compare.append(stream_index)
-        
-        
-        
+         
         if np.all(np.array(compare)!=np.arange(len(compare))):
             raise ValueError("all not-feedback inputs must be written after the feedback inputs")
 
@@ -138,15 +158,24 @@ class System:
         #                         {} for any finite set of inputs // must use frozenset
 
         self.states = states
+        order = 0
         for state in self.states.values():
             state.current_system = self  
+            state.order = order
+            order+=1
         self.inputs = inputs
+        order = 0
         for input_ in self.inputs.values():
             input_.current_system = self
+            input_.order = order
+            order +=1
         self.outputs = outputs
+        order = 0
         for output in self.outputs.values():
             output.current_system = self
-        
+            output.order = order
+            order += 1
+        del(order)
         self.all_states = self.get_all_possible(self.states)
         self.all_inputs = self.get_all_possible(self.inputs)
         self.all_outputs = self.get_all_possible(self.outputs)
@@ -156,8 +185,8 @@ class System:
         self.readout_functions = {}
         self.current_state = None
         self.states_graph = None
-        self.parent_system = None
-        self.child_system = None
+        self.attached_systems = {0:[]}
+        
         self.feedback = sum([input_.feedback for input_ in self.inputs.values()])>0
 
     def get_all_possible(self,sets):
@@ -220,16 +249,22 @@ class System:
         if self.check_current_state(initial_state):
             
             if self.feedback:
-                output = self.readout_functions[self.current_state]
-                for i in range(len(output)):
-                    self.outputs[i].data = output[i]
-                    if self.outputs[i].feedback:
-                        self.outputs[i].input.data = output[i]
-                indexes = []
+
+                #get latest output from attached systems
+                
                 for i in range(len(self.inputs)):
                     if self.inputs[i].feedback:
-                        indexes.append(i)
-                        sys_input = sys_input + (self.inputs[i].data,)  
+                        #get system of output attached to input
+                        attached_system = self.inputs[i].output.current_system
+                        #update output of attached systems
+                        if attached_system.current_state != None:
+                            attached_system_outputs=list(attached_system.readout_functions[attached_system.current_state])
+                            for j in range(len(attached_system.outputs)):
+                                attached_system.outputs[list(attached_system.outputs)[j]].data = attached_system_outputs[j]
+                        else:
+                            raise ValueError("attached systems can't provide output without existing state")    
+                        sys_input = sys_input + (self.inputs[i].output.data,)  
+            
                 print("current state:", self.current_state)
                 print("updating stored inputs")
                 current_input = self.prep_transition(sys_input)
