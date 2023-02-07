@@ -52,9 +52,11 @@ if __name__=="__main__":
     t4 = ReadoutFunction(states_tuple=(1,1),function=func)
     for t in [t1,t2,t3,t4]:
         sys.add_readout_function(t)
-    table = pd.DataFrame.from_dict(sys.run_experiment(5,[(0,0),(1,1),(1,0),(1,0),(0,1)],(0,0))).T
+    I[1],O[0]=input_output_feedback(I[1],O[0])
+    table = pd.DataFrame.from_dict(sys.run_experiment(5,[(0),(1),(1),(1),(0)],(0,0))).T
     table.columns = ["current_state","input","output"]
     print(table)
+    
 
     # # tf1=Tran_func(lambda a: sum(a))
     # # tf1.validate((1,2))

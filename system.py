@@ -6,23 +6,29 @@ import pandas as pd
 
 def input_output_feedback(input_,output_):
     
-    input_.output = output_
-    input_.feedback = True
-    output_.feedback = True
-    output_.input = input_
-    if input_.current_system == output_.current_system:
+    if input_.available_data == output_.available_data:
         
-        print("feedback on same system")
-        input_.current_system.feedback = True
+        input_.output = output_
+        input_.feedback = True
+        output_.feedback = True
+        output_.input = input_
+        
+        if input_.current_system == output_.current_system:
+            
+            print("feedback on same system")
+            input_.current_system.feedback = True
+
+        else:
+
+            input_.current_system.attached_systems[0].append(output_.current_system)
+            input_.current_system.feedback = True
+            output_.current_system.attached_systems[1].append(input_.current_system)
+
+        return input_,output_
 
     else:
-
-        input_.current_system.attached_systems[0].append(output_.current_system)
-        input_.current_system.feedback = True
-        output_.current_system.attached_systems[1].append(input_.current_system)
-
-    return input_,output_
-
+        raise ValueError("Input set doesn't match output set")
+    
 
 
 class Input:
@@ -242,6 +248,15 @@ class System:
             current_input = tuple([input_.data for input_ in self.inputs])
         return current_input
     
+    def check_current_state(self,initial_state=None):
+        if initial_state==None and self.current_state==None:
+            return False
+        elif initial_state != None:
+            self.current_state = initial_state
+            return True
+        else:
+            return True
+
     def transition(self,sys_input,initial_state=None):
         #initial_state is a tuple of states
         #sys input would be the tuple (input_object1.data,input_object2.data,...) containing only data from non-feedback inputs
@@ -258,12 +273,14 @@ class System:
                         attached_system = self.inputs[i].output.current_system
                         #update output of attached systems
                         if attached_system.current_state != None:
-                            attached_system_outputs=list(attached_system.readout_functions[attached_system.current_state])
+                            attached_system_outputs=list(attached_system.readout_functions[attached_system.current_state](attached_system.current_state))
                             for j in range(len(attached_system.outputs)):
                                 attached_system.outputs[list(attached_system.outputs)[j]].data = attached_system_outputs[j]
                         else:
                             raise ValueError("attached systems can't provide output without existing state")    
-                        sys_input = sys_input + (self.inputs[i].output.data,)  
+                        print("here")
+                        print(sys_input)
+                        sys_input = tuple(sys_input) + tuple(self.inputs[i].output.data)  
             
                 print("current state:", self.current_state)
                 print("updating stored inputs")
@@ -319,7 +336,8 @@ class System:
                 raise Exception("can't run experiment without initial state")
             for time_step in np.arange(time_steps):
                 table[time_step] = [self.current_state,inputs_vector[time_step],self.readout_functions[self.current_state](self.current_state)]
-                self.current_state = self.transition_functions[(self.current_state,inputs_vector[time_step])](self.current_state,inputs_vector[time_step])
+                self.current_state = self.transition(inputs_vector[time_step])
+                
             return table 
         else:
             raise Exception("can't run experiment without proper validation")
