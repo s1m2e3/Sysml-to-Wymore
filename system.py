@@ -17,19 +17,26 @@ def input_output_feedback(input_,output_):
             
             print("feedback on same system")
             input_.current_system.feedback = True
-
+        
         else:
 
             input_.current_system.attached_systems[0].append(output_.current_system)
             input_.current_system.feedback = True
             output_.current_system.attached_systems[1].append(input_.current_system)
-
+            
         return input_,output_
 
     else:
         raise ValueError("Input set doesn't match output set")
     
-
+def check_name_uniqueness(objects_list):
+    
+    len_dict = len(objects_list)
+    len_names = len(set([val.name for val in list(objects_list.values())]))
+    if len_dict==len_names:
+        pass
+    else:
+        raise ValueError("names are repeated")
 
 class Input:
 
@@ -61,7 +68,7 @@ class Input:
         self.current_system = current_system
         #attached systems through coupling to the system receiving the input
         self.attached_system = attached_system
-        self.order = 0
+       
 
 class Output:
     
@@ -90,7 +97,7 @@ class Output:
         self.input = attached_input
         self.current_system = current_system
         self.attached_system = attached_system
-        self.order = 0
+        
 
 class State:
 
@@ -114,32 +121,34 @@ class State:
 
 
 class TransitionFunction:
-    def __init__(self,states_tuple,inputs_tuple,function):
+    def __init__(self,states,inputs,function):
 
         #states tuple is not the states objects but the state themselves
-        self.states_tuple = states_tuple
+        self.states = states
         #inputs tuple is not the input objects but the inputs themselves
-        self.inputs_tuple = inputs_tuple
+        self.inputs = inputs
         self.function = function
         try:
-            self.function(states_tuple,self.inputs_tuple)
+            self.function(states,self.inputs)
         except:
             raise ValueError("function is not computing given states tuple and inputs tuple")
 
 class ReadoutFunction:
-    def __init__(self,states_tuple,function):
+    def __init__(self,states,function):
 
         #states tuple is not the states objects but the state themselves
-        self.states_tuple = states_tuple
+        self.states = states
         self.function = function
         try:
-            self.function(states_tuple)
+            self.function(states)
         except:
             raise ValueError("function is not computing given states tuple")
 
+
+
 class System:
 
-    def __init__(self,states={},inputs={},outputs={}):
+    def __init__(self,states=[],inputs=[],outputs=[],name="system"):
         
         #inputs have the following structure: {0:Input_object,1:Input_object,...}
         #It will be required that all the non-feedback inputs go before the feedback inputs
@@ -148,43 +157,41 @@ class System:
         #states have the following structure: {0:state_object,1:state_object,...} 
         #  are just described in the states set, and the current state could only be one element of the states,
         #however one element of the states could be a vector or a higher dimension array
-
-        compare = []
-        for stream_index in inputs:
-            if not inputs[stream_index].feedback:
-                compare.append(stream_index)
-         
-        if np.all(np.array(compare)!=np.arange(len(compare))):
-            raise ValueError("all not-feedback inputs must be written after the feedback inputs")
-
+        
         #sets of states behave similarly as inputs and outputs, would be: 
         #                         "RR" for any number in the real set
         #                         "II" for any integer
         #                         "CHAR" for any string
         #                         {} for any finite set of inputs // must use frozenset
 
-        self.states = states
-        order = 0
+        #check name uniqueness of S,I,O
+        
+        map(check_name_uniqueness,[states,inputs,outputs])
+        self.name=name
+
+        names = [state.name for state in states]
+        self.states = dict(zip(names,states))
+        
         for state in self.states.values():
             state.current_system = self  
-            state.order = order
-            order+=1
-        self.inputs = inputs
-        order = 0
+
+        names = [input_.name for input_ in inputs]
+        self.inputs = dict(zip(names,inputs))
+
         for input_ in self.inputs.values():
             input_.current_system = self
-            input_.order = order
-            order +=1
-        self.outputs = outputs
-        order = 0
+
+        names = [output.name for output in outputs]
+        self.outputs = dict(zip(names,outputs))
+
         for output in self.outputs.values():
             output.current_system = self
-            output.order = order
-            order += 1
-        del(order)
+        del(names)
+
         self.all_states = self.get_all_possible(self.states)
         self.all_inputs = self.get_all_possible(self.inputs)
         self.all_outputs = self.get_all_possible(self.outputs)
+
         self.states_x_inputs = list(product(self.all_states,self.all_inputs))
         
         self.transition_functions = {}
@@ -204,22 +211,38 @@ class System:
             final.append(element)
         return final
 
+    
+
     def add_transition_function(self, function):
         
         #function objects have the tuple state and input.
         #validate that state and input in function exists in states x input set:
-        if (function.states_tuple,function.inputs_tuple) in self.states_x_inputs:
-            try:
-                next_state = function.function(function.states_tuple,function.inputs_tuple)
-                if next_state in self.all_states: 
-                    print("properly defined transition function added to transition functions")
-                    self.transition_functions[(function.states_tuple,function.inputs_tuple)]=function.function
+        for state in function.states:
+            if function.states[state] in self.states[state].available_data:
+                pass
+            else:
+                raise ValueError("state not in defined states dictionary")
+        for input_ in function.inputs:
+            if function.inputs[input_] in self.inputs[input_].available_data:
+                pass
+            else:
+                raise ValueError("input not in defined inputs dictionary")
+        
+        try:
+            next_state = function.function(function.states,function.inputs)
+
+            for state in next_state:
+                if next_state[state] in self.states[state].available_data:
+                    pass
                 else:
-                    raise ValueError("function didn't compute valid state")
-            except:
-                raise Exception("function didn't compute")
-        else:
-            raise ValueError("either state or inputs not in states_x_inputs set")
+                    raise ValueError("computed state not in defined states dictionary")
+        
+            print("properly defined transition function added to transition functions")
+            self.transition_functions[(function.states,function.inputs)]=function.function
+            
+        except:
+            raise Exception("function didn't compute")    
+        
 
     def add_readout_function(self, function):
         
@@ -245,7 +268,8 @@ class System:
     def prep_transition(self,sys_input):
         for i in range(len(sys_input)):
             self.inputs[i].data = sys_input[i]
-            current_input = tuple([input_.data for input_ in self.inputs])
+            print("input data updated")
+        current_input = tuple([input_.data for input_ in self.inputs.values()])
         return current_input
     
     def check_current_state(self,initial_state=None):
@@ -258,15 +282,19 @@ class System:
             return True
 
     def transition(self,sys_input,initial_state=None):
+        
         #initial_state is a tuple of states
-        #sys input would be the tuple (input_object1.data,input_object2.data,...) containing only data from non-feedback inputs
+        #sys input would be the tuple [(Input.name:input_object1.data)},input_object2.data,...) containing only data from non-feedback inputs
         #check that input_objects are inside their validated sets given feedback or not:
+        
         if self.check_current_state(initial_state):
             
             if self.feedback:
 
                 #get latest output from attached systems
-                
+                list_sys = []
+                list_sys.append(sys_input)
+                        
                 for i in range(len(self.inputs)):
                     if self.inputs[i].feedback:
                         #get system of output attached to input
@@ -276,12 +304,12 @@ class System:
                             attached_system_outputs=list(attached_system.readout_functions[attached_system.current_state](attached_system.current_state))
                             for j in range(len(attached_system.outputs)):
                                 attached_system.outputs[list(attached_system.outputs)[j]].data = attached_system_outputs[j]
+                                print("output data updated")
                         else:
                             raise ValueError("attached systems can't provide output without existing state")    
-                        print("here")
-                        print(sys_input)
-                        sys_input = tuple(sys_input) + tuple(self.inputs[i].output.data)  
-            
+                        list_sys.append(self.inputs[i].output.data)
+                sys_input = tuple(list_sys)  
+                print(sys_input)
                 print("current state:", self.current_state)
                 print("updating stored inputs")
                 current_input = self.prep_transition(sys_input)
@@ -313,14 +341,10 @@ class System:
             edges_labels = [pair[1] for pair in transition_index]
             edges_labels = dict(zip(edges,edges_labels))
             self.states_graph = nx.Graph()
-            
             self.states_graph.add_edges_from(edges)
             reachability = nx.is_connected(self.states_graph)
-            fig, ax = plt.subplots(figsize=(15,8))
-            nx.draw(self.states_graph,pos=nx.shell_layout(self.states_graph),with_labels=True,node_size=[1000 for state in self.states_graph.nodes],width=3)
-            nx.draw_networkx_edge_labels(self.states_graph,pos=nx.shell_layout(self.states_graph),label_pos=0.5,font_color='red', font_size=16, font_weight='bold',edge_labels=edges_labels)
-            plt.savefig("graph.png")
-            return True
+            
+            return reachability
         else:
             raise Exception("need more transition or readout functions")
     
@@ -336,35 +360,67 @@ class System:
                 raise Exception("can't run experiment without initial state")
             for time_step in np.arange(time_steps):
                 table[time_step] = [self.current_state,inputs_vector[time_step],self.readout_functions[self.current_state](self.current_state)]
-                self.current_state = self.transition(inputs_vector[time_step])
-                
+                try:
+                    self.transition(inputs_vector[time_step])
+                except:
+                    raise ValueError("transition from current state with input not defined in transition functions")
             return table 
         else:
             raise Exception("can't run experiment without proper validation")
 
-    # def couple(self,recipes={},system2=None,new_states={},new_inputs={},new_outputs={}):
-    #     #check recipes are properly created
-    #     """
-    #     four type of recipes exist, output 1 onto input 1, output 1 onto 2, output 2 onto input 2, output 2 onto input 2
-    #     the recipes dictionary has the following shape: recipes = {(a,b):(output of system a,input of system b)}
-    #     """
+    def couple(self,system_1,system_2,type_):
         
-
-
-    #     #check pure feedback loops:
-    #     for recipe in recipes:
-    #         if recipe == (1,1):
-    #             print("pure feedback coupling of system 1")
-    #             if recipes[recipe][0] in self.outputs and recipes[recipe][1] in self.inputs:
-    #                 print("updating transition function from ")
-    #             else:
-    #                 raise ValueError(" inputs and outputs don't match recipe")
+        # The function re-defines INPUTS,STATES AND OUTPUTS given systems.
+        # Addtionally, the function recomposes transition functions and readout functions
+        # By definition system_1 is the one whose input comes from system_2's output
+        
+        if system_1.name == system_2.name:
+            raise ValueError("names of the coupled systems can't be the same")    
+        
+        else:
+            
+            system_1.attached_systems[0].append(system_2)
+            system_2.attached_systems[0].append(system_1)
+            system_2_inputs_name = [string + system_2.name for string in map(str,list(system_2.inputs))]
+            system_2_outputs_name = [string + system_2.name for string in map(str,list(system_2.outputs))]
+            system_2_states_name = [string + system_2.name for string in map(str,list(system_2.states))]
+            
+            if type_ == "attachment":
                 
-    #             except:
+                system_1.inputs.update(dict(zip(system_2_inputs_name,system_2.inputs.values())))
+                system_1.outputs.update(dict(zip(system_2_outputs_name,system_2.outputs.values())))
+                system_1.states.update(dict(zip(system_2_states_name,system_2.states.values())))
+                system_1.all_inputs = system_1.get_all_possible(system_1.inputs)
+                system_1.all_outputs = system_1.get_all_possible(system_1.outputs)
+                system_1.all_states = system_1.get_all_possible(system_1.states)
+                system_1.states_x_inputs = list(product(system_1.all_states,system_1.all_inputs))
+
+                return system_1,system_2
                 
-    #         elif recipe == (2,2):
-    #             print("pure feedback coupling of system 2")
-    #         elif recipe == (1,2):
-    #             print("output 1 onto system 2")
-    #         elif recipe == (2,1):
-    #             print("output 2 onto system 1")
+
+            elif type_ == "composing":
+                
+                
+
+                system_1_inputs_name = [string + system_1.name for string in map(str,list(system_1.inputs))]
+                system_1_outputs_name = [string + system_1.name for string in map(str,list(system_1.outputs))]
+                system_1_states_name = [string + system_1.name for string in map(str,list(system_1.states))]
+            
+            
+                I_labels = system_1_inputs_name.extend(system_2_inputs_name)
+                I_values = list(system_1.inputs.values()).extend(system_2.inputs.values())
+                I = dict(zip(I_labels,I_values))
+                
+                O_labels = system_1_outputs_name.extend(system_2_outputs_name)
+                O_values = list(system_1.outputs.values()).extend(system_2.outputs.values())
+                O = dict(zip(O_labels,O_values))
+                
+                S_labels = system_1_states_name.extend(system_2_states_name)
+                S_values = list(system_1.states.values()).extend(system_2.states.values())
+                S = dict(zip(S_labels,S_values))
+            
+                name = system_1.name + "_" + system_2.name
+                
+                coupled_system = System(S,I,O,name)
+
+            return coupled_system, system_1,system_2
