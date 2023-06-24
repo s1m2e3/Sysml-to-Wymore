@@ -1,0 +1,7 @@
+import xml.etree.ElementTree as ET
+tree = ET.parse('country_data.xml')
+root = tree.getroot()
+
+get from sysml_to_wymore():
+
+

@@ -1,10 +1,45 @@
 import xml.etree.ElementTree as ET
 from system import *
-tree = ET.parse('State Machine (Sam).xml')
+tree = ET.parse('SIE558_Joanna Joseph_MA2.xml')
 root = tree.getroot()
 counter = 0
 transitions = []
-states = []
+states = {}
+
+def search(region,states):
+    for child in region:
+        val = list(child.attrib)
+        val = [elem for elem in val if "type" in elem ][0]
+        if "uml:State" in child.attrib[val]:
+            print("checking if has region")
+            for sub_child in child:
+                val = list(child.attrib)
+                val = [elem for elem in val if "type" in elem ][0]
+                if "uml:Region" in sub_child.attrib[val]:
+                    print("has region")
+                    states = search(sub_child,states)
+            print("none had region, terminal nodes")
+
+    return states
+
+def structure_loop(structure):
+    for child in structure:
+        val = list(child.attrib)
+        val = [elem for elem in val if "type" in elem]
+
+        if len(val)==1:
+            
+            if "uml:Package" in child.attrib[val[0]]:
+                
+                structure = structure_loop(child)
+            elif "uml:Class" in child.attrib[val[0]]:
+                
+                structure = structure_loop(child)
+            elif "uml:StateMachine" in child.attrib[val[0]]:
+                
+                break
+                
+    return structure
 
 for child in root:
     if "Model" in child.tag:
@@ -18,13 +53,14 @@ for child in tag:
         if "Use Cases" in child.attrib[element]:
             print("found Use Cases")
             use_case = child
-
-for child in structure:
-    for element in child.attrib:
-        if "State Machine" in child.attrib[element]:
-            print("found System State Machine")
-            ssm = child
-        
+structure = structure_loop(structure)
+ssm = structure
+# for child in structure:
+    # for element in child.attrib:
+        # print(child.attrib[element])
+        # if "State Machine" in child.attrib[element]:
+            # print("found System State Machine")
+            # ssm = child
  
 for child in ssm:
     for element in child.attrib:
@@ -32,11 +68,15 @@ for child in ssm:
             print("found Region")
             region = child
 
+states = search(region,states)
+
 for child in region: 
-    keys = list(child.attrib)
-    print(child.tag)
+    # keys = list(.attrib)
+    # val = list(child.attrib)
+    # val = [elem for elem in val if "type" in elem ][0]
+    # print(type(child.attrib[val]))
     for element in child.attrib:
-       
+        
         if "State" in child.attrib[element]:
             states.append(child)
         if "Transition" in child.attrib[element]:
