@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 from system import *
+from itertools import product
 tree = ET.parse('SIE558_Joanna Joseph_MA2.xml')
 root = tree.getroot()
 counter = 0
@@ -23,7 +24,7 @@ class activity:
     def __init__(self):
         
         self.id = None
-        self.parent_state = None
+        self.parent_id = None
         
 
 # def build_transition_functions():
@@ -31,32 +32,33 @@ class activity:
 # def build_readout_functions():
 
 def build_states(states,prev_name=""):
+    names = list(set([state.name for state in states]))
+    states = states[0:len(names)]
+    with_child = [states.index(state) for state in states if len(state.child_nodes)>1]
+    without_child = [i for i in range(len(states)) if i not in with_child]
+    # print(with_child,without_child)
     
-    state = states[0]
-
-    if len(state.child_nodes)>1:
-        prev_name = prev_name + state.name
-        print("recursion in state")
-        states.extend(build_states(state.child_nodes,prev_name))
-        
-        
-    else:
-        states.append(states_node())
-        new_name = prev_name+state.name
-        states[-1].name = new_name
-        states[-1].id = state.id
-        print("returned")        
     
+    for child_index in without_child:
+        new_name = prev_name+states[child_index].name
+        if new_name not in names:
+            states.append(states_node())
+            states[-1].name = new_name
+            states[-1].id = states[child_index].id
+            print("added", new_name)
+            
+    
+    for child_index in with_child:
+    
+        print("recursion in state",states[child_index].name)
+        new_name = prev_name + states[child_index].name
+        # states_dict[states[child_index].name]={}
+        appended,_ = build_states(states[child_index].child_nodes,new_name)
         
-    return states
-
-# def clean_states(states):
-
-
-# def build_inputs():
-
-# def build_outputs():
-
+        states.extend(appended)
+    
+    return states,prev_name    
+   
 
 def search(region,states,transitions,activities):
     for child in region:
@@ -89,7 +91,7 @@ def search(region,states,transitions,activities):
                     print("found activity")
                     activities.append(activity())
                     activities[-1].name = sub_child.attrib["name"]
-                    activities[-1].parent_state = child.attrib[id_elem[0]]
+                    activities[-1].parent_id = child.attrib[id_elem[0]]
         
         if len(val)==1 and "uml:Transition" in child.attrib[val[0]] :
             print("found Transition")
@@ -98,6 +100,8 @@ def search(region,states,transitions,activities):
             transitions[-1].source =child.attrib[source_elem[0]]
             transitions[-1].target  =child.attrib[target_elem[0]]
 
+    
+    
     return states,transitions,activities
 
 def structure_loop(structure):
@@ -136,11 +140,25 @@ def structure_loop(structure):
                 
                     
     return structure         
+
+def clean_states(states):
+
+    names = [state.name for state in states]
+    dropped_indices = []
+    for i in range(len(names)):
+        for j in range(len(names)):
+            if names[j] in names[i] and i!=j:
+                dropped_indices.append(j)
                 
+    indices = [i for i in range(len(states)) if i not in dropped_indices]
+    states = [states[i] for i in indices]
+    return states
 for child in root:
     if "Model" in child.tag:
         tag = child
         break
+model_name = tag.attrib["name"]
+
 for child in tag:
     for element in child.attrib:
         if "Structure" in child.attrib[element]:
@@ -163,15 +181,62 @@ transitions = []
 activities = []
 
 states,transitions,activities = search(region,states,transitions,activities)
+print(activities)
+transition_pairs = []
+for transition in transitions:
+    pair = (transition.source,transition.target)
+    transition_pairs.append(pair)
 
-states = build_states(states)
+states,_ = build_states(states)
+states = clean_states(states)
 
+names = [state.name for state in states]
+ids = [state.id for state in states]
 
-S = []
-O = []
-I = []
-readout_ = {}
-transition_ = {}
-nodes = []
+named_transitions = []
+for pair in transition_pairs:
+    if pair[0] in ids and pair[1] in ids:
+        pair_ = (names[ids.index(pair[0])],names[ids.index(pair[1])])
+        named_transitions.append(pair_)
+named_activities = []
+for activity in activities:
+    if activity.parent_id in ids:
+        named_activities.append(names[ids.index(activity.parent_id)])
 
+S = [State(state.name,state_type="II",data=[0,1]) for state in states]
+I = [Input(name="from_"+pair[0]+"to_"+pair[1],input_type="II",data=[0,1]) for pair in named_transitions]
+O = [Output(name = named_activity,state_type="II",data=[0,1]) for named_activity in named_activities]
 
+system = System(name = model_name,states = S,inputs=I,outputs=O)
+
+for i in range(len(I)):
+    
+    name = I[i].name
+    prev_states_dictionary = {}
+    next_states_dictionary = {}
+    inputs_dictionary = {}
+    for state in S:
+        
+        if "from_"+state.name in name:
+            prev_states_dictionary[state.name]=1
+        else:
+            prev_states_dictionary[state.name]=0
+
+        if "to_"+state.name in name:
+            next_states_dictionary[state.name]=1
+        else:
+            next_states_dictionary[state.name]=0
+    for input_ in I:
+        if input_.name == name:
+            inputs_dictionary[input_.name]=1
+        else:
+            inputs_dictionary[input_.name]=0
+
+    func = lambda states_dict,inputs_dict: next_states_dictionary
+    t = TransitionFunction(states_dict=prev_states_dictionary,inputs_dict=inputs_dictionary,function=func)
+    system.add_transition_function(t)
+
+for o in range(len(O)):
+    
+    func = lambda states_dict: {"success":0}
+    t1 = ReadoutFunction(states_dict={"open?":0,"key":0},function=func)
