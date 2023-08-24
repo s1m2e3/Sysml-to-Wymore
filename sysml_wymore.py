@@ -155,9 +155,19 @@ def find_state_machine_region(root):
 
     for child in tag:
         for element in child.attrib:
+            if "StateMachine" in child.attrib[element]:
+                structure = child
+
             if "Structure" in child.attrib[element]:
                 structure = child
-            
+            if "Class" in child.attrib[element]:
+                class_ = child
+                for subchild in class_:
+                    for subelement in subchild.attrib:
+                       if "StateMachine" in subchild.attrib[subelement]:
+                            structure = subchild
+
+                              
     structure = structure_loop(structure)
 
     for child in structure:
@@ -251,7 +261,7 @@ def build_system(states,transitions,activities):
 
 if __name__=="__main__":
     
-    tree = ET.parse('SIE558_Joanna Joseph_MA3.xml')
+    tree = ET.parse('Fig2_Orthogonality.xml')
     root = tree.getroot()
     region,model_name = find_state_machine_region(root)
 
