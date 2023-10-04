@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mdOwnedViews>
+	<mdElement elementClass='DiagramFrame' xmi:id='_19_0_3_b610298_1692924493831_568111_42632'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924493815_437668_42609'/>
+		<geometry>5, 5, 807, 709</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<mdOwnedViews/>
+	</mdElement>
+	<mdElement elementClass='PseudoState' xmi:id='_19_0_3_b610298_1692924493941_695736_42646'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924493941_578527_42643'/>
+		<geometry>63, 49, 18, 18</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<mdOwnedViews/>
+	</mdElement>
+	<mdElement elementClass='State' xmi:id='_19_0_3_b610298_1692924493941_591151_42648'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924493941_993702_42644'/>
+		<geometry>28, 98, 140, 168</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<mdOwnedViews/>
+		<regions>
+			<mdElement elementClass='Region' xmi:id='_19_0_3_b610298_1692924556689_62603_42664'>
+				<elementID xmi:idref='_19_0_3_b610298_1692924556674_820274_42663'/>
+				<geometry>31, 116, 134, 66</geometry>
+				<mdOwnedViews>
+					<mdElement elementClass='State' xmi:id='_19_0_3_b610298_1692924562051_571447_42673'>
+						<elementID xmi:idref='_19_0_3_b610298_1692924562051_100825_42672'/>
+						<geometry>49, 126, 100, 42</geometry>
+						<compartment compartmentID='TAGGED_VALUES'/>
+						<mdOwnedViews/>
+					</mdElement>
+					<mdElement elementClass='Transition' xmi:id='_19_0_3_b610298_1692924614681_195875_42837'>
+						<elementID xmi:idref='_19_0_3_b610298_1692924615709_96932_42838'/>
+						<linkFirstEndID xmi:idref='_19_0_3_b610298_1692924603962_950885_42834'/>
+						<linkSecondEndID xmi:idref='_19_0_3_b610298_1692924562051_571447_42673'/>
+						<geometry>217, 137; 149, 137; </geometry>
+						<compartment compartmentID='TAGGED_VALUES'/>
+						<linkNameID xmi:idref='_19_0_3_b610298_1692924655121_480210_42927'/>
+						<nameVisible xmi:value='true'/>
+						<mdOwnedViews>
+							<mdElement elementClass='TextBox' xmi:id='_19_0_3_b610298_1692924655121_480210_42927'>
+								<geometry>175, 119, 24, 12</geometry>
+								<mdOwnedViews/>
+								<text>I1</text>
+							</mdElement>
+						</mdOwnedViews>
+					</mdElement>
+				</mdOwnedViews>
+			</mdElement>
+			<mdElement elementClass='Split' xmi:id='_19_0_3_b610298_1692924683236_447735_42933'>
+				<type xmi:value='1'/>
+				<lineStyle xmi:value='1'/>
+				<geometry>31, 182, 134, 6</geometry>
+				<firstShapeID xmi:idref='_19_0_3_b610298_1692924556689_62603_42664'/>
+				<secondShapeID xmi:idref='_19_0_3_b610298_1692924558010_249161_42668'/>
+			</mdElement>
+			<mdElement elementClass='Region' xmi:id='_19_0_3_b610298_1692924558010_249161_42668'>
+				<elementID xmi:idref='_19_0_3_b610298_1692924557995_591926_42667'/>
+				<geometry>31, 188, 134, 75</geometry>
+				<mdOwnedViews>
+					<mdElement elementClass='State' xmi:id='_19_0_3_b610298_1692924580986_389156_42754'>
+						<elementID xmi:idref='_19_0_3_b610298_1692924580970_638462_42753'/>
+						<geometry>49, 210, 100, 42</geometry>
+						<compartment compartmentID='TAGGED_VALUES'/>
+						<mdOwnedViews/>
+					</mdElement>
+					<mdElement elementClass='Transition' xmi:id='_19_0_3_b610298_1692924618038_589768_42840'>
+						<elementID xmi:idref='_19_0_3_b610298_1692924619797_189233_42841'/>
+						<linkFirstEndID xmi:idref='_19_0_3_b610298_1692924603962_950885_42834'/>
+						<linkSecondEndID xmi:idref='_19_0_3_b610298_1692924580986_389156_42754'/>
+						<geometry>217, 221; 149, 221; </geometry>
+						<compartment compartmentID='TAGGED_VALUES'/>
+						<linkNameID xmi:idref='_19_0_3_b610298_1692924658192_261029_42931'/>
+						<nameVisible xmi:value='true'/>
+						<mdOwnedViews>
+							<mdElement elementClass='TextBox' xmi:id='_19_0_3_b610298_1692924658192_261029_42931'>
+								<geometry>175, 203, 24, 12</geometry>
+								<mdOwnedViews/>
+								<text>I2</text>
+							</mdElement>
+						</mdOwnedViews>
+					</mdElement>
+				</mdOwnedViews>
+			</mdElement>
+		</regions>
+	</mdElement>
+	<mdElement elementClass='Transition' xmi:id='_19_0_3_b610298_1692924493941_898285_42662'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924493941_315510_42645'/>
+		<linkFirstEndID xmi:idref='_19_0_3_b610298_1692924493941_591151_42648'/>
+		<linkSecondEndID xmi:idref='_19_0_3_b610298_1692924493941_695736_42646'/>
+		<geometry>72, 98; 72, 67; </geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<nameVisible xmi:value='true'/>
+	</mdElement>
+	<mdElement elementClass='Bar' xmi:id='_19_0_3_b610298_1692924603962_950885_42834'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924603962_642276_42833'/>
+		<properties>
+			<mdElement elementClass='ChoiceProperty'>
+				<propertyID>SYNCH_BAR_ORIENTATION</propertyID>
+				<propertyDescriptionID>SYNCH_BAR_ORIENTATION_DESCRIPTION</propertyDescriptionID>
+				<value>VERTICAL</value>
+				<choice xmi:value='HORIZONTAL^VERTICAL'/>
+				<index xmi:value='1'/>
+			</mdElement>
+		</properties>
+		<geometry>217, 98, 7, 168</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<mdOwnedViews/>
+		<type>VERTICAL</type>
+	</mdElement>
+	<mdElement elementClass='State' xmi:id='_19_0_3_b610298_1692924627429_943183_42844'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924627429_234475_42843'/>
+		<geometry>287, 175, 100, 42</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<mdOwnedViews/>
+	</mdElement>
+	<mdElement elementClass='Transition' xmi:id='_19_0_3_b610298_1692924640516_489062_42923'>
+		<elementID xmi:idref='_19_0_3_b610298_1692924641325_859506_42924'/>
+		<linkFirstEndID xmi:idref='_19_0_3_b610298_1692924627429_943183_42844'/>
+		<linkSecondEndID xmi:idref='_19_0_3_b610298_1692924603962_950885_42834'/>
+		<geometry>287, 186; 224, 186; </geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<nameVisible xmi:value='true'/>
+	</mdElement>
+</mdOwnedViews>

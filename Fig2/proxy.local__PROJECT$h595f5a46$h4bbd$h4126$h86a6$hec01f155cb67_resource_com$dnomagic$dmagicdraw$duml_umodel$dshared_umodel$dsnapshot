@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.nomagic.com/magicdraw/UML/2.5.1">
+  <uml:Package xmi:id="cad57231-da70-4698-9930-327efc8023f2" ID="cad57231-da70-4698-9930-327efc8023f2" name="ISO-80000">
+    <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650190032_922321_117411" ID="_18_0beta_903028d_1388650190032_922321_117411">
+      <classifier xsi:type="uml:Stereotype" href="#magicdraw_1046861421236_39100_29"/>
+      <classifier xsi:type="uml:Stereotype" href="#_12_1_8f90291_1173963323875_662612_98"/>
+    </appliedStereotypeInstance>
+    <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650184399_373188_90571" ID="_18_0beta_903028d_1388650184399_373188_90571" name="ISO80000-3 Space and Time">
+      <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650186579_449738_103883" ID="_18_0beta_903028d_1388650186579_449738_103883" name="Quantities">
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650178472_729986_53823" ID="_18_0beta_903028d_1388650178472_729986_53823" name="length">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650194122_562877_140708" ID="_18_0beta_903028d_1388650194122_562877_140708" name="length">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650199539_575789_174162" ID="_18_0beta_903028d_1388650199539_575789_174162">
+              <slot xmi:id="_19_0_3_b610298_1692923891485_88040_9165" ID="_19_0_3_b610298_1692923891485_88040_9165">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650184197_68200_89010" ID="_18_0beta_903028d_1388650184197_68200_89010" name="length[metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650183277_298370_82685" ID="_18_0beta_903028d_1388650183277_298370_82685">
+              <slot xmi:id="_19_0_3_b610298_1692923891485_99887_9167" ID="_19_0_3_b610298_1692923891485_99887_9167">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891485_138927_9169" ID="_19_0_3_b610298_1692923891485_138927_9169">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650186361_504568_102985" ID="_18_0beta_903028d_1388650186361_504568_102985" name="length[nanometre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650198888_109961_170833" ID="_18_0beta_903028d_1388650198888_109961_170833">
+              <slot xmi:id="_19_0_3_b610298_1692923891485_925428_9171" ID="_19_0_3_b610298_1692923891485_925428_9171">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891485_663474_9173" ID="_19_0_3_b610298_1692923891485_663474_9173">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650188500_264415_109792" ID="_18_0beta_903028d_1388650188500_264415_109792" name="length[millimetre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650184660_626956_91723" ID="_18_0beta_903028d_1388650184660_626956_91723">
+              <slot xmi:id="_19_0_3_b610298_1692923891485_983957_9191" ID="_19_0_3_b610298_1692923891485_983957_9191">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891485_159672_9193" ID="_19_0_3_b610298_1692923891485_159672_9193">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650176685_831550_48171" ID="_18_0beta_903028d_1388650176685_831550_48171" name="length[kilometre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650179881_121470_61069" ID="_18_0beta_903028d_1388650179881_121470_61069">
+              <slot xmi:id="_19_0_3_b610298_1692923891485_793244_9199" ID="_19_0_3_b610298_1692923891485_793244_9199">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891485_374896_9201" ID="_19_0_3_b610298_1692923891485_374896_9201">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650197817_764941_164038" ID="_18_0beta_903028d_1388650197817_764941_164038" name="length[decimetre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650188161_96506_106969" ID="_18_0beta_903028d_1388650188161_96506_106969">
+              <slot xmi:id="_19_0_3_b610298_1692923891485_722215_9211" ID="_19_0_3_b610298_1692923891485_722215_9211">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891485_271932_9213" ID="_19_0_3_b610298_1692923891485_271932_9213">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650197507_72058_162360" ID="_18_0beta_903028d_1388650197507_72058_162360" name="length[centimetre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650200774_521757_181364" ID="_18_0beta_903028d_1388650200774_521757_181364">
+              <slot xmi:id="_19_0_3_b610298_1692923891492_918409_9239" ID="_19_0_3_b610298_1692923891492_918409_9239">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891492_435610_9241" ID="_19_0_3_b610298_1692923891492_435610_9241">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650201319_979164_184535" ID="_18_0beta_903028d_1388650201319_979164_184535" name="velocity">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650203184_691120_189384" ID="_18_0beta_903028d_1388650203184_691120_189384" name="velocity">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650175745_874080_45482" ID="_18_0beta_903028d_1388650175745_874080_45482">
+              <slot xmi:id="_19_0_3_b610298_1692923891492_463718_9251" ID="_19_0_3_b610298_1692923891492_463718_9251">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650193281_622367_136704" ID="_18_0beta_903028d_1388650193281_622367_136704" name="velocity[metre per second]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650186572_780100_103807" ID="_18_0beta_903028d_1388650186572_780100_103807">
+              <slot xmi:id="_19_0_3_b610298_1692923891492_486914_9253" ID="_19_0_3_b610298_1692923891492_486914_9253">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891492_103089_9255" ID="_19_0_3_b610298_1692923891492_103089_9255">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650198181_277095_166341" ID="_18_0beta_903028d_1388650198181_277095_166341" name="acceleration">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650189153_746526_112836" ID="_18_0beta_903028d_1388650189153_746526_112836" name="acceleration">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650196841_262288_158143" ID="_18_0beta_903028d_1388650196841_262288_158143">
+              <slot xmi:id="_19_0_3_b610298_1692923891492_219222_9337" ID="_19_0_3_b610298_1692923891492_219222_9337">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650198064_856347_165513" ID="_18_0beta_903028d_1388650198064_856347_165513" name="acceleration[metre per second squared]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650195453_219480_149260" ID="_18_0beta_903028d_1388650195453_219480_149260">
+              <slot xmi:id="_19_0_3_b610298_1692923891492_222716_9339" ID="_19_0_3_b610298_1692923891492_222716_9339">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891492_221165_9341" ID="_19_0_3_b610298_1692923891492_221165_9341">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650196606_376688_156672" ID="_18_0beta_903028d_1388650196606_376688_156672" name="volume">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650191667_380508_126546" ID="_18_0beta_903028d_1388650191667_380508_126546" name="volume">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650198406_283248_168127" ID="_18_0beta_903028d_1388650198406_283248_168127">
+              <slot xmi:id="_19_0_3_b610298_1692923891517_174685_10491" ID="_19_0_3_b610298_1692923891517_174685_10491">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650198447_465711_168384" ID="_18_0beta_903028d_1388650198447_465711_168384" name="volume[cubic metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650179622_354387_59568" ID="_18_0beta_903028d_1388650179622_354387_59568">
+              <slot xmi:id="_19_0_3_b610298_1692923891517_792501_10493" ID="_19_0_3_b610298_1692923891517_792501_10493">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891517_683023_10495" ID="_19_0_3_b610298_1692923891517_683023_10495">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650189856_799326_116677" ID="_18_0beta_903028d_1388650189856_799326_116677" name="speed">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650203108_876922_189119" ID="_18_0beta_903028d_1388650203108_876922_189119" name="speed">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650183655_479579_85121" ID="_18_0beta_903028d_1388650183655_479579_85121">
+              <slot xmi:id="_19_0_3_b610298_1692923891517_165046_10835" ID="_19_0_3_b610298_1692923891517_165046_10835">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650180999_872881_71027" ID="_18_0beta_903028d_1388650180999_872881_71027" name="speed[metre per second]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650183910_717582_87229" ID="_18_0beta_903028d_1388650183910_717582_87229">
+              <slot xmi:id="_19_0_3_b610298_1692923891517_314942_10837" ID="_19_0_3_b610298_1692923891517_314942_10837">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891517_765868_10839" ID="_19_0_3_b610298_1692923891517_765868_10839">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650200978_451054_182621" ID="_18_0beta_903028d_1388650200978_451054_182621" name="area">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650185460_822442_97222" ID="_18_0beta_903028d_1388650185460_822442_97222" name="area">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650180112_163227_62992" ID="_18_0beta_903028d_1388650180112_163227_62992">
+              <slot xmi:id="_19_0_3_b610298_1692923891533_268761_11189" ID="_19_0_3_b610298_1692923891533_268761_11189">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650181697_71046_76139" ID="_18_0beta_903028d_1388650181697_71046_76139" name="area[square metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650181001_977299_71062" ID="_18_0beta_903028d_1388650181001_977299_71062">
+              <slot xmi:id="_19_0_3_b610298_1692923891533_429037_11191" ID="_19_0_3_b610298_1692923891533_429037_11191">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891533_105157_11193" ID="_19_0_3_b610298_1692923891533_105157_11193">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650192878_963676_134876" ID="_18_0beta_903028d_1388650192878_963676_134876" name="time">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650188512_144339_109917" ID="_18_0beta_903028d_1388650188512_144339_109917" name="time">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650194536_313143_143362" ID="_18_0beta_903028d_1388650194536_313143_143362">
+              <slot xmi:id="_19_0_3_b610298_1692923891533_591375_11285" ID="_19_0_3_b610298_1692923891533_591375_11285">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650198891_148719_170889" ID="_18_0beta_903028d_1388650198891_148719_170889" name="time[second]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650194491_766374_142943" ID="_18_0beta_903028d_1388650194491_766374_142943">
+              <slot xmi:id="_19_0_3_b610298_1692923891533_58975_11287" ID="_19_0_3_b610298_1692923891533_58975_11287">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891533_79893_11289" ID="_19_0_3_b610298_1692923891533_79893_11289">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650184440_753470_90915" ID="_18_0beta_903028d_1388650184440_753470_90915" name="ISO80000-4 Mechanics">
+      <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650191215_28566_123844" ID="_18_0beta_903028d_1388650191215_28566_123844" name="Quantities">
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650191667_657368_126538" ID="_18_0beta_903028d_1388650191667_657368_126538" name="mass density">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650192872_357244_134795" ID="_18_0beta_903028d_1388650192872_357244_134795" name="mass density">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650190941_722742_121854" ID="_18_0beta_903028d_1388650190941_722742_121854">
+              <slot xmi:id="_19_0_3_b610298_1692923891644_373726_15563" ID="_19_0_3_b610298_1692923891644_373726_15563">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650178558_159802_54381" ID="_18_0beta_903028d_1388650178558_159802_54381" name="mass density[kilogram per cubic metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650189726_158115_115847" ID="_18_0beta_903028d_1388650189726_158115_115847">
+              <slot xmi:id="_19_0_3_b610298_1692923891644_314673_15565" ID="_19_0_3_b610298_1692923891644_314673_15565">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891644_344039_15567" ID="_19_0_3_b610298_1692923891644_344039_15567">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650177209_76316_50067" ID="_18_0beta_903028d_1388650177209_76316_50067" name="mass">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650193270_151662_136538" ID="_18_0beta_903028d_1388650193270_151662_136538" name="mass">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650194657_78676_144100" ID="_18_0beta_903028d_1388650194657_78676_144100">
+              <slot xmi:id="_19_0_3_b610298_1692923891660_250343_15917" ID="_19_0_3_b610298_1692923891660_250343_15917">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650202383_273056_185530" ID="_18_0beta_903028d_1388650202383_273056_185530" name="mass[gram]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650195455_613876_149314" ID="_18_0beta_903028d_1388650195455_613876_149314">
+              <slot xmi:id="_19_0_3_b610298_1692923891660_244200_15919" ID="_19_0_3_b610298_1692923891660_244200_15919">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891660_980717_15921" ID="_19_0_3_b610298_1692923891660_980717_15921">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650179955_769911_61861" ID="_18_0beta_903028d_1388650179955_769911_61861" name="mass[milligram]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650192787_403772_134574" ID="_18_0beta_903028d_1388650192787_403772_134574">
+              <slot xmi:id="_19_0_3_b610298_1692923891660_755698_15931" ID="_19_0_3_b610298_1692923891660_755698_15931">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891660_607997_15933" ID="_19_0_3_b610298_1692923891660_607997_15933">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650184728_204346_92547" ID="_18_0beta_903028d_1388650184728_204346_92547" name="mass[kilogram]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650181880_578852_77416" ID="_18_0beta_903028d_1388650181880_578852_77416">
+              <slot xmi:id="_19_0_3_b610298_1692923891660_941226_15999" ID="_19_0_3_b610298_1692923891660_941226_15999">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891660_55915_16001" ID="_19_0_3_b610298_1692923891660_55915_16001">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650175881_507111_45844" ID="_18_0beta_903028d_1388650175881_507111_45844" name="ISO80000-5 Thermodynamics">
+      <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650193819_782254_139508" ID="_18_0beta_903028d_1388650193819_782254_139508" name="Quantities">
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650184302_230153_89775" ID="_18_0beta_903028d_1388650184302_230153_89775" name="thermodynamic temperature">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650195097_84516_146909" ID="_18_0beta_903028d_1388650195097_84516_146909" name="thermodynamic temperature">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650193460_473528_137635" ID="_18_0beta_903028d_1388650193460_473528_137635">
+              <slot xmi:id="_19_0_3_b610298_1692923891914_89465_25737" ID="_19_0_3_b610298_1692923891914_89465_25737">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650193666_776688_138662" ID="_18_0beta_903028d_1388650193666_776688_138662" name="thermodynamic temperature[kelvin]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650194743_936639_144535" ID="_18_0beta_903028d_1388650194743_936639_144535">
+              <slot xmi:id="_19_0_3_b610298_1692923891914_394782_25739" ID="_19_0_3_b610298_1692923891914_394782_25739">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891914_822555_25741" ID="_19_0_3_b610298_1692923891914_822555_25741">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650179456_928886_59032" ID="_18_0beta_903028d_1388650179456_928886_59032" name="IEC80000-6 Electromagnetism">
+      <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650202761_670029_187425" ID="_18_0beta_903028d_1388650202761_670029_187425" name="Quantities">
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650196341_284157_154811" ID="_18_0beta_903028d_1388650196341_284157_154811" name="electric current">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650188627_40055_110473" ID="_18_0beta_903028d_1388650188627_40055_110473" name="electric current">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650202761_181417_187423" ID="_18_0beta_903028d_1388650202761_181417_187423">
+              <slot xmi:id="_19_0_3_b610298_1692923891992_643173_28825" ID="_19_0_3_b610298_1692923891992_643173_28825">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650189201_296142_113251" ID="_18_0beta_903028d_1388650189201_296142_113251" name="electric current[ampere]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650199652_97352_174722" ID="_18_0beta_903028d_1388650199652_97352_174722">
+              <slot xmi:id="_19_0_3_b610298_1692923891992_193335_28827" ID="_19_0_3_b610298_1692923891992_193335_28827">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891992_364308_28829" ID="_19_0_3_b610298_1692923891992_364308_28829">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650176009_428066_46312" ID="_18_0beta_903028d_1388650176009_428066_46312" name="electric current[milliampere]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650201467_777925_185288" ID="_18_0beta_903028d_1388650201467_777925_185288">
+              <slot xmi:id="_19_0_3_b610298_1692923891994_796090_28859" ID="_19_0_3_b610298_1692923891994_796090_28859">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891994_349245_28861" ID="_19_0_3_b610298_1692923891994_349245_28861">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650196906_301878_158547" ID="_18_0beta_903028d_1388650196906_301878_158547" name="magnetic field strength">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650188402_442957_108344" ID="_18_0beta_903028d_1388650188402_442957_108344" name="magnetic field strength">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650190403_137644_119317" ID="_18_0beta_903028d_1388650190403_137644_119317">
+              <slot xmi:id="_19_0_3_b610298_1692923891994_497942_29433" ID="_19_0_3_b610298_1692923891994_497942_29433">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650194403_461525_142281" ID="_18_0beta_903028d_1388650194403_461525_142281" name="magnetic field strength[ampere per metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650197772_786606_163976" ID="_18_0beta_903028d_1388650197772_786606_163976">
+              <slot xmi:id="_19_0_3_b610298_1692923891994_155139_29435" ID="_19_0_3_b610298_1692923891994_155139_29435">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923891994_835685_29437" ID="_19_0_3_b610298_1692923891994_835685_29437">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650182138_691406_78267" ID="_18_0beta_903028d_1388650182138_691406_78267" name="electric current density">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650198783_26818_170324" ID="_18_0beta_903028d_1388650198783_26818_170324" name="electric current density">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650198304_184295_167483" ID="_18_0beta_903028d_1388650198304_184295_167483">
+              <slot xmi:id="_19_0_3_b610298_1692923892042_296043_31143" ID="_19_0_3_b610298_1692923892042_296043_31143">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650185648_30703_98522" ID="_18_0beta_903028d_1388650185648_30703_98522" name="electric current density[ampere per square metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650197361_937857_161389" ID="_18_0beta_903028d_1388650197361_937857_161389">
+              <slot xmi:id="_19_0_3_b610298_1692923892042_351993_31229" ID="_19_0_3_b610298_1692923892042_351993_31229">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923892042_124351_31231" ID="_19_0_3_b610298_1692923892042_124351_31231">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650198485_26853_168686" ID="_18_0beta_903028d_1388650198485_26853_168686" name="ISO80000-7 Light">
+      <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650178505_484067_54142" ID="_18_0beta_903028d_1388650178505_484067_54142" name="Quantities">
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650196086_795947_153050" ID="_18_0beta_903028d_1388650196086_795947_153050" name="luminous intensity">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650192064_908818_130251" ID="_18_0beta_903028d_1388650192064_908818_130251" name="luminous intensity">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650199948_323566_177235" ID="_18_0beta_903028d_1388650199948_323566_177235">
+              <slot xmi:id="_19_0_3_b610298_1692923892202_220791_35805" ID="_19_0_3_b610298_1692923892202_220791_35805">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650193761_648715_138929" ID="_18_0beta_903028d_1388650193761_648715_138929" name="luminous intensity[candela]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650191854_956691_128777" ID="_18_0beta_903028d_1388650191854_956691_128777">
+              <slot xmi:id="_19_0_3_b610298_1692923892202_524263_35807" ID="_19_0_3_b610298_1692923892202_524263_35807">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923892202_955374_35809" ID="_19_0_3_b610298_1692923892202_955374_35809">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650202729_66544_187089" ID="_18_0beta_903028d_1388650202729_66544_187089" name="luminance">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650192131_861488_130374" ID="_18_0beta_903028d_1388650192131_861488_130374" name="luminance">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650195052_542394_146441" ID="_18_0beta_903028d_1388650195052_542394_146441">
+              <slot xmi:id="_19_0_3_b610298_1692923892202_234806_36315" ID="_19_0_3_b610298_1692923892202_234806_36315">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650191542_644508_126071" ID="_18_0beta_903028d_1388650191542_644508_126071" name="luminance[candela per square metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650197166_211597_160513" ID="_18_0beta_903028d_1388650197166_211597_160513">
+              <slot xmi:id="_19_0_3_b610298_1692923892202_767431_36317" ID="_19_0_3_b610298_1692923892202_767431_36317">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923892202_635235_36319" ID="_19_0_3_b610298_1692923892202_635235_36319">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650179613_224173_59562" ID="_18_0beta_903028d_1388650179613_224173_59562" name="ISO80000-9 Physical Chemestry and Molecular Physics">
+      <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650191195_186310_123720" ID="_18_0beta_903028d_1388650191195_186310_123720" name="Quantities">
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650185087_266319_94541" ID="_18_0beta_903028d_1388650185087_266319_94541" name="amount of substance">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650189782_109507_116243" ID="_18_0beta_903028d_1388650189782_109507_116243" name="amount of substance">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650185319_341374_96406" ID="_18_0beta_903028d_1388650185319_341374_96406">
+              <slot xmi:id="_19_0_3_b610298_1692923892218_951812_36577" ID="_19_0_3_b610298_1692923892218_951812_36577">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650189229_159383_113368" ID="_18_0beta_903028d_1388650189229_159383_113368" name="amount of substance[mole]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650183724_892822_85781" ID="_18_0beta_903028d_1388650183724_892822_85781">
+              <slot xmi:id="_19_0_3_b610298_1692923892218_274673_36579" ID="_19_0_3_b610298_1692923892218_274673_36579">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923892218_316060_36581" ID="_19_0_3_b610298_1692923892218_316060_36581">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xsi:type="uml:Package" xmi:id="_18_0beta_903028d_1388650191533_439388_125976" ID="_18_0beta_903028d_1388650191533_439388_125976" name="amount of substance concentration">
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650195952_388056_152400" ID="_18_0beta_903028d_1388650195952_388056_152400" name="amount of substance concentration">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650177067_125262_49648" ID="_18_0beta_903028d_1388650177067_125262_49648">
+              <slot xmi:id="_19_0_3_b610298_1692923892225_624452_36663" ID="_19_0_3_b610298_1692923892225_624452_36663">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+          <packagedElement xsi:type="uml:DataType" xmi:id="_18_0beta_903028d_1388650181014_906619_71386" ID="_18_0beta_903028d_1388650181014_906619_71386" name="amount of substance concentration[mole per cubic metre]">
+            <appliedStereotypeInstance xmi:id="_18_0beta_903028d_1388650200858_943154_181957" ID="_18_0beta_903028d_1388650200858_943154_181957">
+              <slot xmi:id="_19_0_3_b610298_1692923892225_467781_36665" ID="_19_0_3_b610298_1692923892225_467781_36665">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+              </slot>
+              <slot xmi:id="_19_0_3_b610298_1692923892225_318553_36667" ID="_19_0_3_b610298_1692923892225_318553_36667">
+                <definingFeature xsi:type="uml:Property" href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+              </slot>
+              <classifier xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+            </appliedStereotypeInstance>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </uml:Package>
+  <uml:Package xmi:id="magicdraw_uml_standard_profile_v_0001" ID="magicdraw_uml_standard_profile_v_0001" name="UML Standard Profile">
+    <appliedStereotypeInstance xmi:id="_12_1_8f90291_1174411598625_504587_98" ID="_12_1_8f90291_1174411598625_504587_98">
+      <classifier xsi:type="uml:Stereotype" href="#_12_1_8f90291_1173963323875_662612_98"/>
+    </appliedStereotypeInstance>
+    <packagedElement xsi:type="uml:Profile" xmi:id="_be00301_1073394351331_445580_2" ID="_be00301_1073394351331_445580_2" name="MagicDraw Profile">
+      <packagedElement xsi:type="uml:Stereotype" xmi:id="_12_1_8f90291_1173963323875_662612_98" ID="_12_1_8f90291_1173963323875_662612_98" name="auxiliaryResource">
+        <generalization xmi:id="_15_0_8f90291_1196866634537_680603_98" ID="_15_0_8f90291_1196866634537_680603_98">
+          <general xsi:type="uml:Stereotype" href="#_9_0_be00301_1108044721245_236588_411"/>
+        </generalization>
+        <ownedAttribute xmi:id="_12_1_8f90291_1173963939937_52316_99" ID="_12_1_8f90291_1173963939937_52316_99" name="base_Element" visibility="private">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704884807_371561_7741"/>
+          <association href="#_12_1_8f90291_1173963939937_323574_98"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_19_0_8760276_1515156810551_352594_4505" ID="_19_0_8760276_1515156810551_352594_4505" name="treatAsAuxiliaryInOwningProject" visibility="private">
+          <type xsi:type="uml:PrimitiveType" href="#_12_0EAPbeta_be00301_1157529792739_987548_11"/>
+        </ownedAttribute>
+        <_extensionEndOfType href="#_12_1_8f90291_1173963939937_399630_100"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Extension" xmi:id="_10_0EAPbeta_be00301_1123081772098_323897_274" ID="_10_0EAPbeta_be00301_1123081772098_323897_274">
+        <memberEnd href="#_10_0EAPbeta_be00301_1123081772108_624594_276"/>
+        <memberEnd href="#_10_0EAPbeta_be00301_1123081772098_411862_275"/>
+        <ownedEnd xsi:type="uml:ExtensionEnd" xmi:id="_10_0EAPbeta_be00301_1123081772108_624594_276" ID="_10_0EAPbeta_be00301_1123081772108_624594_276" name="extension_InvisibleStereotype" visibility="private" aggregation="composite">
+          <type xsi:type="uml:Stereotype" href="#_9_0_be00301_1108044721245_236588_411"/>
+          <association href="#_10_0EAPbeta_be00301_1123081772098_323897_274"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Extension" xmi:id="_12_1_8f90291_1173963939937_323574_98" ID="_12_1_8f90291_1173963939937_323574_98">
+        <memberEnd href="#_12_1_8f90291_1173963939937_399630_100"/>
+        <memberEnd href="#_12_1_8f90291_1173963939937_52316_99"/>
+        <ownedEnd xsi:type="uml:ExtensionEnd" xmi:id="_12_1_8f90291_1173963939937_399630_100" ID="_12_1_8f90291_1173963939937_399630_100" name="extension_auxiliaryResource" visibility="private" aggregation="composite">
+          <type xsi:type="uml:Stereotype" href="#_12_1_8f90291_1173963323875_662612_98"/>
+          <association href="#_12_1_8f90291_1173963939937_323574_98"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Stereotype" xmi:id="_9_0_be00301_1108044721245_236588_411" ID="_9_0_be00301_1108044721245_236588_411" name="InvisibleStereotype">
+        <ownedAttribute xmi:id="_10_0EAPbeta_be00301_1123081772098_411862_275" ID="_10_0EAPbeta_be00301_1123081772098_411862_275" name="base_Element" visibility="private">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704884807_371561_7741"/>
+          <association href="#_10_0EAPbeta_be00301_1123081772098_323897_274"/>
+        </ownedAttribute>
+        <_extensionEndOfType href="#_10_0EAPbeta_be00301_1123081772108_624594_276"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Model" xmi:id="_9_0_be00301_1108053761194_467635_11463" ID="_9_0_be00301_1108053761194_467635_11463" name="UML2 Metamodel">
+      <appliedStereotypeInstance xmi:id="_10_0EAPbeta_be00301_1123081771126_233373_95" ID="_10_0EAPbeta_be00301_1123081771126_233373_95">
+        <classifier xsi:type="uml:Stereotype" href="#magicdraw_1046861421236_601240_36"/>
+      </appliedStereotypeInstance>
+      <packagedElement xsi:type="uml:Class" xmi:id="_9_0_62a020a_1105704885298_713292_7913" ID="_9_0_62a020a_1105704885298_713292_7913" name="Package"/>
+      <packagedElement xsi:type="uml:Class" xmi:id="_9_0_62a020a_1105704884807_371561_7741" ID="_9_0_62a020a_1105704884807_371561_7741" name="Element"/>
+      <packagedElement xsi:type="uml:Class" xmi:id="_9_0_62a020a_1105704920340_825592_9329" ID="_9_0_62a020a_1105704920340_825592_9329" name="Model"/>
+      <packagedElement xsi:type="uml:Package" xmi:id="_12_0EAPbeta_be00301_1157529392394_202602_1" ID="_12_0EAPbeta_be00301_1157529392394_202602_1" name="PrimitiveTypes">
+        <packagedElement xsi:type="uml:PrimitiveType" xmi:id="_12_0EAPbeta_be00301_1157529792739_987548_11" ID="_12_0EAPbeta_be00301_1157529792739_987548_11" name="Boolean"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Class" xmi:id="_9_0_62a020a_1105704885376_903292_7939" ID="_9_0_62a020a_1105704885376_903292_7939" name="DataType"/>
+      <packagedElement xsi:type="uml:Class" xmi:id="_9_0_62a020a_1105704885251_933969_7897" ID="_9_0_62a020a_1105704885251_933969_7897" name="InstanceSpecification"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Profile" xmi:id="_9_0_be00301_1108050582343_527400_10847" ID="_9_0_be00301_1108050582343_527400_10847" name="StandardProfile">
+      <packagedElement xsi:type="uml:Extension" xmi:id="_10_0EAPbeta_be00301_1123081772478_425419_349" ID="_10_0EAPbeta_be00301_1123081772478_425419_349">
+        <memberEnd href="#_10_0EAPbeta_be00301_1123081772478_585204_351"/>
+        <memberEnd href="#_10_0EAPbeta_be00301_1123081772478_490431_350"/>
+        <ownedEnd xsi:type="uml:ExtensionEnd" xmi:id="_10_0EAPbeta_be00301_1123081772478_585204_351" ID="_10_0EAPbeta_be00301_1123081772478_585204_351" name="extension_modelLibrary" visibility="private" aggregation="composite">
+          <type xsi:type="uml:Stereotype" href="#magicdraw_1046861421236_39100_29"/>
+          <association href="#_10_0EAPbeta_be00301_1123081772478_425419_349"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Stereotype" xmi:id="magicdraw_1046861421236_39100_29" ID="magicdraw_1046861421236_39100_29" name="ModelLibrary">
+        <ownedAttribute xmi:id="_10_0EAPbeta_be00301_1123081772478_490431_350" ID="_10_0EAPbeta_be00301_1123081772478_490431_350" name="base_Package" visibility="private">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704885298_713292_7913"/>
+          <association href="#_10_0EAPbeta_be00301_1123081772478_425419_349"/>
+        </ownedAttribute>
+        <_extensionEndOfType href="#_10_0EAPbeta_be00301_1123081772478_585204_351"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Stereotype" xmi:id="magicdraw_1046861421236_601240_36" ID="magicdraw_1046861421236_601240_36" name="Metamodel">
+        <ownedAttribute xmi:id="_10_0EAPbeta_be00301_1123081771136_271406_98" ID="_10_0EAPbeta_be00301_1123081771136_271406_98" name="base_Model" visibility="private">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704920340_825592_9329"/>
+          <association href="#_10_0EAPbeta_be00301_1123081771136_824883_97"/>
+        </ownedAttribute>
+        <_extensionEndOfType href="#_10_0EAPbeta_be00301_1123081771136_580423_99"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Extension" xmi:id="_10_0EAPbeta_be00301_1123081771136_824883_97" ID="_10_0EAPbeta_be00301_1123081771136_824883_97">
+        <memberEnd href="#_10_0EAPbeta_be00301_1123081771136_580423_99"/>
+        <memberEnd href="#_10_0EAPbeta_be00301_1123081771136_271406_98"/>
+        <ownedEnd xsi:type="uml:ExtensionEnd" xmi:id="_10_0EAPbeta_be00301_1123081771136_580423_99" ID="_10_0EAPbeta_be00301_1123081771136_580423_99" name="extension_metamodel" visibility="private" aggregation="composite">
+          <type xsi:type="uml:Stereotype" href="#magicdraw_1046861421236_601240_36"/>
+          <association href="#_10_0EAPbeta_be00301_1123081771136_824883_97"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+  </uml:Package>
+  <uml:Profile xmi:id="_11_5EAPbeta_be00301_1147434586638_637562_1900" ID="_11_5EAPbeta_be00301_1147434586638_637562_1900" name="SysML">
+    <appliedStereotypeInstance xmi:id="_12_5EAPbeta2_be00301_1177500409487_482544_260" ID="_12_5EAPbeta2_be00301_1177500409487_482544_260">
+      <classifier xsi:type="uml:Stereotype" href="#_12_1_8f90291_1173963323875_662612_98"/>
+    </appliedStereotypeInstance>
+    <packagedElement xsi:type="uml:Package" xmi:id="_12_0EAPbeta_be00301_1162212177466_124550_157_convert" ID="_12_0EAPbeta_be00301_1162212177466_124550_157_convert" name="Blocks">
+      <packagedElement xsi:type="uml:Extension" xmi:id="_11_5EAPbeta_be00301_1147430241871_662816_1191" ID="_11_5EAPbeta_be00301_1147430241871_662816_1191" name="E_extension_ValueType_base_DataType">
+        <memberEnd href="#_11_5EAPbeta_be00301_1147430241871_466358_1193"/>
+        <memberEnd href="#_11_5EAPbeta_be00301_1147430241871_22153_1192"/>
+        <ownedEnd xsi:type="uml:ExtensionEnd" xmi:id="_11_5EAPbeta_be00301_1147430241871_466358_1193" ID="_11_5EAPbeta_be00301_1147430241871_466358_1193" name="extension_ValueType" visibility="public" aggregation="composite">
+          <type xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+          <association href="#_11_5EAPbeta_be00301_1147430241871_662816_1191"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Stereotype" xmi:id="_11_5EAPbeta_be00301_1147430239267_179145_1189" ID="_11_5EAPbeta_be00301_1147430239267_179145_1189" name="ValueType">
+        <ownedAttribute xmi:id="_11_5EAPbeta_be00301_1147430241871_22153_1192" ID="_11_5EAPbeta_be00301_1147430241871_22153_1192" name="base_DataType" visibility="public">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704885376_903292_7939"/>
+          <association href="#_11_5EAPbeta_be00301_1147430241871_662816_1191"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_11_5EAPbeta_be00301_1147430364958_360156_1425" ID="_11_5EAPbeta_be00301_1147430364958_360156_1425" name="unit" visibility="public">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704885251_933969_7897"/>
+          <association href="#_17_0_2_136f03d9_1338272752776_55195_8697"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_11_5EAPbeta_be00301_1147430349926_544971_1421" ID="_11_5EAPbeta_be00301_1147430349926_544971_1421" name="quantityKind" visibility="public">
+          <type xsi:type="uml:Class" href="#_9_0_62a020a_1105704885251_933969_7897"/>
+          <association href="#_17_0_2_136f03d9_1338272505244_672703_8645"/>
+        </ownedAttribute>
+        <_extensionEndOfType href="#_11_5EAPbeta_be00301_1147430241871_466358_1193"/>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Association" xmi:id="_17_0_2_136f03d9_1338272752776_55195_8697" ID="_17_0_2_136f03d9_1338272752776_55195_8697" name="A_valueType_unit">
+        <memberEnd href="#_17_0_2_136f03d9_1338272752777_895465_8699"/>
+        <memberEnd href="#_11_5EAPbeta_be00301_1147430364958_360156_1425"/>
+        <ownedEnd xmi:id="_17_0_2_136f03d9_1338272752777_895465_8699" ID="_17_0_2_136f03d9_1338272752777_895465_8699" name="valueType" visibility="public">
+          <type xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+          <association href="#_17_0_2_136f03d9_1338272752776_55195_8697"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xsi:type="uml:Association" xmi:id="_17_0_2_136f03d9_1338272505244_672703_8645" ID="_17_0_2_136f03d9_1338272505244_672703_8645" name="A_valueType_quantityKind">
+        <memberEnd href="#_17_0_2_136f03d9_1338272505244_718754_8647"/>
+        <memberEnd href="#_11_5EAPbeta_be00301_1147430349926_544971_1421"/>
+        <ownedEnd xmi:id="_17_0_2_136f03d9_1338272505244_718754_8647" ID="_17_0_2_136f03d9_1338272505244_718754_8647" name="valueType" visibility="public">
+          <type xsi:type="uml:Stereotype" href="#_11_5EAPbeta_be00301_1147430239267_179145_1189"/>
+          <association href="#_17_0_2_136f03d9_1338272505244_672703_8645"/>
+        </ownedEnd>
+      </packagedElement>
+    </packagedElement>
+  </uml:Profile>
+</xmi:XMI>

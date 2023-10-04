@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<mdOwnedViews>
+	<mdElement elementClass='PseudoNode' xmi:id='_19_0_3_b610298_1692909058937_165130_42783'>
+		<elementID xmi:idref='_19_0_3_b610298_1692909058905_574772_42743'/>
+		<geometry>49, 28, 18, 18</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<verticalCenterline>_19_0_3_b610298_1692909058999_63138_42799</verticalCenterline>
+		<horizontalCenterline>_19_0_3_b610298_1692909058999_212311_42800</horizontalCenterline>
+		<mdOwnedViews/>
+	</mdElement>
+	<mdElement elementClass='PseudoNode' xmi:id='_19_0_3_b610298_1692909058937_699653_42785'>
+		<elementID xmi:idref='_19_0_3_b610298_1692909058905_46754_42744'/>
+		<geometry>49, 161, 18, 18</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<verticalCenterline>_19_0_3_b610298_1692909058999_63138_42799</verticalCenterline>
+		<horizontalCenterline>_19_0_3_b610298_1692909058999_537113_42801</horizontalCenterline>
+		<mdOwnedViews/>
+	</mdElement>
+	<mdElement elementClass='SignalAction' xmi:id='_19_0_3_b610298_1692909058937_263863_42787'>
+		<elementID xmi:idref='_19_0_3_b610298_1692909058905_440306_42745'/>
+		<geometry>7, 91, 100, 22</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<verticalCenterline>_19_0_3_b610298_1692909058999_98331_42802</verticalCenterline>
+		<horizontalCenterline>_19_0_3_b610298_1692909058999_544106_42803</horizontalCenterline>
+		<mdOwnedViews/>
+	</mdElement>
+	<mdElement elementClass='ControlFlow' xmi:id='_19_0_3_b610298_1692909058937_125849_42797'>
+		<elementID xmi:idref='_19_0_3_b610298_1692909058905_569127_42746'/>
+		<linkFirstEndID xmi:idref='_19_0_3_b610298_1692909058937_263863_42787'/>
+		<linkSecondEndID xmi:idref='_19_0_3_b610298_1692909058937_165130_42783'/>
+		<geometry>57, 91; 57, 48; 58, 48; 58, 46; </geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<compartment compartmentID='CONVEYED_INFORMATION_A' isContentLocked='true'/>
+		<compartment compartmentID='CONVEYED_INFORMATION_B' isContentLocked='true'/>
+		<nameVisible xmi:value='true'/>
+	</mdElement>
+	<mdElement elementClass='ControlFlow' xmi:id='_19_0_3_b610298_1692909058937_878753_42798'>
+		<elementID xmi:idref='_19_0_3_b610298_1692909058905_587043_42748'/>
+		<linkFirstEndID xmi:idref='_19_0_3_b610298_1692909058937_699653_42785'/>
+		<linkSecondEndID xmi:idref='_19_0_3_b610298_1692909058937_263863_42787'/>
+		<geometry>58, 161; 58, 115; 57, 115; 57, 113; </geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<compartment compartmentID='CONVEYED_INFORMATION_A' isContentLocked='true'/>
+		<compartment compartmentID='CONVEYED_INFORMATION_B' isContentLocked='true'/>
+		<nameVisible xmi:value='true'/>
+	</mdElement>
+	<mdElement elementClass='DiagramFrame' xmi:id='_19_0_3_b610298_1692909058921_150918_42772'>
+		<elementID xmi:idref='_19_0_3_b610298_1692909058905_703260_42751'/>
+		<geometry>5, 5, 1181, 814</geometry>
+		<compartment compartmentID='TAGGED_VALUES'/>
+		<mdOwnedViews/>
+	</mdElement>
+</mdOwnedViews>

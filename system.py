@@ -141,6 +141,7 @@ class TransitionFunction:
         self.function = function
         try:
             self.function(self.states,self.inputs)
+            
         except:
             raise ValueError("function is not computing given states tuple and inputs tuple")
 
@@ -248,10 +249,10 @@ class System:
             else:
                 raise ValueError("computed state not in defined states dictionary")
     
-        
         states_values = tuple(function.states.values())
         input_values = tuple(function.inputs.values())
         self.transition_functions[tuple([states_values,input_values])]=function.function
+        
         # print("properly defined transition function added to transition functions")
         
 
@@ -273,17 +274,23 @@ class System:
                 pass
             else:
                 raise ValueError("computed output not in output dictionary")
-    
+        
         self.readout_functions[tuple(function.states.values())]=function.function
+        
         # print("properly defined readout function added to readout functions")
         
 
     def get_num_nofeed(self):
         return sum([Input.feedback for Input in self.inputs])
     def prep_transition(self,sys_input):
-        for i in sys_input:
-            self.inputs[i].data = sys_input[i]
-            print("input data updated")
+        sys_input_list = list(sys_input)
+        index_input = sys_input.index(1)
+        inputs_names = list(self.inputs)
+        self.inputs[inputs_names[index_input]].data = sys_input[index_input]
+        for inputs in self.inputs:
+            if inputs != inputs_names[index_input]:
+                self.inputs[inputs].data= 0 
+        
         current_input = tuple([input_.data for input_ in self.inputs.values()])
         return current_input
     
@@ -327,28 +334,24 @@ class System:
                 print("input streams:",sys_input)
                 print("updating stored inputs")
                 current_input = self.prep_transition(sys_input)
-
                 states_values = tuple(self.current_state.values())
-               
                 index = tuple([states_values,current_input])
                 self.current_state=self.transition_functions[index](self.current_state,current_input)
                 print("transition from system: ",self.name)
                 print("transitioned to state:",self.current_state)
             
-
-            elif tuple(sys_input.values()) in self.all_inputs:
+            
+            elif sys_input in self.all_inputs:
             
                 if self.check_current_state(initial_state):
                     print("current state:", self.current_state)
                     print("updating stored inputs")
                     current_input = self.prep_transition(sys_input)
-
-                    states_values = tuple(self.current_state.values())
-                    
+                    states_values = tuple(self.current_state)
                     index = tuple([states_values,current_input])
-
+                    print(self.transition_functions[index])
                     self.current_state=self.transition_functions[index](self.current_state,current_input)
-                    print("transition from system: ",self.name)
+                    print("system: transitioning ",self.name)
                     print("transitioned to state:",self.current_state)
 
             else:
@@ -360,7 +363,7 @@ class System:
     def validate_system(self):
          
          
-        if len(self.transition_functions)>=len(self.states)-1 and len(self.readout_functions)==len(self.all_states):
+        if len(self.transition_functions)>=len(self.states)-1 and len(self.readout_functions)==len(self.states):
 
             transition_index = list(self.transition_functions)
             edges = [(pair[0],tuple(self.transition_functions[pair](pair[0],pair[1]).values())) for pair in transition_index]
@@ -411,16 +414,17 @@ class System:
                 raise Exception("can't run experiment without initial state")
         
         table = {}
+        
         for time_step in np.arange(time_steps):
             table[time_step] = {}
             for i in range(len(names)):
                 
-                table[time_step][names[i]]=[systems[i].current_state,system_inputs[names[i]][time_step],systems[i].readout_functions[tuple(systems[i].current_state.values())](systems[i].current_state)]
+                table[time_step][names[i]]=[systems[i].current_state,system_inputs[names[i]][time_step],systems[i].readout_functions[systems[i].current_state](systems[i].current_state)]
                 
-                try:
-                    systems[i].transition(system_inputs[names[i]][time_step])
-                except:
-                    raise ValueError("transition from current state with input not defined in transition functions")
+                
+                systems[i].transition(system_inputs[names[i]][time_step])
+                # except:
+                    # raise ValueError("transition from current state with input not defined in transition functions")
             
         return table 
         

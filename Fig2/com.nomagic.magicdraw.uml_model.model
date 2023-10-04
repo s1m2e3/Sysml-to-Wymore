@@ -1,0 +1,1100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xmi:XMI xmlns:uml='http://www.omg.org/spec/UML/20131001' xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:Dependency_Matrix_Profile='http://www.magicdraw.com/schemas/Dependency_Matrix_Profile.xmi' xmlns:MagicDraw_Profile='http://www.omg.org/spec/UML/20131001/MagicDrawProfile' xmlns:Validation_Profile='http://www.magicdraw.com/schemas/Validation_Profile.xmi' xmlns:DSL_Customization='http://www.magicdraw.com/schemas/DSL_Customization.xmi' xmlns:MD_Customization_for_Requirements__additional_stereotypes='http://www.magicdraw.com/spec/Customization/180/Requirements' xmlns:MD_Customization_for_SysML__additional_stereotypes='http://www.magicdraw.com/spec/Customization/180/SysML' xmlns:sysml='http://www.omg.org/spec/SysML/20150709/SysML' xmlns:StandardProfile='http://www.omg.org/spec/UML/20131001/StandardProfile'>
+	<xmi:Documentation>
+		<xmi:exporter>MagicDraw UML</xmi:exporter>
+		<xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
+	</xmi:Documentation>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<plugin pluginName='SysML' pluginVersion='19.0'/>
+		<plugin pluginName='Cameo Requirements Modeler' pluginVersion='19.0'/>
+		<req_resource resourceID='1440' resourceName='SysML' resourceValueName='SysML State Machine Diagram'/>
+		<req_resource resourceID='1440' resourceName='SysML' resourceValueName='SysML Activity Diagram'/>
+		<req_resource resourceID='1480' resourceName='Cameo Requirements Modeler' resourceValueName='Cameo Requirements Modeler'/>
+		<req_resource resourceID='1440' resourceName='SysML' resourceValueName='SysML'/>
+	</xmi:Extension>
+	<uml:Model xmi:type='uml:Model' xmi:id='eee_1045467100313_135436_1' name='Model'>
+		<ownedComment xmi:type='uml:Comment' xmi:id='_19_0_3_b610298_1692909254571_590493_13830' body='Author:paulw86.&#10;Created:10/1/2012 3:10 PM.&#10;Title:.&#10;Comment:.&#10;'>
+			<annotatedElement xmi:idref='eee_1045467100313_135436_1'/>
+		</ownedComment>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_318675_13763' importedPackage='_19_0_3_b610298_1692909254571_982302_13824'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_869190_13986' importedPackage='_19_0_3_b610298_1692909254571_144363_14112'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_903643_14116' importedPackage='_19_0_3_b610298_1692909254571_157132_13664'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_838721_13906' importedPackage='_19_0_3_b610298_1692909254571_438817_13966'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_129833_13672' importedPackage='_19_0_3_b610298_1692909254571_916697_14098'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_523279_13765' importedPackage='_19_0_3_b610298_1692909254571_64238_13673'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_53887_13720' importedPackage='_19_0_3_b610298_1692909254571_598597_13780'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_718630_14128' importedPackage='_19_0_3_b610298_1692909254571_848126_14019'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_746853_13752' importedPackage='_19_0_3_b610298_1692909254571_199382_14088'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_957428_13689' importedPackage='_19_0_3_b610298_1692909254571_288817_14102'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_195223_14074' importedPackage='_19_0_3_b610298_1692909254571_408996_13922'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_822086_13877' importedPackage='_19_0_3_b610298_1692909254571_858624_13715'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_315671_14059' importedPackage='_19_0_3_b610298_1692909254571_808921_14113'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_840209_13791' importedPackage='_19_0_3_b610298_1692909254571_106377_13951'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_694920_13680' importedPackage='_19_0_3_b610298_1692909254571_882095_14084'/>
+		<packageImport xmi:type='uml:PackageImport' xmi:id='_19_0_3_b610298_1692909254571_9364_14045' importedPackage='_19_0_3_b610298_1692909254571_398194_13761'/>
+		<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_710660_13758' name='Unit Imports'>
+			<xmi:Extension extender='MagicDraw UML 19.0'>
+				<modelExtension>
+					<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692909254571_442983_14033' name='Basic Unit Categories' visibility='public' ownerOfDiagram='_19_0_3_b610298_1692909254571_710660_13758'>
+						<xmi:Extension extender='MagicDraw UML 19.0'>
+							<diagramRepresentation>
+								<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692909254571_749128_13727' initialFrameSizeSet='true' requiredFeature='DependencyMatrixPlugin#Dependency Matrix;UML_Standard_Profile.mdzip' type='Dependency Matrix' umlType='Class Diagram' xmi:id='_XXBk4I40Eee-NOwIYMDspg' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/esi/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+									<diagramContents exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='_XXBk4Y40Eee-NOwIYMDspg'>
+										<binaryObject streamContentID='08d027a1-f5a3-44e4-9efb-570f4521ac4d' xmi:id='_XXBk4o40Eee-NOwIYMDspg' xsi:type='binary:StreamIdentityBinaryObject'/>
+									</diagramContents>
+								</diagram:DiagramRepresentationObject>
+							</diagramRepresentation>
+						</xmi:Extension>
+					</ownedDiagram>
+					<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692909254571_15009_14153' name='Basic Units' visibility='public' ownerOfDiagram='_19_0_3_b610298_1692909254571_710660_13758'>
+						<xmi:Extension extender='MagicDraw UML 19.0'>
+							<diagramRepresentation>
+								<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692909254571_263441_14005' initialFrameSizeSet='true' requiredFeature='DependencyMatrixPlugin#Dependency Matrix;UML_Standard_Profile.mdzip' type='Dependency Matrix' umlType='Class Diagram' xmi:id='_XXBk4440Eee-NOwIYMDspg' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/esi/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+									<diagramContents exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='_XXBk5I40Eee-NOwIYMDspg'>
+										<binaryObject streamContentID='BLOB-2498f667-46db-430a-ade2-16f76b959555' xmi:id='_XXBk5Y40Eee-NOwIYMDspg' xsi:type='binary:StreamIdentityBinaryObject'/>
+									</diagramContents>
+								</diagram:DiagramRepresentationObject>
+							</diagramRepresentation>
+						</xmi:Extension>
+					</ownedDiagram>
+				</modelExtension>
+			</xmi:Extension>
+			<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_115070_14032' name='Basic Units'>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_598597_13780' name='Basic Length'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_239366_13869'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650194122_562877_140708'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_383528_13779'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650186361_504568_102985'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[nanometre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_527383_13891'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650188500_264415_109792'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[millimetre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_111336_13686'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650184197_68200_89010'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_337853_14156'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650184197_68200_89010'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_494331_14126'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650197817_764941_164038'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[decimetre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_615418_13757'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650176685_831550_48171'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[kilometre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_647921_13733'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650197507_72058_162360'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::length::length[centimetre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_78828_13676'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504762833653_848553_48268'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Nautical Units::Quantities::Length::length[nautical mile]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_133924_14159'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504525655316_575263_41411'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Length::length[foot]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_267587_14154'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504525653328_656601_41386'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Length::length[yard]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_938741_13708'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504525646498_546513_41336'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Length::length[inch]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_517915_13865'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504525651398_191029_41361'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Length::length[mile]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_408996_13922' name='Basic Mass'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_733919_14071'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650193270_151662_136538'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass::mass' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_944036_13836'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650179955_769911_61861'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass::mass[milligram]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_308115_13709'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650202383_273056_185530'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass::mass[gram]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_557603_14101'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650184728_204346_92547'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass::mass[kilogram]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_836489_14117'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504768654855_543874_49487'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Mass::mass[ounce]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_234000_13770'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8c4028a_1504269313690_855494_12897'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Mass::mass[pound]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_438817_13966' name='Basic Area'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_892520_14158'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650185460_822442_97222'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::area::area' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_272157_13817'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650181697_71046_76139'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::area::area[square metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_112523_13800'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504708818013_557107_48071'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Area::area[acre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_291472_14124'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504686249978_876024_45473'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Area::area[square foot]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_219943_14092'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504686086128_760199_44860'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Area::area[square inch]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_429640_14075'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504686251515_123939_45478'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Area::area[square yard]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_516651_13695'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504686252158_600783_45483'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Area::area[square mile]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_398194_13761' name='Basic Volume'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_362354_13742'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650191667_380508_126546'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::volume::volume' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_984266_13749'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650198447_465711_168384'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::volume::volume[cubic metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_237838_13823'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1506083377553_418334_13278'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Common Units::Quantities::Volume::volume[litre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_54255_14099'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504699979949_209248_46802'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[cubic foot]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_97001_13794'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504699981222_481490_46807'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[cubic yard]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_756857_13700'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504699852137_374863_46743'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[cubic inch]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_857863_14106'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504764772305_169520_48782'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[fluid ounce (UK)]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_845981_13965'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504765063997_860057_48900'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[fluid ounce (US)]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_512406_13701'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504764675651_603368_48752'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[gallon (UK)]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_890889_14107'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504765063997_825857_48901'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[gallon (US)]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_834009_13928'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504764770674_435105_48778'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[pint (UK)]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_964443_13771'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504765063997_277945_48902'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Volume::volume[pint (US)]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_106377_13951' name='Basic Time'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_356839_13681'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650188512_144339_109917'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::time::time' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_90407_13717'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650198891_148719_170889'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::time::time[second]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_916697_14098' name='Basic Electric Current'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_60270_13939'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650189201_296142_113251'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current::electric current[ampere]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_736049_13799'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650188627_40055_110473'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current::electric current' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_730551_13813'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650176009_428066_46312'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current::electric current[milliampere]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_882095_14084' name='Basic Thermodynamic Temperature'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_434811_13807'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650195097_84516_146909'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-5 Thermodynamics::Quantities::thermodynamic temperature::thermodynamic temperature' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_659340_13668'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650193666_776688_138662'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-5 Thermodynamics::Quantities::thermodynamic temperature::thermodynamic temperature[kelvin]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_982302_13824' name='Basic Amount of Substance'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_689293_14118'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650189782_109507_116243'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-9 Physical Chemestry and Molecular Physics::Quantities::amount of substance::amount of substance' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_310229_14051'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650189229_159383_113368'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-9 Physical Chemestry and Molecular Physics::Quantities::amount of substance::amount of substance[mole]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_199382_14088' name='Basic Luminous Intensity'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_147700_13662'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650192064_908818_130251'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-7 Light::Quantities::luminous intensity::luminous intensity' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_781892_14123'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650193761_648715_138929'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-7 Light::Quantities::luminous intensity::luminous intensity[candela]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_858624_13715' name='Basic Speed and Velocity'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_348221_14145'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650203108_876922_189119'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::speed::speed' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_345121_14042'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650180999_872881_71027'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::speed::speed[metre per second]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_626648_13893'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650203184_691120_189384'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::velocity::velocity' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_941112_13853'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650193281_622367_136704'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::velocity::velocity[metre per second]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_274753_13750'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1505813200349_817015_83662'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Common Units::Quantities::Speed and Velocity::speed[kilometre per hour]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_921158_13999'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1505816028867_649774_42101'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Common Units::Quantities::Speed and Velocity::velocity[kilometre per hour]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_633888_13987'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504763086333_87751_48360'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Nautical Units::Quantities::Speed and Velocity::speed[knot]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_828511_13855'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504704981209_503127_47460'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Speed and Velocity::speed[foot per second]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_492533_13848'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504705074051_445071_47511'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Speed and Velocity::speed[mile per hour]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_838040_13867'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504705396560_983648_47549'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Speed and Velocity::velocity[foot per second]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_804398_14066'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504705408790_942431_47554'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Speed and Velocity::velocity[mile per hour]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_144363_14112' name='Basic Acceleration'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254564_694970_13660'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650189153_746526_112836'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::acceleration::acceleration' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_893831_13874'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650198064_856347_165513'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-3 Space and Time::Quantities::acceleration::acceleration[metre per second squared]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_4240_14026'>
+						<importedElement href='ISO-80000-Extension.mdzip#_19_0beta_8a3027a_1504702845502_790904_47208'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000-Extension::Imperial Units &amp; US Customary Units::Quantities::Acceleration::acceleration[foot per second squared]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_808921_14113' name='Basic Mass Density'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_346825_13821'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650192872_357244_134795'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass density::mass density' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_339271_13888'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650178558_159802_54381'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-4 Mechanics::Quantities::mass density::mass density[kilogram per cubic metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_64238_13673' name='Basic Electric Current Density'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_842892_13793'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650198783_26818_170324'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current density::electric current density' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_959473_13796'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650185648_30703_98522'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::electric current density::electric current density[ampere per square metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_157132_13664' name='Basic Amount of Substance Concentration'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_883252_13661'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650195952_388056_152400'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-9 Physical Chemestry and Molecular Physics::Quantities::amount of substance concentration::amount of substance concentration' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_262735_13943'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650181014_906619_71386'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-9 Physical Chemestry and Molecular Physics::Quantities::amount of substance concentration::amount of substance concentration[mole per cubic metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_288817_14102' name='Basic Magnetic Field Strength'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_836423_14120'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650188402_442957_108344'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::magnetic field strength::magnetic field strength' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_299953_14072'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650194403_461525_142281'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::IEC80000-6 Electromagnetism::Quantities::magnetic field strength::magnetic field strength[ampere per metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+				<packagedElement xmi:type='uml:Package' xmi:id='_19_0_3_b610298_1692909254571_848126_14019' name='Basic Luminance'>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_296665_14094'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650192131_861488_130374'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-7 Light::Quantities::luminance::luminance' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+					<elementImport xmi:type='uml:ElementImport' xmi:id='_19_0_3_b610298_1692909254571_153794_13713'>
+						<importedElement href='ISO-80000.mdzip#_18_0beta_903028d_1388650191542_644508_126071'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<referenceExtension referentPath='ISO-80000::ISO80000-7 Light::Quantities::luminance::luminance[candela per square metre]' referentType='DataType'/>
+							</xmi:Extension>
+						</importedElement>
+					</elementImport>
+				</packagedElement>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Class' xmi:id='_19_0_3_b610298_1692909264043_605421_42601' name='System' classifierBehavior='_19_0_3_b610298_1692922565544_635535_42613'>
+			<ownedBehavior xmi:type='uml:StateMachine' xmi:id='_19_0_3_b610298_1692922565544_635535_42613' name='Orthogonality'>
+				<xmi:Extension extender='MagicDraw UML 19.0'>
+					<modelExtension>
+						<event xmi:idref='_19_0_3_b610298_1692922910503_625940_43057'/>
+						<event xmi:idref='_19_0_3_b610298_1692922918930_448628_43061'/>
+						<event xmi:idref='_19_0_3_b610298_1692922922886_663571_43065'/>
+						<event xmi:idref='_19_0_3_b610298_1692922926959_365408_43069'/>
+						<event xmi:idref='_19_0_3_b610298_1692922939569_476872_43073'/>
+						<event xmi:idref='_19_0_3_b610298_1692922943160_745889_43077'/>
+						<event xmi:idref='_19_0_3_b610298_1692922954538_634493_43081'/>
+						<event xmi:idref='_19_0_3_b610298_1692922958474_245114_43085'/>
+					</modelExtension>
+				</xmi:Extension>
+				<xmi:Extension extender='MagicDraw UML 19.0'>
+					<modelExtension>
+						<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692922565544_82666_42612' name='Orthogonality' visibility='public' context='_19_0_3_b610298_1692922565544_635535_42613' ownerOfDiagram='_19_0_3_b610298_1692922565544_635535_42613'>
+							<xmi:Extension extender='MagicDraw UML 19.0'>
+								<diagramRepresentation>
+									<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692922565560_426766_42634' diagramStyleID='_19_0_3_b610298_1692923892459_699458_42124' initialFrameSizeSet='true' requiredFeature='com.nomagic.magicdraw.plugins.impl.sysml#SysML;MD_customization_for_SysML.mdzip;UML_Standard_Profile.mdzip' type='SysML State Machine Diagram' umlType='State Machine Diagram' xmi:id='_lQeDgELcEe62xrKb_TlCmQ' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+										<diagramContents contentHash='ad3b4fbf-ab76-4feb-b54a-f85dcb35aef9' exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='_lQeDgULcEe62xrKb_TlCmQ'>
+											<binaryObject streamContentID='BINARY-c99e21e8-3ece-41c5-b2ef-c1ff4cb9f42f' xmi:id='_lQeDgkLcEe62xrKb_TlCmQ' xsi:type='binary:StreamIdentityBinaryObject'/>
+											<usedObjects href='#_19_0_3_b610298_1692922775363_472082_43005'/>
+											<usedObjects href='#_19_0_3_b610298_1692922729784_820011_42856'/>
+											<usedObjects href='#_19_0_3_b610298_1692922597508_678850_42667'/>
+											<usedObjects href='#_19_0_3_b610298_1692922868886_237785_43041'/>
+											<usedObjects href='#_19_0_3_b610298_1692922798513_666650_43008'/>
+											<usedObjects href='#_19_0_3_b610298_1692922818598_553155_43017'/>
+											<usedObjects href='#_19_0_3_b610298_1692922721322_591840_42840'/>
+											<usedObjects href='#_19_0_3_b610298_1692922882602_547355_43049'/>
+											<usedObjects href='#_19_0_3_b610298_1692922885529_796317_43053'/>
+											<usedObjects href='#_19_0_3_b610298_1692922813693_31734_43014'/>
+											<usedObjects href='#_19_0_3_b610298_1692922565701_318274_42648'/>
+											<usedObjects href='#_19_0_3_b610298_1692922565701_551486_42646'/>
+											<usedObjects href='#_19_0_3_b610298_1692922655836_976949_42816'/>
+											<usedObjects href='#_19_0_3_b610298_1692922739502_934793_42878'/>
+											<usedObjects href='#_19_0_3_b610298_1692922772483_271804_43000'/>
+											<usedObjects href='#_19_0_3_b610298_1692922616727_766989_42689'/>
+											<usedObjects href='#_19_0_3_b610298_1692922744618_261472_42942'/>
+											<usedObjects href='#_19_0_3_b610298_1692922655836_613504_42817'/>
+											<usedObjects href='#_19_0_3_b610298_1692922624911_308523_42754'/>
+											<usedObjects href='#_19_0_3_b610298_1692922657866_494459_42835'/>
+											<usedObjects href='#_19_0_3_b610298_1692922565701_192287_42647'/>
+											<usedObjects href='#_19_0_3_b610298_1692922877906_783980_43045'/>
+											<usedObjects href='#_19_0_3_b610298_1692922804877_778307_43011'/>
+											<usedElements>_19_0_3_b610298_1692922775363_472082_43005</usedElements>
+											<usedElements>_19_0_3_b610298_1692922657866_494459_42835</usedElements>
+											<usedElements>_19_0_3_b610298_1692922818598_553155_43017</usedElements>
+											<usedElements>_19_0_3_b610298_1692922624911_308523_42754</usedElements>
+											<usedElements>_19_0_3_b610298_1692922565701_318274_42648</usedElements>
+											<usedElements>_19_0_3_b610298_1692922565701_551486_42646</usedElements>
+											<usedElements>_19_0_3_b610298_1692922772483_271804_43000</usedElements>
+											<usedElements>_19_0_3_b610298_1692922616727_766989_42689</usedElements>
+											<usedElements>_19_0_3_b610298_1692922813693_31734_43014</usedElements>
+											<usedElements>_19_0_3_b610298_1692922877906_783980_43045</usedElements>
+											<usedElements>_19_0_3_b610298_1692922597508_678850_42667</usedElements>
+											<usedElements>_19_0_3_b610298_1692922868886_237785_43041</usedElements>
+											<usedElements>_19_0_3_b610298_1692922882602_547355_43049</usedElements>
+											<usedElements>_19_0_3_b610298_1692922798513_666650_43008</usedElements>
+											<usedElements>_19_0_3_b610298_1692922655836_976949_42816</usedElements>
+											<usedElements>_19_0_3_b610298_1692922885529_796317_43053</usedElements>
+											<usedElements>_19_0_3_b610298_1692922565701_192287_42647</usedElements>
+											<usedElements>_19_0_3_b610298_1692922729784_820011_42856</usedElements>
+											<usedElements>_19_0_3_b610298_1692922739502_934793_42878</usedElements>
+											<usedElements>_19_0_3_b610298_1692922744618_261472_42942</usedElements>
+											<usedElements>_19_0_3_b610298_1692922655836_613504_42817</usedElements>
+											<usedElements>_19_0_3_b610298_1692922721322_591840_42840</usedElements>
+											<usedElements>_19_0_3_b610298_1692922804877_778307_43011</usedElements>
+										</diagramContents>
+									</diagram:DiagramRepresentationObject>
+								</diagramRepresentation>
+							</xmi:Extension>
+						</ownedDiagram>
+					</modelExtension>
+				</xmi:Extension>
+				<region xmi:type='uml:Region' xmi:id='_19_0_3_b610298_1692922565544_881300_42614' visibility='public'>
+					<subvertex xmi:type='uml:State' xmi:id='_19_0_3_b610298_1692922655836_976949_42816' name='alph_num' visibility='public'>
+						<region xmi:type='uml:Region' xmi:id='_19_0_3_b610298_1692922655836_613504_42817' visibility='public'>
+							<subvertex xmi:type='uml:State' xmi:id='_19_0_3_b610298_1692922597508_678850_42667' name='SB' visibility='public'>
+								<doActivity xmi:type='uml:Activity' xmi:id='_19_0_3_b610298_1692922624911_308523_42754' name='OB'>
+									<xmi:Extension extender='MagicDraw UML 19.0'>
+										<modelExtension>
+											<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692922624911_731479_42755' name='OB' visibility='public' context='_19_0_3_b610298_1692922624911_308523_42754' ownerOfDiagram='_19_0_3_b610298_1692922624911_308523_42754'>
+												<xmi:Extension extender='MagicDraw UML 19.0'>
+													<diagramRepresentation>
+														<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692922624911_931924_42775' diagramStyleID='_19_0_3_b610298_1692922616759_655040_42691' initialFrameSizeSet='true' requiredFeature='com.nomagic.magicdraw.plugins.impl.sysml#SysML;MD_customization_for_SysML.mdzip;UML_Standard_Profile.mdzip' type='SysML Activity Diagram' umlType='Activity Diagram' xmi:id='_uGfB8ELcEe62xrKb_TlCmQ' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+															<diagramContents contentHash='6c6ca7f7-9ef1-4bf9-9236-f87476c22e08' exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='_uGfB8ULcEe62xrKb_TlCmQ'>
+																<binaryObject streamContentID='BINARY-12643d4f-4df6-4beb-b0a9-9a89015fc097' xmi:id='_uGfB8kLcEe62xrKb_TlCmQ' xsi:type='binary:StreamIdentityBinaryObject'/>
+																<usedObjects href='#_19_0_3_b610298_1692922624895_193008_42747'/>
+																<usedObjects href='#_19_0_3_b610298_1692922624911_131285_42752'/>
+																<usedObjects href='#_19_0_3_b610298_1692922624895_900793_42748'/>
+																<usedObjects href='#_19_0_3_b610298_1692922624895_953490_42749'/>
+																<usedObjects href='#_19_0_3_b610298_1692922624895_404566_42750'/>
+																<usedElements>_19_0_3_b610298_1692922624895_900793_42748</usedElements>
+																<usedElements>_19_0_3_b610298_1692922624895_193008_42747</usedElements>
+																<usedElements>_19_0_3_b610298_1692922624895_953490_42749</usedElements>
+																<usedElements>_19_0_3_b610298_1692922624895_404566_42750</usedElements>
+																<usedElements>_19_0_3_b610298_1692922624911_131285_42752</usedElements>
+															</diagramContents>
+														</diagram:DiagramRepresentationObject>
+													</diagramRepresentation>
+												</xmi:Extension>
+											</ownedDiagram>
+										</modelExtension>
+									</xmi:Extension>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922624895_404566_42750' visibility='public' source='_19_0_3_b610298_1692922624895_193008_42747' target='_19_0_3_b610298_1692922624895_953490_42749'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922624911_564832_42751' value='1'/>
+									</edge>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922624911_131285_42752' visibility='public' source='_19_0_3_b610298_1692922624895_953490_42749' target='_19_0_3_b610298_1692922624895_900793_42748'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922624911_159389_42753' value='1'/>
+									</edge>
+									<node xmi:type='uml:InitialNode' xmi:id='_19_0_3_b610298_1692922624895_193008_42747' visibility='public'/>
+									<node xmi:type='uml:ActivityFinalNode' xmi:id='_19_0_3_b610298_1692922624895_900793_42748' visibility='public'/>
+									<node xmi:type='uml:SendSignalAction' xmi:id='_19_0_3_b610298_1692922624895_953490_42749' visibility='public' signal='_19_0_3_b610298_1692922538432_519192_42611'/>
+								</doActivity>
+							</subvertex>
+							<subvertex xmi:type='uml:State' xmi:id='_19_0_3_b610298_1692922565701_192287_42647' name='SA' visibility='public'>
+								<doActivity xmi:type='uml:Activity' xmi:id='_19_0_3_b610298_1692922616727_766989_42689' name='OA'>
+									<xmi:Extension extender='MagicDraw UML 19.0'>
+										<modelExtension>
+											<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692922616727_919442_42690' name='OA' visibility='public' context='_19_0_3_b610298_1692922616727_766989_42689' ownerOfDiagram='_19_0_3_b610298_1692922616727_766989_42689'>
+												<xmi:Extension extender='MagicDraw UML 19.0'>
+													<diagramRepresentation>
+														<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692922616759_457265_42711' diagramStyleID='_19_0_3_b610298_1692922616759_655040_42691' initialFrameSizeSet='true' requiredFeature='com.nomagic.magicdraw.plugins.impl.sysml#SysML;MD_customization_for_SysML.mdzip;UML_Standard_Profile.mdzip' type='SysML Activity Diagram' umlType='Activity Diagram' xmi:id='_s4vccELcEe62xrKb_TlCmQ' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+															<diagramContents contentHash='fe684343-8026-440b-9bb0-d12727f61df3' exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='_s4vccULcEe62xrKb_TlCmQ'>
+																<binaryObject streamContentID='BINARY-5b63879e-fbf9-48db-8afc-3259569e56b5' xmi:id='_s4vcckLcEe62xrKb_TlCmQ' xsi:type='binary:StreamIdentityBinaryObject'/>
+																<usedObjects href='#_19_0_3_b610298_1692922616712_281130_42682'/>
+																<usedObjects href='#_19_0_3_b610298_1692922616712_553479_42683'/>
+																<usedObjects href='#_19_0_3_b610298_1692922616712_127128_42685'/>
+																<usedObjects href='#_19_0_3_b610298_1692922616712_677796_42684'/>
+																<usedObjects href='#_19_0_3_b610298_1692922616727_431150_42687'/>
+																<usedElements>_19_0_3_b610298_1692922616712_677796_42684</usedElements>
+																<usedElements>_19_0_3_b610298_1692922616712_553479_42683</usedElements>
+																<usedElements>_19_0_3_b610298_1692922616727_431150_42687</usedElements>
+																<usedElements>_19_0_3_b610298_1692922616712_127128_42685</usedElements>
+																<usedElements>_19_0_3_b610298_1692922616712_281130_42682</usedElements>
+															</diagramContents>
+														</diagram:DiagramRepresentationObject>
+													</diagramRepresentation>
+												</xmi:Extension>
+											</ownedDiagram>
+										</modelExtension>
+									</xmi:Extension>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922616712_127128_42685' visibility='public' source='_19_0_3_b610298_1692922616712_281130_42682' target='_19_0_3_b610298_1692922616712_677796_42684'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922616727_434652_42686' value='1'/>
+									</edge>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922616727_431150_42687' visibility='public' source='_19_0_3_b610298_1692922616712_677796_42684' target='_19_0_3_b610298_1692922616712_553479_42683'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922616727_268161_42688' value='1'/>
+									</edge>
+									<node xmi:type='uml:InitialNode' xmi:id='_19_0_3_b610298_1692922616712_281130_42682' visibility='public'/>
+									<node xmi:type='uml:ActivityFinalNode' xmi:id='_19_0_3_b610298_1692922616712_553479_42683' visibility='public'/>
+									<node xmi:type='uml:SendSignalAction' xmi:id='_19_0_3_b610298_1692922616712_677796_42684' visibility='public' signal='_19_0_3_b610298_1692922530631_877511_42610'/>
+								</doActivity>
+							</subvertex>
+							<subvertex xmi:type='uml:Pseudostate' xmi:id='_19_0_3_b610298_1692922565701_551486_42646' visibility='public'/>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922565701_318274_42648' visibility='public' source='_19_0_3_b610298_1692922565701_551486_42646' target='_19_0_3_b610298_1692922565701_192287_42647'/>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922798513_666650_43008' visibility='public' source='_19_0_3_b610298_1692922565701_192287_42647' target='_19_0_3_b610298_1692922597508_678850_42667'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922954538_267998_43080' visibility='public' event='_19_0_3_b610298_1692922954538_634493_43081'/>
+							</transition>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922804877_778307_43011' visibility='public' source='_19_0_3_b610298_1692922597508_678850_42667' target='_19_0_3_b610298_1692922565701_192287_42647'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922939569_395900_43072' visibility='public' event='_19_0_3_b610298_1692922939569_476872_43073'/>
+							</transition>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922868886_237785_43041' visibility='public' source='_19_0_3_b610298_1692922565701_192287_42647' target='_19_0_3_b610298_1692922565701_192287_42647'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922943160_305839_43076' visibility='public' event='_19_0_3_b610298_1692922943160_745889_43077'/>
+							</transition>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922877906_783980_43045' visibility='public' source='_19_0_3_b610298_1692922597508_678850_42667' target='_19_0_3_b610298_1692922597508_678850_42667'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922958474_546667_43084' visibility='public' event='_19_0_3_b610298_1692922958474_245114_43085'/>
+							</transition>
+						</region>
+						<region xmi:type='uml:Region' xmi:id='_19_0_3_b610298_1692922657866_494459_42835' visibility='public'>
+							<subvertex xmi:type='uml:State' xmi:id='_19_0_3_b610298_1692922721322_591840_42840' name='S1' visibility='public'>
+								<doActivity xmi:type='uml:Activity' xmi:id='_19_0_3_b610298_1692922739502_934793_42878' name='O1'>
+									<xmi:Extension extender='MagicDraw UML 19.0'>
+										<modelExtension>
+											<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692922739502_639958_42879' name='O1' visibility='public' context='_19_0_3_b610298_1692922739502_934793_42878' ownerOfDiagram='_19_0_3_b610298_1692922739502_934793_42878'>
+												<xmi:Extension extender='MagicDraw UML 19.0'>
+													<diagramRepresentation>
+														<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692922739517_666281_42899' diagramStyleID='_19_0_3_b610298_1692922616759_655040_42691' initialFrameSizeSet='true' requiredFeature='com.nomagic.magicdraw.plugins.impl.sysml#SysML;MD_customization_for_SysML.mdzip;UML_Standard_Profile.mdzip' type='SysML Activity Diagram' umlType='Activity Diagram' xmi:id='__Lc-0ELcEe62xrKb_TlCmQ' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+															<diagramContents contentHash='07f7ceb3-cc25-4ffe-bf1d-d325f7a25ed1' exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='__Lc-0ULcEe62xrKb_TlCmQ'>
+																<binaryObject streamContentID='BINARY-46a8c4c1-1625-4d6e-80c9-4963ea7cfdcd' xmi:id='__Lc-0kLcEe62xrKb_TlCmQ' xsi:type='binary:StreamIdentityBinaryObject'/>
+																<usedObjects href='#_19_0_3_b610298_1692922739502_70704_42874'/>
+																<usedObjects href='#_19_0_3_b610298_1692922739502_887093_42871'/>
+																<usedObjects href='#_19_0_3_b610298_1692922739502_390107_42873'/>
+																<usedObjects href='#_19_0_3_b610298_1692922739502_577374_42872'/>
+																<usedObjects href='#_19_0_3_b610298_1692922739502_671625_42876'/>
+																<usedElements>_19_0_3_b610298_1692922739502_671625_42876</usedElements>
+																<usedElements>_19_0_3_b610298_1692922739502_70704_42874</usedElements>
+																<usedElements>_19_0_3_b610298_1692922739502_887093_42871</usedElements>
+																<usedElements>_19_0_3_b610298_1692922739502_577374_42872</usedElements>
+																<usedElements>_19_0_3_b610298_1692922739502_390107_42873</usedElements>
+															</diagramContents>
+														</diagram:DiagramRepresentationObject>
+													</diagramRepresentation>
+												</xmi:Extension>
+											</ownedDiagram>
+										</modelExtension>
+									</xmi:Extension>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922739502_70704_42874' visibility='public' source='_19_0_3_b610298_1692922739502_887093_42871' target='_19_0_3_b610298_1692922739502_390107_42873'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922739502_134553_42875' value='1'/>
+									</edge>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922739502_671625_42876' visibility='public' source='_19_0_3_b610298_1692922739502_390107_42873' target='_19_0_3_b610298_1692922739502_577374_42872'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922739502_683173_42877' value='1'/>
+									</edge>
+									<node xmi:type='uml:InitialNode' xmi:id='_19_0_3_b610298_1692922739502_887093_42871' visibility='public'/>
+									<node xmi:type='uml:ActivityFinalNode' xmi:id='_19_0_3_b610298_1692922739502_577374_42872' visibility='public'/>
+									<node xmi:type='uml:SendSignalAction' xmi:id='_19_0_3_b610298_1692922739502_390107_42873' visibility='public' signal='_19_0_3_b610298_1692909291577_905851_42606'/>
+								</doActivity>
+							</subvertex>
+							<subvertex xmi:type='uml:State' xmi:id='_19_0_3_b610298_1692922729784_820011_42856' name='S2' visibility='public'>
+								<doActivity xmi:type='uml:Activity' xmi:id='_19_0_3_b610298_1692922744618_261472_42942' name='O2'>
+									<xmi:Extension extender='MagicDraw UML 19.0'>
+										<modelExtension>
+											<ownedDiagram xmi:type='uml:Diagram' xmi:id='_19_0_3_b610298_1692922744633_444899_42943' name='O2' visibility='public' context='_19_0_3_b610298_1692922744618_261472_42942' ownerOfDiagram='_19_0_3_b610298_1692922744618_261472_42942'>
+												<xmi:Extension extender='MagicDraw UML 19.0'>
+													<diagramRepresentation>
+														<diagram:DiagramRepresentationObject ID='_19_0_3_b610298_1692922744633_415741_42963' diagramStyleID='_19_0_3_b610298_1692922616759_655040_42691' initialFrameSizeSet='true' requiredFeature='com.nomagic.magicdraw.plugins.impl.sysml#SysML;MD_customization_for_SysML.mdzip;UML_Standard_Profile.mdzip' type='SysML Activity Diagram' umlType='Activity Diagram' xmi:id='__8PikELcEe62xrKb_TlCmQ' xmi:version='2.0' xmlns:binary='http://www.nomagic.com/ns/cameo/client/binary/1.0' xmlns:diagram='http://www.nomagic.com/ns/magicdraw/core/diagram/1.0' xmlns:xmi='http://www.omg.org/XMI' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+															<diagramContents contentHash='eeda0ecd-ce41-43a4-abf9-2347a658f309' exporterName='MagicDraw UML' exporterVersion='19.0 v9' xmi:id='__8PikULcEe62xrKb_TlCmQ'>
+																<binaryObject streamContentID='BINARY-196a78ec-ab4b-4c2f-9dd2-da3afeb4d96c' xmi:id='__8PikkLcEe62xrKb_TlCmQ' xsi:type='binary:StreamIdentityBinaryObject'/>
+																<usedObjects href='#_19_0_3_b610298_1692922744618_214175_42937'/>
+																<usedObjects href='#_19_0_3_b610298_1692922744618_475054_42935'/>
+																<usedObjects href='#_19_0_3_b610298_1692922744618_391096_42940'/>
+																<usedObjects href='#_19_0_3_b610298_1692922744618_612321_42938'/>
+																<usedObjects href='#_19_0_3_b610298_1692922744618_144622_42936'/>
+																<usedElements>_19_0_3_b610298_1692922744618_144622_42936</usedElements>
+																<usedElements>_19_0_3_b610298_1692922744618_391096_42940</usedElements>
+																<usedElements>_19_0_3_b610298_1692922744618_214175_42937</usedElements>
+																<usedElements>_19_0_3_b610298_1692922744618_612321_42938</usedElements>
+																<usedElements>_19_0_3_b610298_1692922744618_475054_42935</usedElements>
+															</diagramContents>
+														</diagram:DiagramRepresentationObject>
+													</diagramRepresentation>
+												</xmi:Extension>
+											</ownedDiagram>
+										</modelExtension>
+									</xmi:Extension>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922744618_612321_42938' visibility='public' source='_19_0_3_b610298_1692922744618_475054_42935' target='_19_0_3_b610298_1692922744618_214175_42937'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922744618_500985_42939' value='1'/>
+									</edge>
+									<edge xmi:type='uml:ControlFlow' xmi:id='_19_0_3_b610298_1692922744618_391096_42940' visibility='public' source='_19_0_3_b610298_1692922744618_214175_42937' target='_19_0_3_b610298_1692922744618_144622_42936'>
+										<weight xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_19_0_3_b610298_1692922744618_493535_42941' value='1'/>
+									</edge>
+									<node xmi:type='uml:InitialNode' xmi:id='_19_0_3_b610298_1692922744618_475054_42935' visibility='public'/>
+									<node xmi:type='uml:ActivityFinalNode' xmi:id='_19_0_3_b610298_1692922744618_144622_42936' visibility='public'/>
+									<node xmi:type='uml:SendSignalAction' xmi:id='_19_0_3_b610298_1692922744618_214175_42937' visibility='public' signal='_19_0_3_b610298_1692909297519_331885_42607'/>
+								</doActivity>
+							</subvertex>
+							<subvertex xmi:type='uml:Pseudostate' xmi:id='_19_0_3_b610298_1692922772483_271804_43000' visibility='public'/>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922775363_472082_43005' visibility='public' source='_19_0_3_b610298_1692922772483_271804_43000' target='_19_0_3_b610298_1692922721322_591840_42840'/>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922813693_31734_43014' visibility='public' source='_19_0_3_b610298_1692922721322_591840_42840' target='_19_0_3_b610298_1692922729784_820011_42856'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922922886_186115_43064' visibility='public' event='_19_0_3_b610298_1692922922886_663571_43065'/>
+							</transition>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922818598_553155_43017' visibility='public' source='_19_0_3_b610298_1692922729784_820011_42856' target='_19_0_3_b610298_1692922721322_591840_42840'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922910503_159089_43056' visibility='public' event='_19_0_3_b610298_1692922910503_625940_43057'/>
+							</transition>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922882602_547355_43049' visibility='public' source='_19_0_3_b610298_1692922721322_591840_42840' target='_19_0_3_b610298_1692922721322_591840_42840'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922918930_332938_43060' visibility='public' event='_19_0_3_b610298_1692922918930_448628_43061'/>
+							</transition>
+							<transition xmi:type='uml:Transition' xmi:id='_19_0_3_b610298_1692922885529_796317_43053' visibility='public' source='_19_0_3_b610298_1692922729784_820011_42856' target='_19_0_3_b610298_1692922729784_820011_42856'>
+								<trigger xmi:type='uml:Trigger' xmi:id='_19_0_3_b610298_1692922926959_303458_43068' visibility='public' event='_19_0_3_b610298_1692922926959_365408_43069'/>
+							</transition>
+						</region>
+					</subvertex>
+				</region>
+			</ownedBehavior>
+		</packagedElement>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692909276800_549301_42604' name='I1'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692909285020_808569_42605' name='I2'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692909291577_905851_42606' name='O1'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692909297519_331885_42607' name='O2'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692922512532_114864_42608' name='IA'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692922522274_587335_42609' name='IB'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692922530631_877511_42610' name='OA'/>
+		<packagedElement xmi:type='uml:Signal' xmi:id='_19_0_3_b610298_1692922538432_519192_42611' name='OB'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922910503_625940_43057' signal='_19_0_3_b610298_1692909276800_549301_42604'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922918930_448628_43061' signal='_19_0_3_b610298_1692909276800_549301_42604'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922922886_663571_43065' signal='_19_0_3_b610298_1692909285020_808569_42605'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922926959_365408_43069' signal='_19_0_3_b610298_1692909285020_808569_42605'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922939569_476872_43073' signal='_19_0_3_b610298_1692922512532_114864_42608'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922943160_745889_43077' signal='_19_0_3_b610298_1692922512532_114864_42608'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922954538_634493_43081' signal='_19_0_3_b610298_1692922522274_587335_42609'/>
+		<packagedElement xmi:type='uml:SignalEvent' xmi:id='_19_0_3_b610298_1692922958474_245114_43085' signal='_19_0_3_b610298_1692922522274_587335_42609'/>
+		<profileApplication xmi:type='uml:ProfileApplication' xmi:id='_19_0_3_b610298_1692909254571_870225_14132'>
+			<appliedProfile href='http://www.omg.org/spec/SysML/20150709/SysML.xmi#_SysML__0'>
+				<xmi:Extension extender='MagicDraw UML 19.0'>
+					<referenceExtension referentPath='SysML' referentType='Profile' originalID='_11_5EAPbeta_be00301_1147434586638_637562_1900'/>
+				</xmi:Extension>
+			</appliedProfile>
+		</profileApplication>
+	</uml:Model>
+	<xmi:Extension extender='MagicDraw UML 19.0'>
+		<stereotypesHREFS>
+			<stereotype name='MagicDraw_Profile:additionalPackageImport' stereotypeHREF='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0beta_9250292_1504527525562_901741_4507'/>
+			<tag name='MagicDraw_Profile:additionalPackageImport:base_Element' tagID='_10_0EAPbeta_be00301_1123081772098_411862_275' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_10_0EAPbeta_be00301_1123081772098_411862_275'/>
+			<tag name='MagicDraw_Profile:additionalPackageImport:base_Element' tagID='_12_1_8f90291_1173963939937_52316_99' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_12_1_8f90291_1173963939937_52316_99'/>
+			<tag name='MagicDraw_Profile:additionalPackageImport:treatAsAuxiliaryInOwningProject' tagID='_19_0_8760276_1515156810551_352594_4505' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0_8760276_1515156810551_352594_4505'/>
+			<tag name='MagicDraw_Profile:additionalPackageImport:treatAsAuxiliaryInOwningProject' tagID='_19_0_8760276_1516028276191_917381_4503' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0_8760276_1516028276191_917381_4503'/>
+			<stereotype name='MagicDraw_Profile:auxiliaryResource' stereotypeHREF='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_12_1_8f90291_1173963323875_662612_98'/>
+			<tag name='MagicDraw_Profile:auxiliaryResource:base_Element' tagID='_10_0EAPbeta_be00301_1123081772098_411862_275' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_10_0EAPbeta_be00301_1123081772098_411862_275'/>
+			<tag name='MagicDraw_Profile:auxiliaryResource:treatAsAuxiliaryInOwningProject' tagID='_19_0_8760276_1515156810551_352594_4505' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0_8760276_1515156810551_352594_4505'/>
+			<stereotype name='MagicDraw_Profile:DiagramInfo' stereotypeHREF='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_9_0_be00301_1108044380615_150487_0'/>
+			<tag name='MagicDraw_Profile:DiagramInfo:base_Element' tagID='_10_0EAPbeta_be00301_1123081772098_411862_275' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_10_0EAPbeta_be00301_1123081772098_411862_275'/>
+			<tag name='MagicDraw_Profile:DiagramInfo:Creation_date' tagID='_be00301_1073306188629_537791_2' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_be00301_1073306188629_537791_2'/>
+			<tag name='MagicDraw_Profile:DiagramInfo:Author' tagID='_be00301_1077726770128_871366_1' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_be00301_1077726770128_871366_1'/>
+			<tag name='MagicDraw_Profile:DiagramInfo:Modification_date' tagID='_be00301_1073394345322_922552_1' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_be00301_1073394345322_922552_1'/>
+			<tag name='MagicDraw_Profile:DiagramInfo:Last_modified_by' tagID='_16_8beta_8ca0285_1257244649124_794756_344' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_16_8beta_8ca0285_1257244649124_794756_344'/>
+			<stereotype name='Dependency_Matrix_Profile:DependencyMatrix' stereotypeHREF='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189236_873942_2915'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:base_Element' tagID='_10_0EAPbeta_be00301_1123081772098_411862_275' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_10_0EAPbeta_be00301_1123081772098_411862_275'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:columnTextDirection' tagID='_17_0_3beta_8e10289_1348753189250_976469_2933' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189250_976469_2933'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:columnOwnerDisplayMode' tagID='_17_0_3beta_8e10289_1348753189288_719322_3041' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189288_719322_3041'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:showInnerDependencies' tagID='_17_0_3beta_8e10289_1348753189308_306094_3073' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189308_306094_3073'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:showElements' tagID='_17_0_3beta_8e10289_1348753189316_438832_3087' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189316_438832_3087'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:columnHeaderHeight' tagID='_17_0_3beta_8e10289_1348753189264_979131_2971' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189264_979131_2971'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:rowHeaderWidth' tagID='_17_0_3beta_8e10289_1348753189264_72200_2968' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189264_72200_2968'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:dependencyCriteria' tagID='_17_0_3beta_8e10289_1348753189283_64144_3030' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189283_64144_3030'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:columnCollapsedNodes' tagID='_17_0_4beta_8e10289_1359443478322_371106_3007' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8e10289_1359443478322_371106_3007'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:rowCollapsedNodes' tagID='_17_0_4beta_8e10289_1359443708558_424258_3014' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8e10289_1359443708558_424258_3014'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:rowOwnerDisplayMode' tagID='_17_0_4beta_8ca0285_1361197666671_94490_3026' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8ca0285_1361197666671_94490_3026'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:direction' tagID='_17_0_4beta_8f90291_1361803516746_297162_3018' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361803516746_297162_3018'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:suppressCriteriaArea' tagID='_17_0_4beta_8f90291_1361805357951_82494_3264' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361805357951_82494_3264'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:descriptionArea' tagID='_17_0_4beta_8f90291_1361805429858_801243_3284' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361805429858_801243_3284'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:hideTypes' tagID='_17_0_4beta_8f90291_1361805612723_667253_3304' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361805612723_667253_3304'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:hideScope' tagID='_17_0_4beta_8f90291_1361805739775_551814_3329' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361805739775_551814_3329'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:hideDependencyCriteria' tagID='_17_0_4beta_8f90291_1361805778266_117541_3346' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361805778266_117541_3346'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:rowSortingMode' tagID='_17_0_4beta_8f90291_1361806174665_674570_3425' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361806174665_674570_3425'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:columnSortingMode' tagID='_17_0_4beta_8f90291_1361806780185_829302_3479' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8f90291_1361806780185_829302_3479'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:readOnly' tagID='_17_0_4beta_8e10289_1361896019117_533508_3014' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8e10289_1361896019117_533508_3014'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:takeWholeModelAsScope' tagID='_17_0_4beta_8e10289_1362067034050_524960_3347' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4beta_8e10289_1362067034050_524960_3347'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:columnCustomOrder' tagID='_17_0_5beta_8e10289_1370856956242_284758_3129' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_5beta_8e10289_1370856956242_284758_3129'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:rowCustomOrder' tagID='_17_0_5beta_8e10289_1370857054963_105141_3132' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_5beta_8e10289_1370857054963_105141_3132'/>
+			<tag name='Dependency_Matrix_Profile:DependencyMatrix:legendLocation' tagID='_18_3beta_8ba0279_1441020629797_63107_4098' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_18_3beta_8ba0279_1441020629797_63107_4098'/>
+			<stereotype name='Dependency_Matrix_Profile:MatrixFilter' stereotypeHREF='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189306_38038_3061'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:base_Element' tagID='_10_0EAPbeta_be00301_1123081772098_411862_275' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_10_0EAPbeta_be00301_1123081772098_411862_275'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:rowElementType' tagID='_17_0_3beta_8e10289_1348753189250_698438_2944' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189250_698438_2944'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:rowScope' tagID='_17_0_3beta_8e10289_1348753189269_689567_2994' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189269_689567_2994'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:removedRowElements' tagID='_17_0_3beta_8e10289_1348753189234_132241_2888' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189234_132241_2888'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:rowTypesIncludeSubtypes' tagID='_17_0_3beta_8e10289_1348753189236_123477_2907' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189236_123477_2907'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:columnScope' tagID='_17_0_3beta_8e10289_1348753189264_179517_2974' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189264_179517_2974'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:removedColumnElements' tagID='_17_0_3beta_8e10289_1348753189250_349424_2939' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189250_349424_2939'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:columnElementType' tagID='_17_0_3beta_8e10289_1348753189284_755266_3033' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189284_755266_3033'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:columnTypesIncludeSubtypes' tagID='_17_0_3beta_8e10289_1348753189235_302185_2895' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189235_302185_2895'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:columnPropertyFilter' tagID='_17_0_3beta_8e10289_1348753189320_16317_3090' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189320_16317_3090'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:rowPropertyFilter' tagID='_17_0_3beta_8e10289_1348753189269_548324_2992' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_3beta_8e10289_1348753189269_548324_2992'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:columnScopeDefined' tagID='_18_1beta_8ca0285_1405342797528_838030_3867' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_18_1beta_8ca0285_1405342797528_838030_3867'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:rowScopeDefined' tagID='_18_1beta_8ca0285_1405340372845_189526_3867' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_18_1beta_8ca0285_1405340372845_189526_3867'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:rowQuery' tagID='_19_0beta_936029d_1484223059662_424184_4504' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0beta_936029d_1484223059662_424184_4504'/>
+			<tag name='Dependency_Matrix_Profile:MatrixFilter:columnQuery' tagID='_19_0beta_936029d_1484223136316_827848_4511' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0beta_936029d_1484223136316_827848_4511'/>
+			<stereotype name='MagicDraw_Profile:additionalElementImport' stereotypeHREF='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0beta_9250292_1504527525561_959599_4506'/>
+			<tag name='MagicDraw_Profile:additionalElementImport:base_Element' tagID='_10_0EAPbeta_be00301_1123081772098_411862_275' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_10_0EAPbeta_be00301_1123081772098_411862_275'/>
+			<tag name='MagicDraw_Profile:additionalElementImport:base_Element' tagID='_12_1_8f90291_1173963939937_52316_99' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_12_1_8f90291_1173963939937_52316_99'/>
+			<tag name='MagicDraw_Profile:additionalElementImport:treatAsAuxiliaryInOwningProject' tagID='_19_0_8760276_1515156810551_352594_4505' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0_8760276_1515156810551_352594_4505'/>
+			<tag name='MagicDraw_Profile:additionalElementImport:treatAsAuxiliaryInOwningProject' tagID='_19_0_8760276_1516028258586_312890_4499' tagURI='local:/PROJECT-877558e9224f114d50dea1f39a1c119?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_19_0_8760276_1516028258586_312890_4499'/>
+			<stereotype name='sysml:Block' stereotypeHREF='local:/PROJECT-44892a3bf693c0a47eb2f3bf10930f?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_11_5EAPbeta_be00301_1147424179914_458922_958'/>
+			<tag name='sysml:Block:isEncapsulated' tagID='_11_5EAPbeta_be00301_1147424201876_860708_1049' tagURI='local:/PROJECT-44892a3bf693c0a47eb2f3bf10930f?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_11_5EAPbeta_be00301_1147424201876_860708_1049'/>
+		</stereotypesHREFS>
+	</xmi:Extension>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_289468_14152' base_PackageImport='_19_0_3_b610298_1692909254571_318675_13763' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_795931_14007' base_PackageImport='_19_0_3_b610298_1692909254571_195223_14074' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_665587_14004' base_PackageImport='_19_0_3_b610298_1692909254571_129833_13672' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_88851_13938' base_ElementImport='_19_0_3_b610298_1692909254571_527383_13891' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_563305_14078' base_PackageImport='_19_0_3_b610298_1692909254571_523279_13765' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_530385_14028' base_ElementImport='_19_0_3_b610298_1692909254571_337853_14156' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_738269_13782' base_ElementImport='_19_0_3_b610298_1692909254571_494331_14126' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_410292_13909' base_ElementImport='_19_0_3_b610298_1692909254571_615418_13757' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_758037_13882' base_PackageImport='_19_0_3_b610298_1692909254571_822086_13877' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_238809_13792' base_ElementImport='_19_0_3_b610298_1692909254571_647921_13733' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_697275_14049' base_ElementImport='_19_0_3_b610298_1692909254571_78828_13676' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_622549_14140' base_ElementImport='_19_0_3_b610298_1692909254571_267587_14154' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_786035_13669' base_ElementImport='_19_0_3_b610298_1692909254571_938741_13708' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_861206_14141' base_ElementImport='_19_0_3_b610298_1692909254571_517915_13865' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254564_148925_13653' base_ElementImport='_19_0_3_b610298_1692909254571_733919_14071' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_338494_14081' base_ElementImport='_19_0_3_b610298_1692909254571_944036_13836' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_968167_13930' base_ElementImport='_19_0_3_b610298_1692909254571_308115_13709' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_908726_13996' base_ElementImport='_19_0_3_b610298_1692909254571_557603_14101' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_121753_13924' base_PackageImport='_19_0_3_b610298_1692909254571_957428_13689' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_58372_13963' base_ElementImport='_19_0_3_b610298_1692909254571_836489_14117' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_365832_13898' base_ElementImport='_19_0_3_b610298_1692909254571_234000_13770' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_622967_14016' base_ElementImport='_19_0_3_b610298_1692909254571_272157_13817' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_379588_13820' base_ElementImport='_19_0_3_b610298_1692909254571_133924_14159' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_749124_13843' base_ElementImport='_19_0_3_b610298_1692909254571_291472_14124' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_739802_13949' base_PackageImport='_19_0_3_b610298_1692909254571_53887_13720' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_858714_13927' base_ElementImport='_19_0_3_b610298_1692909254571_892520_14158' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_530546_13873' base_ElementImport='_19_0_3_b610298_1692909254571_112523_13800' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_646995_13959' base_ElementImport='_19_0_3_b610298_1692909254571_429640_14075' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_655909_13967' base_ElementImport='_19_0_3_b610298_1692909254571_362354_13742' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_741350_13931' base_ElementImport='_19_0_3_b610298_1692909254571_237838_13823' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_821176_13972' base_PackageImport='_19_0_3_b610298_1692909254571_838721_13906' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_527129_14110' base_ElementImport='_19_0_3_b610298_1692909254571_97001_13794' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_805706_14056' base_ElementImport='_19_0_3_b610298_1692909254571_54255_14099' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_274578_13899' base_ElementImport='_19_0_3_b610298_1692909254571_857863_14106' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_67710_13937' base_ElementImport='_19_0_3_b610298_1692909254571_512406_13701' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_699528_13683' base_ElementImport='_19_0_3_b610298_1692909254571_845981_13965' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_321455_14036' base_ElementImport='_19_0_3_b610298_1692909254571_890889_14107' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_615526_13754' base_ElementImport='_19_0_3_b610298_1692909254571_516651_13695' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_554568_13900' base_ElementImport='_19_0_3_b610298_1692909254571_834009_13928' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_551105_13923' base_ElementImport='_19_0_3_b610298_1692909254571_356839_13681' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_749496_13903' base_ElementImport='_19_0_3_b610298_1692909254571_219943_14092' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_909552_14090' base_ElementImport='_19_0_3_b610298_1692909254571_984266_13749' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_320291_14130' base_ElementImport='_19_0_3_b610298_1692909254571_90407_13717' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_527103_13901' base_ElementImport='_19_0_3_b610298_1692909254571_730551_13813' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_121860_14139' base_ElementImport='_19_0_3_b610298_1692909254571_736049_13799' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_385567_13776' base_ElementImport='_19_0_3_b610298_1692909254571_659340_13668' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_498305_13894' base_ElementImport='_19_0_3_b610298_1692909254571_310229_14051' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_267602_13956' base_PackageImport='_19_0_3_b610298_1692909254571_718630_14128' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_623798_13982' base_ElementImport='_19_0_3_b610298_1692909254571_147700_13662' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_807001_13858' base_ElementImport='_19_0_3_b610298_1692909254571_689293_14118' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_748015_13974' base_ElementImport='_19_0_3_b610298_1692909254571_348221_14145' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_89463_14134' base_ElementImport='_19_0_3_b610298_1692909254571_626648_13893' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_248954_14029' base_ElementImport='_19_0_3_b610298_1692909254571_434811_13807' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_157004_13674' base_PackageImport='_19_0_3_b610298_1692909254571_903643_14116' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_251829_13895' base_ElementImport='_19_0_3_b610298_1692909254571_941112_13853' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_941786_13759' base_ElementImport='_19_0_3_b610298_1692909254571_274753_13750' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_871277_14060' base_ElementImport='_19_0_3_b610298_1692909254571_383528_13779' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_205706_13738' base_ElementImport='_19_0_3_b610298_1692909254571_492533_13848' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_359615_13993' base_ElementImport='_19_0_3_b610298_1692909254571_828511_13855' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_659372_14006' base_ElementImport='_19_0_3_b610298_1692909254571_838040_13867' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_496500_14093' base_ElementImport='_19_0_3_b610298_1692909254564_694970_13660' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_130888_13769' base_PackageImport='_19_0_3_b610298_1692909254571_869190_13986' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254564_974811_13659' base_PackageImport='_19_0_3_b610298_1692909254571_746853_13752' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_589909_13844' base_ElementImport='_19_0_3_b610298_1692909254571_756857_13700' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_853145_14061' base_ElementImport='_19_0_3_b610298_1692909254571_964443_13771' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:auxiliaryResource xmi:id='_19_0_3_b610298_1692909254571_758490_13989' base_Element='_19_0_3_b610298_1692909254571_710660_13758' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_425439_13840' base_ElementImport='_19_0_3_b610298_1692909254571_842892_13793' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_312631_13988' base_ElementImport='_19_0_3_b610298_1692909254571_893831_13874' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_585755_13841' base_ElementImport='_19_0_3_b610298_1692909254571_883252_13661' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_813455_13675' base_ElementImport='_19_0_3_b610298_1692909254571_836423_14120' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_944084_13663' base_ElementImport='_19_0_3_b610298_1692909254571_959473_13796' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_36535_14035' base_ElementImport='_19_0_3_b610298_1692909254571_299953_14072' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_289392_13854' base_ElementImport='_19_0_3_b610298_1692909254571_262735_13943' treatAsAuxiliaryInOwningProject='true'/>
+	<sysml:Block xmi:id='_19_0_3_b610298_1692909264043_24085_42602' base_Class='_19_0_3_b610298_1692909264043_605421_42601'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_576563_14024' base_ElementImport='_19_0_3_b610298_1692909254571_781892_14123' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_534147_14085' base_ElementImport='_19_0_3_b610298_1692909254571_345121_14042' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_985848_14125' base_PackageImport='_19_0_3_b610298_1692909254571_315671_14059' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692922624911_864185_42766' base_Diagram='_19_0_3_b610298_1692922624911_731479_42755' Creation_date='8/24/23 8:17 PM' Modification_date='8/24/23 8:17 PM' Author='paulw86' Last_modified_by='paulw86'/>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692922739502_574387_42890' base_Diagram='_19_0_3_b610298_1692922739502_639958_42879' Creation_date='8/24/23 8:18 PM' Modification_date='8/24/23 8:18 PM' Author='paulw86' Last_modified_by='paulw86'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_366868_13837' base_ElementImport='_19_0_3_b610298_1692909254571_633888_13987' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:auxiliaryResource xmi:id='_19_0_3_b610298_1692909254571_95289_14069' base_Element='_19_0_3_b610298_1692909254571_870225_14132' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692922616759_610027_42702' base_Diagram='_19_0_3_b610298_1692922616727_919442_42690' Creation_date='8/24/23 8:16 PM' Modification_date='8/24/23 8:16 PM' Author='paulw86' Last_modified_by='paulw86'/>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692922744633_601394_42954' base_Diagram='_19_0_3_b610298_1692922744633_444899_42943' Creation_date='8/24/23 8:19 PM' Modification_date='8/24/23 8:19 PM' Author='paulw86' Last_modified_by='paulw86'/>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692922565544_881136_42625' base_Diagram='_19_0_3_b610298_1692922565544_82666_42612' Creation_date='8/24/23 8:16 PM' Modification_date='8/24/23 8:22 PM' Author='paulw86' Last_modified_by='paulw86'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_144903_13971' base_ElementImport='_19_0_3_b610298_1692909254571_239366_13869' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_206094_14048' base_PackageImport='_19_0_3_b610298_1692909254571_694920_13680' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_441616_13910' base_PackageImport='_19_0_3_b610298_1692909254571_9364_14045' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalPackageImport xmi:id='_19_0_3_b610298_1692909254571_286322_13929' base_PackageImport='_19_0_3_b610298_1692909254571_840209_13791' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_438826_14095' base_ElementImport='_19_0_3_b610298_1692909254571_339271_13888' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_89242_14009' base_ElementImport='_19_0_3_b610298_1692909254571_804398_14066' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_868770_13834' base_ElementImport='_19_0_3_b610298_1692909254571_111336_13686' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_771253_13916' base_ElementImport='_19_0_3_b610298_1692909254571_921158_13999' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_923592_13859' base_ElementImport='_19_0_3_b610298_1692909254571_296665_14094' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_25283_13955' base_ElementImport='_19_0_3_b610298_1692909254571_4240_14026' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_790345_13904' base_ElementImport='_19_0_3_b610298_1692909254571_153794_13713' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_295736_14144' base_ElementImport='_19_0_3_b610298_1692909254571_60270_13939' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:additionalElementImport xmi:id='_19_0_3_b610298_1692909254571_911799_14027' base_ElementImport='_19_0_3_b610298_1692909254571_346825_13821' treatAsAuxiliaryInOwningProject='true'/>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692909254571_848617_13842' base_Diagram='_19_0_3_b610298_1692909254571_442983_14033' Creation_date='17.8.16 16.02' Modification_date='8/24/23 4:34 PM' Author='donmaz' Last_modified_by='paulw86'/>
+	<Dependency_Matrix_Profile:DependencyMatrix xmi:id='_19_0_3_b610298_1692909254571_848617_13842application1' base_Diagram='_19_0_3_b610298_1692909254571_442983_14033' columnTextDirection='Vertical' columnOwnerDisplayMode='Compact tree' showInnerDependencies='true' showElements='All' columnHeaderHeight='247' rowHeaderWidth='269' rowOwnerDisplayMode='Compact tree' direction='Row to column' suppressCriteriaArea='false' hideTypes='false' hideScope='false' hideDependencyCriteria='false' rowSortingMode='Ascending' columnSortingMode='Ascending' readOnly='false' takeWholeModelAsScope='true' legendLocation='Top-Left Corner'>
+		<dependencyCriteria>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;callExpressionSpecification xmlns=&quot;http://www.nomagic.com/schemas/MagicDraw/StructuredExpression/2013&quot;&gt;
+    &lt;taggedValues&gt;
+        &lt;entry key=&quot;name&quot;&gt;
+            &lt;value&gt;Package Import&lt;/value&gt;
+        &lt;/entry&gt;
+    &lt;/taggedValues&gt;
+    &lt;argument xsi:type=&quot;lookupExpressionSpecification&quot; symbol=&quot;THIS&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;/&gt;
+    &lt;expression xsi:type=&quot;dslRelationExpressionSpecification&quot; stereotype=&quot;_19_0beta_9250292_1504527525562_901741_4507&quot; includeSubtypes=&quot;true&quot; direction=&quot;DIRECT&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;/&gt;
+&lt;/callExpressionSpecification&gt;
+</dependencyCriteria>
+	</Dependency_Matrix_Profile:DependencyMatrix>
+	<Dependency_Matrix_Profile:MatrixFilter xmi:id='_19_0_3_b610298_1692909254571_848617_13842application2' base_Diagram='_19_0_3_b610298_1692909254571_442983_14033' rowTypesIncludeSubtypes='true' columnTypesIncludeSubtypes='true' columnScopeDefined='true' rowScopeDefined='true' columnScope='_19_0_3_b610298_1692909254571_115070_14032' rowQuery='&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#10;&lt;unionExpressionSpecification xmlns=&quot;http://www.nomagic.com/schemas/MagicDraw/StructuredExpression/2013&quot;&gt;&#10;    &lt;taggedValues&gt;&#10;        &lt;entry key=&quot;name&quot;&gt;&#10;            &lt;value&gt;Query&lt;/value&gt;&#10;        &lt;/entry&gt;&#10;        &lt;entry key=&quot;ROOT_UNION&quot;&gt;&#10;            &lt;value&gt;true&lt;/value&gt;&#10;        &lt;/entry&gt;&#10;    &lt;/taggedValues&gt;&#10;    &lt;value xsi:type=&quot;elementExpressionSpecification&quot; element=&quot;eee_1045467100313_135436_1&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&#10;        &lt;taggedValues&gt;&#10;            &lt;entry key=&quot;name&quot;&gt;&#10;                &lt;value&gt;Element1&lt;/value&gt;&#10;            &lt;/entry&gt;&#10;        &lt;/taggedValues&gt;&#10;    &lt;/value&gt;&#10;&lt;/unionExpressionSpecification&gt;&#10;'>
+		<rowElementType href='http://www.omg.org/spec/UML/20131001/UML.xmi#Package'/>
+		<columnElementType href='http://www.omg.org/spec/UML/20131001/UML.xmi#Package'/>
+	</Dependency_Matrix_Profile:MatrixFilter>
+	<MagicDraw_Profile:DiagramInfo xmi:id='_19_0_3_b610298_1692909254571_6376_13872' base_Diagram='_19_0_3_b610298_1692909254571_15009_14153' Creation_date='17.8.16 16.14' Modification_date='8/24/23 4:34 PM' Author='donmaz' Last_modified_by='paulw86'/>
+	<Dependency_Matrix_Profile:DependencyMatrix xmi:id='_19_0_3_b610298_1692909254571_6376_13872application1' base_Diagram='_19_0_3_b610298_1692909254571_15009_14153' columnTextDirection='Vertical' columnOwnerDisplayMode='Compact tree' showInnerDependencies='true' showElements='With relations' columnHeaderHeight='263' rowHeaderWidth='334' rowOwnerDisplayMode='Compact tree' direction='Column to row' suppressCriteriaArea='false' hideTypes='false' hideScope='false' hideDependencyCriteria='false' rowSortingMode='Ascending' columnSortingMode='Ascending' readOnly='false' takeWholeModelAsScope='true' legendLocation='Top-Left Corner'>
+		<dependencyCriteria>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;callExpressionSpecification xmlns=&quot;http://www.nomagic.com/schemas/MagicDraw/StructuredExpression/2013&quot;&gt;
+    &lt;taggedValues&gt;
+        &lt;entry key=&quot;name&quot;&gt;
+            &lt;value&gt;Element Import&lt;/value&gt;
+        &lt;/entry&gt;
+    &lt;/taggedValues&gt;
+    &lt;argument xsi:type=&quot;lookupExpressionSpecification&quot; symbol=&quot;THIS&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;/&gt;
+    &lt;expression xsi:type=&quot;dslRelationExpressionSpecification&quot; stereotype=&quot;_19_0beta_9250292_1504527525561_959599_4506&quot; includeSubtypes=&quot;true&quot; direction=&quot;DIRECT&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;/&gt;
+&lt;/callExpressionSpecification&gt;
+</dependencyCriteria>
+		<rowCollapsedNodes>_18_0beta_903028d_1388650186579_449738_103883</rowCollapsedNodes>
+	</Dependency_Matrix_Profile:DependencyMatrix>
+	<Dependency_Matrix_Profile:MatrixFilter xmi:id='_19_0_3_b610298_1692909254571_6376_13872application2' base_Diagram='_19_0_3_b610298_1692909254571_15009_14153' rowTypesIncludeSubtypes='true' columnTypesIncludeSubtypes='true' columnScopeDefined='true' rowScopeDefined='true' columnScope='_19_0_3_b610298_1692909254571_115070_14032'>
+		<rowElementType href='SysML Profile.mdzip#_11_5EAPbeta_be00301_1147430239267_179145_1189'/>
+		<columnElementType href='http://www.omg.org/spec/UML/20131001/UML.xmi#Package'/>
+		<rowScope href='ISO-80000-Extension.mdzip#_19_0beta_8c4028a_1506585200574_397586_41114'/>
+		<rowScope href='ISO-80000.mdzip#cad57231-da70-4698-9930-327efc8023f2'/>
+	</Dependency_Matrix_Profile:MatrixFilter>
+</xmi:XMI>
