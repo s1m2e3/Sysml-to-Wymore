@@ -3,6 +3,7 @@ from system import *
 import numpy as np
 import xml.etree.ElementTree as ET
 from itertools import product
+import copy
 
 def find_child(root,tagName=None,attribName=None,exhaustive=False):
     if tagName is not None:
@@ -489,7 +490,20 @@ def matchOrthogonalStates(orthogonals,states):
     statesOrthogonal = list(statesOrthogonal.values())
     return statesOrthogonal
 def getProduct(listOfLists):
-    return [element for element in product(*listOfLists)]
+    lists = [len(subList) for subList in listOfLists]
+    if np.all(np.array(lists)>1):
+        return [element for element in product(*listOfLists)]
+    else:
+        theProduct = [element for subLists in listOfLists for element in subLists ]
+        concat = ""
+        for element in theProduct:
+            
+            if theProduct.index(element) != len(theProduct)-1:
+                concat = concat+element+","
+            else:
+                concat = concat+element
+        return [concat]
+
 def getInputsByStates(transitions_pairs,states):
     statesIds = [state.id for state in states]
     inputs=[]
@@ -501,6 +515,9 @@ def getInputsByStates(transitions_pairs,states):
             target = "_to_"+states[statesIds.index(pair[1])].name
         if source != None and target != None:
             inputs.append(source+target)
+    return inputs
+def getInputsByStatesNames(states):
+    inputs = ["from_"+state+"_to_"+state2 for state in states for state2 in states if state!=state2 ]
     return inputs
 def matchOrthogonalInputs(orthogonals,inputs):
     inputsCropped = [name.replace("from_","").replace("_to_","") for name in inputs]
@@ -514,19 +531,96 @@ def matchOrthogonalInputs(orthogonals,inputs):
             for subOrthogonal in orthogonal:
                 count = count+1 if  subOrthogonal in name else count
             if count>0:
-                inputsOrthogonal[orthogonals.index(orthogonal)].append(name)
+                inputsOrthogonal[orthogonals.index(orthogonal)].append(inputs[inputsCropped.index(name)])
     inputsOrthogonal= list(inputsOrthogonal.values())
     return inputsOrthogonal
-def getOutputsByStates(activities,states)
+def getOutputsByStates(activities,states):
+    activityParentIds = [activity.parent_id for activity in activities]
+    stateIds = [state.id for state in states]
+    outputs = {}
+    for activityId in activityParentIds:
+        if activityId in stateIds:
+            stateName = states[stateIds.index(activityId)].name
+            if stateName not in outputs:
+                outputs[stateName]=activities[activityParentIds.index(activityId)].name
+    
+    return outputs
+def matchOrthogonalOutputs(orthogonals,outputs):
+    stateNames = list(outputs)
+    outputNames = list(outputs.values())
+    outputsOrthogonal = {}
+    for name in stateNames:
+        for orthogonal in orthogonals:
+            if orthogonals.index(orthogonal) not in outputsOrthogonal:
+                outputsOrthogonal[orthogonals.index(orthogonal)]=[]
+            for subOrthogonal in orthogonal:
+                if subOrthogonal in name:
+                    outputsOrthogonal[orthogonals.index(orthogonal)].append(outputNames[stateNames.index(name)])
+    outputsOrthogonal = list(outputsOrthogonal.values())
+    return outputsOrthogonal
+def matchNonOrthogonalOutputs(orthogonals,outputs):
+    stateNames = list(outputs)
+    outputNames = list(outputs.values())
+    outputsOrthogonal = []
+    for name in stateNames:
+        count=0
+        for orthogonal in orthogonals:
+            for subOrthogonal in orthogonal:
+                if subOrthogonal in name:
+                    count +=1
+        if count == 0:
+            outputsOrthogonal.append(name)
+    
+    return outputsOrthogonal
+def getStatesNonOrthogonalStates(states,orthogonals):
+    stateNames = [state.name for state in states]
+    nonOrthogonalStates = []
+    for name in stateNames:
+        count = 0
+        for orthogonal in orthogonals:
+            for subOrthogonal in orthogonal:
+                count = count + 1 if  subOrthogonal in name else count
+        if count == 0:     
+            nonOrthogonalStates.append(name)               
+    return nonOrthogonalStates
+def getStates(states):
+    return [state.name for state in states]
+def getInputs(transition_pairs,states):
+    return ["from_"+states[states.index(pair[0])].name+"_to_"+states[states.index(pair[1])].name for pair in transition_pairs]
 
 def buildSystem(pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory):    
+    
+    
+    # nonOrthogonalInputs= getInputs(transition_pairs,states,nonOrthogonalStates)
+    # nonOrthogonalOutputs= getOutputs(states,activities,nonOrthogonalStates)
     if orthogonals is not None:
+        nonOrthogonalStates= getStatesNonOrthogonalStates(states,orthogonals)
+        
         inputs = getInputsByStates (transition_pairs,states)
         inputsOrthogonal = matchOrthogonalInputs(orthogonals,inputs)
         inputsTuples = getProduct(inputsOrthogonal)
         statesOrthogonal = matchOrthogonalStates(orthogonals,states)
         statesTuples = getProduct(statesOrthogonal)
         outputs = getOutputsByStates(activities,states)
+        nonOrthogonalOutputs = matchNonOrthogonalOutputs(orthogonals,outputs)
+        outputsOrthogonal = matchOrthogonalOutputs(orthogonals,outputs)
+        outputsTuples = getProduct(outputsOrthogonal)
+        
+        if fork is not None or join is not None:
+            totalStates = copy.deepcopy(nonOrthogonalStates)
+            for state in statesTuples:
+                totalStates.append(state)
+            inputsTuples = getInputsByStatesNames(totalStates)
+            # outputsTuples = getOutputsByStatesNames(totalStates)
+            print(totalStates,inputsTuples,outputsTuples)
+
+
+        
+    else:
+        statesTuples = getStates(states)
+        inputsTuples = getInputsByStates(transition_pairs,states)
+        outputsTuples =  list(getOutputsByStates(activities,states).values())
+        print(statesTuples,inputsTuples,outputsTuples)
         # inputsOrthogonal = matchOrthogonalInputs(orthogonals,transition_pairs)
         # inputsTuples = getProduct(inputsOrthogonal)
         # outputsOrthogonal =matchOrthogonalOutputs(orthogonals,activities)
@@ -537,8 +631,8 @@ def buildSystem(pseudostates,states,transition_pairs,activities,orthogonals,fork
     # elif deepHistory is not None:
 
 if __name__=="__main__":
-    # for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    for fig in ["Fig2"]:
+    for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
+    # for fig in ["Fig5"]:
         print("\nTesting "+fig+"\n")
         tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
         root = tree.getroot()
