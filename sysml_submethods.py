@@ -2,6 +2,7 @@ from sysml_subclasses import *
 from system import *
 import numpy as np
 import xml.etree.ElementTree as ET
+from itertools import product
 
 def find_child(root,tagName=None,attribName=None,exhaustive=False):
     if tagName is not None:
@@ -192,7 +193,6 @@ def setParallel(states,parallel_names):
             if state.name in cluster:
                 state.parallel = [name for name in cluster if name != state.name]
     return states
-
 def getpossibleParents(states):
     possibleParents = [state for state in states if state.parent_id is not None and state.parent_region is not None and state.child_region is not None]
     return possibleParents
@@ -232,7 +232,6 @@ def findSetParent(states):
         if len(compatibility)>0:
             state.parent_id = list(np.unique(np.array([parent.parent_id for parent in compatibility])))
     return states
-
 def clean_states(states):
     
     names = [state.name for state in states]
@@ -312,7 +311,6 @@ def addStatetoStatebyPseudostate(transition_pairs,pseudostates):
             pair = (source,target)
             transition_pairs.append(pair)
     return transition_pairs
-# def addNotExistingStatestoExistingStates(states)
 def addFromParentToChildren(transition_pairs,originalParentIds):
     
     for parent_id in originalParentIds:
@@ -354,7 +352,6 @@ def addFromParentToChildren(transition_pairs,originalParentIds):
                         transition_pairs.append(pair)
                         
     return transition_pairs
-
 def findOrthogonal(originalChildRegions):
     test = False
     for child in originalChildRegions:
@@ -414,7 +411,6 @@ def getFork(transition_pairs,originalIds,originalNames,pseudostates):
                 originalIdIndex = originalIds.index(pair[1])
                 fork.append(originalNames[originalIdIndex])
     return fork
-
 def getOrthogonal(originalChildRegions):
     stateAttrib = "uml:State"
     orthogonalStatesNames = []
@@ -423,6 +419,15 @@ def getOrthogonal(originalChildRegions):
             states=find_child(child,attribName=stateAttrib,exhaustive=True)
             orthogonalStatesNames.append([get_attrib_in_root(state,attribName="name") for state in states])
     return orthogonalStatesNames
+def findDeepHistory(pseudostates):
+    kinds = [pseudostate.kind for pseudostate in pseudostates]
+    deepHistory=False
+    if len(kinds)>0:
+        for kind in kinds:
+            if kind is not None:
+                if "deep" in kind:
+                    deepHistory = True
+    return deepHistory
 def buildStatesTransitionsActivities(pseudostates,states,transitions,activities):
     
     transition_pairs = [(transition.source,transition.target) for transition in transitions]
@@ -452,127 +457,88 @@ def buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
     transition_pairs = addPseudostateToState(transition_pairs,pseudostates,states)
     if findOrthogonal(originalChildRegions):
         orthogonals = getOrthogonal(originalChildRegions) 
-        print(orthogonals,"these are the orthogonals")
+        
+    else:
+        orthogonals = None
     if findFork(transition_pairs,ids,originalIds,pseudostates):
         fork = getFork(transition_pairs,originalIds,originalNames,pseudostates)
-        print(fork,"these are the forks")
+    else:
+        fork = None
+        
     if findJoin(transition_pairs,originalIds,originalNames,pseudostates):
         join = getJoin(transition_pairs,originalIds,originalNames,pseudostates)
-        print(join,"these are the joins")
-    
-    
-    return states,transition_pairs,activities,orthogonals,fork,join
-    
-def buildSystem(states,transition_pairs,activities,orthogonals,fork,join):    
-        for i in range(len(system.I)):
-            
-            name = I[i].name
-            prev_states_dictionary = {}
-            next_states_dictionary = {}
-            inputs_dictionary = {}
-            for state in S:
-                
-                if "from_"+state.name in name:
-                    prev_states_dictionary[state.name]=1
-                else:
-                    prev_states_dictionary[state.name]=0
-
-                if "to_"+state.name in name:
-                    next_states_dictionary[state.name]=1
-                else:
-                    next_states_dictionary[state.name]=0
-            for input_ in I:
-                if input_.name == name:
-                    inputs_dictionary[input_.name]=1
-                else:
-                    inputs_dictionary[input_.name]=0
-            
-            prev = tuple(prev_states_dictionary.values())
-            inpt =  tuple(inputs_dictionary.values())
-            next = tuple(next_states_dictionary.values())
-            
-            if len(pairs_orthogonal)>0:
-                for pair in pairs_orthogonal:
-                    inputs_not_in_name = [input_name for input_name in list(inputs_dictionary) if input_name != name]
-                    indexes_removal = []
-                    remaining_states = [pairing for pairing in pairs_orthogonal if pairing != pair]
-                    for inputs_not in inputs_not_in_name:
-                        from_input = inputs_not.replace("from_","")[:inputs_not.replace("from_","").find("to_")]
-                        to_input = inputs_not[inputs_not.find('to_'):].replace("to_","")
-                        for remaining_state in pair:
-                            if remaining_state in from_input or remaining_state in to_input:
-                                indexes_removal.append(inputs_not_in_name.index(inputs_not))
-                    indexes_removal = list(set(indexes_removal))
-                    indexes = list(np.arange(len(inputs_not_in_name)))
-                    indexes = [index for index in indexes if index not in indexes_removal]
-                    inputs_not_in_name = [inputs_not_in_name[i] for i in range(len(inputs_not_in_name)) if i  in indexes]
-                    possible_combinations =list(product(remaining_states[0],inputs_not_in_name))
-                    feasible_combinations = [combination for combination in possible_combinations if combination[0] in combination[1].replace("from_","")[:combination[1].replace("from_","").find("to_")] ]
-                    for pairing in feasible_combinations:
-
-                        prev_ = copy.deepcopy(prev_states_dictionary)
-                        next_ = copy.deepcopy(next_states_dictionary)
-                        inpt_ = copy.deepcopy(inputs_dictionary)
-                        next_state = pairing[1][pairing[1].find("to_"):].replace("to_","")
-                        
-
-                        prev_[pairing[0]]=1
-                        next_[next_state]=1
-                        inpt_[pairing[1]]=1
-                    
-                        prev_ =tuple(prev_.values())
-                        next_ = tuple(next_.values())
-                        inpt_ =tuple(inpt_.values())
-                        # system.addTransitionFunction(next_,states= prev_,inputs= inpt_)
-                    
-            # system.addTransitionFunction(next,states= prev,inputs= inpt)
-
-            # print(tuple(prev_states_dictionary.values()),tuple(next_states_dictionary.values()),tuple(inputs_dictionary.values()))
-        #     func = lambda states_dict,inputs_dict: next_states_dictionary
-        #     t = TransitionFunction(states_dict=prev_states_dictionary,inputs_dict=inputs_dictionary,function=func)
-        #     print("added transition function")
-        for o in range(len(O)):
-            output_dictionary = {}
-            states_dictionary = {}
-            for j in range(len(O)):
-                if o==j:
-                    output_dictionary[activities_name[j]] =1
-                else:
-                    output_dictionary[activities_name[j]] =0
-            state_index = names.index(activities_parent_name[o])
-            for j in range(len(S)):
-                if j == state_index:
-                    states_dictionary[names[j]] = 1
-                else:
-                    states_dictionary[names[j]] = 0
-            state = tuple(states_dictionary.values())
-            output = tuple(output_dictionary.values())
-            
-            if len(pairs_orthogonal)>0:
-                for pair in pairs_orthogonal:
-                    remaining_states = [pairing for pairing in pairs_orthogonal if pairing != pair]
-                    states_values = list(states_dictionary.values())
-                    states_names =  list(states_dictionary)
-                    output_names = list(output_dictionary)
-                    if states_names[states_values.index(1)] not in remaining_states[0]:
-                        # print("orthogonal found",remaining_states,states_names[states_values.index(1)])
-                        
-                        for orth in remaining_states[0]:
-                            state_ = copy.deepcopy(states_dictionary)
-                            output_ = copy.deepcopy(output_dictionary)
-                            state_[orth]=1
-                            output_index = output_names[states_names.index(orth)]
-                            output_[output_index] = 1
-                            state_ = tuple(state_.values())
-                            output_ = tuple(output_.values())
-            # system.addReadoutFunction(output,state)
+    else:
+        join = None
         
-        return system
+    if findDeepHistory(pseudostates):
+        deepHistory = True
+    else:
+        deepHistory = None
+    
+    return pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory
+def matchOrthogonalStates(orthogonals,states):
+    stateNames = [state.name for state in states]
+    statesOrthogonal = {}
+    for name in stateNames:
+        for orthogonal in orthogonals:
+            if orthogonals.index(orthogonal) not in statesOrthogonal:
+                statesOrthogonal[orthogonals.index(orthogonal)]=[]
+            for subOrthogonal in orthogonal:
+                if subOrthogonal in name:
+                    statesOrthogonal[orthogonals.index(orthogonal)].append(name)
+    statesOrthogonal = list(statesOrthogonal.values())
+    return statesOrthogonal
+def getProduct(listOfLists):
+    return [element for element in product(*listOfLists)]
+def getInputsByStates(transitions_pairs,states):
+    statesIds = [state.id for state in states]
+    inputs=[]
+    for pair in transition_pairs:
+        source,target = None,None
+        if pair[0] in statesIds:
+            source = "from_"+states[statesIds.index(pair[0])].name
+        if pair[1] in statesIds:
+            target = "_to_"+states[statesIds.index(pair[1])].name
+        if source != None and target != None:
+            inputs.append(source+target)
+    return inputs
+def matchOrthogonalInputs(orthogonals,inputs):
+    inputsCropped = [name.replace("from_","").replace("_to_","") for name in inputs]
+    inputsOrthogonal = {}
+    for name in inputsCropped:
+        for orthogonal in orthogonals:
+            count = 0 
+            if orthogonals.index(orthogonal) not in inputsOrthogonal:
+                inputsOrthogonal[orthogonals.index(orthogonal)]=[]
+            
+            for subOrthogonal in orthogonal:
+                count = count+1 if  subOrthogonal in name else count
+            if count>0:
+                inputsOrthogonal[orthogonals.index(orthogonal)].append(name)
+    inputsOrthogonal= list(inputsOrthogonal.values())
+    return inputsOrthogonal
+def getOutputsByStates(activities,states)
 
+def buildSystem(pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory):    
+    if orthogonals is not None:
+        inputs = getInputsByStates (transition_pairs,states)
+        inputsOrthogonal = matchOrthogonalInputs(orthogonals,inputs)
+        inputsTuples = getProduct(inputsOrthogonal)
+        statesOrthogonal = matchOrthogonalStates(orthogonals,states)
+        statesTuples = getProduct(statesOrthogonal)
+        outputs = getOutputsByStates(activities,states)
+        # inputsOrthogonal = matchOrthogonalInputs(orthogonals,transition_pairs)
+        # inputsTuples = getProduct(inputsOrthogonal)
+        # outputsOrthogonal =matchOrthogonalOutputs(orthogonals,activities)
+        # outputsTuples = getProduct(outputsOrthogonal)
+        # if fork is not None:
+        # elif join is not None:
+    
+    # elif deepHistory is not None:
 
 if __name__=="__main__":
-    for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    # for fig in ["Fig6"]:
+    # for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
+    for fig in ["Fig2"]:
         print("\nTesting "+fig+"\n")
         tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
         root = tree.getroot()
@@ -584,5 +550,5 @@ if __name__=="__main__":
         systems=[]
         for region in regions:
             pseudostates,states,transitions,activities = search(region,pseudostates,states,transitions,activities)
-            states,transition_pairs,activities,orthogonals,fork,join = buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
-            system = buildSystem(states,transition_pairs,activities,orthogonals,fork,join)
+            pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory = buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
+            system = buildSystem(pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory)
