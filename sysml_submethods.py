@@ -33,9 +33,12 @@ def find_child(root,tagName=None,attribName=None,exhaustive=False):
         return tag
 def attrib_in_root(root,attribName=None):
     if attribName is not None:
+        if attribName in root.attrib:
+            return True
         for element in root.attrib:
-                if attribName in root.attrib[element]:
-                    return True
+            if attribName in root.attrib[element]:
+                return True
+         
         return False
 def get_attrib_in_root(root,attribName=None):
     if attribName is not None:
@@ -86,6 +89,7 @@ def find_state_machine_region(root):
     return regions,model_name
 def generatePseudostate(pseudostates,pseudoChild):
     pseudostates.append(pseudostate())
+    
     if attrib_in_root(pseudoChild,attribName="kind"):
         pseudostates[-1].kind = get_attrib_in_root(pseudoChild,attribName="kind")
     pseudostates[-1].id = get_attrib_in_root(pseudoChild,attribName="id")
@@ -146,18 +150,7 @@ def search(region,pseudostates,states,transitions,activities):
                         pseudostates,newStateChildren,_,_= search(subRegion,pseudostates,states[-1].child_nodes,transitions,activities)
                         newStateChildren = [newStateChild for newStateChild in newStateChildren if type(newStateChild) == type(states[0])]
                         states[-1].child_nodes.extend(newStateChildren)
-                        
-                # else:
-                #     subRegion = states[-1].child_region
-                #     print(states[-1].name)
-                #     input("hey,in subregion")
-                #     pseudostates,newStateChildren,_,_= search(subRegion,pseudostates,states[-1].child_nodes,transitions,activities)
-                #     print([newStateChild for newStateChild in newStateChildren if type(newStateChild) == type(states[0])])
-                #     print(newStateChildren,states[0])
-                #     input("hey,in subregion compairson")
-                #     newStateChildren = [newStateChild for newStateChild in newStateChildren if type(newStateChild) == type(states[0])]
-                #     states[-1].child_nodes.extend(newStateChildren)
-                #     print(states[-1].name,states[-1].child_nodes)
+               
     
     return pseudostates,states,transitions,activities
 def build_states(states,prev_name=""):
@@ -422,6 +415,7 @@ def getOrthogonal(originalChildRegions):
     return orthogonalStatesNames
 def findDeepHistory(pseudostates):
     kinds = [pseudostate.kind for pseudostate in pseudostates]
+    
     deepHistory=False
     if len(kinds)>0:
         for kind in kinds:
@@ -488,9 +482,10 @@ def buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
         join = getJoin(transition_pairs,originalIds,originalNames,pseudostates)
     else:
         join = None
-        
+    
     if findDeepHistory(pseudostates):
         deepHistory = True
+        
     else:
         deepHistory = None
     
@@ -521,7 +516,6 @@ def getProduct(listOfLists):
             else:
                 concat = concat+element
         return [concat]
-
 def getInputsByStates(transitions_pairs,states):
     statesIds = [state.id for state in states]
     inputs=[]
@@ -641,13 +635,74 @@ def createSystemOrthogonal(name,states,inputs,outputs):
     states = rearrangeTuples(stateTuples)
     inputs = rearrangeTuplesInputs(inputTuples)
     outputs =rearrangeTuples(outputTuples)
-    print(states,inputs,outputs)
+    
     S=[State(state,[0,1])for state in states]
     I=[Input(input_,[0,1])for input_ in inputs]
     O=[Output(output,[0,1])for output in outputs]
     return System(name,S,I,O)
+
+def rearrangeForkJoin(totalStates,inputsTuples,outputsTuples):
+    totalStates = [state.replace(",","") if "," in state else state for state in totalStates]
+    inputsTuples = [input_.replace(",","") if "," in input_ else input_ for input_ in inputsTuples]
+    outputsTuples = [output.replace(",","") if "," in output else output for output in outputsTuples]
+    return totalStates,inputsTuples,outputsTuples
+def addInputsfromDeepHistory(inputsTuples,statesTuples,outputsDictionary):
+    evaluationSource=[]
+    evaluationPairs=[]
+    evaluationTarget = []
+    extraStates=[]
+    for state in statesTuples:
+        count = 0
+        for state2 in statesTuples:
+            if state!=state2:
+                source = None
+                target = None
+                sourcePair = None
+                targetPair = None
+                for subTuple in inputsTuples:
+                    subStringFrom = subTuple[:subTuple.find("_to_")]
+                    subStringTarget = subTuple[subTuple.find("_to_"):]
+                    if state in subStringFrom and state2 in subStringTarget:
+                        source = subStringFrom
+                        sourcePair = subTuple
+                    if state in subStringTarget and state2 in subStringFrom:
+                        target = subStringTarget
+                        targetPair = subTuple
+
+                if source == None or target == None:
+                    if sourcePair is not None and sourcePair not in evaluationPairs:
+                        evaluationPairs.append(sourcePair)
+                        evaluationSource.append(source)
+                    if targetPair is not None and targetPair not in evaluationPairs:
+                        evaluationPairs.append(targetPair)
+                        evaluationTarget.append(target)
+                    
+    if len(evaluationSource)==0 and len(evaluationTarget)>0:
+        for target in evaluationTarget:
+            
+            target= target.replace("_to_","")
+            newSource = target+"'"
+            if newSource not in statesTuples:
+                statesTuples.append(newSource)
+            for evaluationPair in evaluationPairs:
+                source = evaluationPairs[evaluationPairs.index(evaluationPair)].replace("from_","")[:evaluationPair.find("_to_")-5]
+                index = inputsTuples.index(evaluationPair)
+                
+                inputsTuples[index]=inputsTuples[index].replace(target,newSource)
+                newInput = "from_"+newSource+"_to_"+source
+                if newInput not in inputsTuples:
+                    inputsTuples.append(newInput)
+                if newSource not in statesTuples:
+                    statesTuples.append(newSource)
+
+    for state in statesTuples:
+        if state not in outputsDictionary:
+            outputAdded = state[state.find("S")+1:]
+            outputsDictionary[state]="O"+outputAdded
+    outputsTuples=list(outputsDictionary.values())
+    return inputsTuples,statesTuples,outputsTuples
+
 def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory):    
-    
     
     if orthogonals is not None:
         
@@ -667,7 +722,9 @@ def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals
             for state in statesTuples:
                 totalStates.append(state)
             inputsTuples = getInputsByStatesNames(totalStates)
-            
+            outputsTuples.extend(nonOrthogonalOutputs)
+            statesTuples,inputsTuples,outputsTuples = rearrangeForkJoin(totalStates,inputsTuples,outputsTuples)
+            system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
         else:
             system = createSystemOrthogonal(name,statesTuples,inputsTuples,outputsTuples)
             
@@ -676,16 +733,19 @@ def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals
         inputsTuples = getInputsByStates(transition_pairs,states)
         outputsTuples =  list(getOutputsByStates(activities,states).values())
         system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
+        
         if deepHistory is not None:
-            
+            outputsDictionary = getOutputsByStates(activities,states)
+            inputsTuples,statesTuples,outputsTuples = addInputsfromDeepHistory(inputsTuples,statesTuples,outputsDictionary)
+           
         else:
             system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
     
-    # elif deepHistory is not None:
+    
 
 if __name__=="__main__":
     # for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    for fig in ["Fig1","Fig2",'Fig3','Fig4']:
+    for fig in ["Fig4"]:
         print("\nTesting "+fig+"\n")
         tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
         root = tree.getroot()
