@@ -26,7 +26,6 @@ class System:
         self.currentState = None    
     def addTransitionFunction(self,next,states,inputs):
         if states in self.getAllPossibleStates():
-            
             if inputs in self.getAllPossibleInputs():
                 pass
             else:
@@ -64,7 +63,8 @@ class System:
         for state in self.states:
             possible.append(tuple(state.availableStates))
         for element in itertools.product(*possible):
-            existing.append(element)
+            if sum(element)==1:
+                existing.append(element)
         return existing
     def getAllPossibleInputs(self):
         existing = []
@@ -72,7 +72,8 @@ class System:
         for input_ in self.inputs:
             possible.append(tuple(input_.availableInputs))
         for element in itertools.product(*possible):
-            existing.append(element)
+            if sum(element)==1:
+                existing.append(element)
         return existing
     def getAllPossibleOutputs(self):
         existing = []

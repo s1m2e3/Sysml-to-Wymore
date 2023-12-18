@@ -702,6 +702,31 @@ def addInputsfromDeepHistory(inputsTuples,statesTuples,outputsDictionary):
     outputsTuples=list(outputsDictionary.values())
     return inputsTuples,statesTuples,outputsTuples
 
+def addTransitionFunctions(system):
+    relativeInput = [0 for input_ in system.inputs]
+    relativeStates = [0 for state in system.states]
+    stateNames = [state.name for state in system.states]
+    for input_ in system.inputs:
+
+        next_ = input_.name[input_.name.find("to_")+3:]
+        next_Index = stateNames.index(next_)
+        next_ = copy.deepcopy(relativeStates)
+        next_[next_Index] = 1
+        next_ = tuple(next_)
+        states = input_.name[input_.name.find("from_")+5:input_.name.find("to_")-1]
+        statesIndex = stateNames.index(states)
+        states = copy.deepcopy(relativeStates) 
+        states[statesIndex] = 1
+        states = tuple(states)
+        inputs = copy.deepcopy(relativeInput)
+        inputs[system.inputs.index(input_)] = 1
+        inputs = tuple(inputs)
+        print(next_,states,inputs)
+        system.addTransitionFunction(next_,states,inputs)
+        
+    print(system.transitionFunctions)
+    return system
+
 def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory):    
     
     if orthogonals is not None:
@@ -741,11 +766,14 @@ def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals
         else:
             system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
     
+    print(system.getAllPossibleStates())
+    addTransitionFunctions(system)
+    return system
     
 
 if __name__=="__main__":
-    # for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    for fig in ["Fig4"]:
+    for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
+    # for fig in ["Fig1"]:
         print("\nTesting "+fig+"\n")
         tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
         root = tree.getroot()
@@ -759,3 +787,4 @@ if __name__=="__main__":
             pseudostates,states,transitions,activities = search(region,pseudostates,states,transitions,activities)
             pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory = buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
             system = buildSystem(model_name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory)
+            # print([input_.name for input_ in system.inputs])
