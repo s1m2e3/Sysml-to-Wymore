@@ -707,7 +707,6 @@ def addTransitionFunctions(system):
     relativeStates = [0 for state in system.states]
     stateNames = [state.name for state in system.states]
     for input_ in system.inputs:
-
         next_ = input_.name[input_.name.find("to_")+3:]
         next_Index = stateNames.index(next_)
         next_ = copy.deepcopy(relativeStates)
@@ -721,11 +720,25 @@ def addTransitionFunctions(system):
         inputs = copy.deepcopy(relativeInput)
         inputs[system.inputs.index(input_)] = 1
         inputs = tuple(inputs)
-        print(next_,states,inputs)
         system.addTransitionFunction(next_,states,inputs)
-        
-    print(system.transitionFunctions)
     return system
+
+def addReadoutFunctions(system):
+    relativeOutput = [0 for output in system.outputs]
+    relativeStates = [0 for state in system.states]
+    outputNames = [output.name for output in system.outputs]
+    for output in system.outputs:
+        outputIndex = outputNames.index(output.name)
+        output_ = copy.deepcopy(relativeOutput)
+        output_[outputIndex] = 1
+        output_ = tuple(output_)
+        states = copy.deepcopy(relativeStates)
+        states[outputIndex] = 1
+        states = tuple(states)
+        system.addReadoutFunction(output_,states)
+    print(system.readoutFunctions)
+    return system
+
 
 def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory):    
     
@@ -762,18 +775,22 @@ def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals
         if deepHistory is not None:
             outputsDictionary = getOutputsByStates(activities,states)
             inputsTuples,statesTuples,outputsTuples = addInputsfromDeepHistory(inputsTuples,statesTuples,outputsDictionary)
-           
+            system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
+            
+
+           # pending, create system when deep History
         else:
             system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
     
-    print(system.getAllPossibleStates())
-    addTransitionFunctions(system)
+    system = addTransitionFunctions(system)
+    system = addReadoutFunctions(system)
+    
     return system
     
 
 if __name__=="__main__":
     for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    # for fig in ["Fig1"]:
+    # for fig in ["Fig3","Fig4"]:
         print("\nTesting "+fig+"\n")
         tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
         root = tree.getroot()

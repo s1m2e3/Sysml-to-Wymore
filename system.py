@@ -81,7 +81,8 @@ class System:
         for output in self.outputs:
             possible.append(tuple(output.availableOutputs))
         for element in itertools.product(*possible):
-            existing.append(element)
+            if sum(element)==1:
+                existing.append(element)
         return existing
     def transition(self,inputs):
         self.setCurrentState(self.transitionFunctions[self.currentState][inputs]) 
