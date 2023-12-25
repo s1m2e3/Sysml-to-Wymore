@@ -489,7 +489,11 @@ def buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
     else:
         deepHistory = None
     
+    sortedNames = [state.name for state in states]
+    sortedNames = sorted(sortedNames)
+    states = [states[sortedNames.index(state.name)] for state in states ]
     return pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory
+
 def matchOrthogonalStates(orthogonals,states):
     stateNames = [state.name for state in states]
     statesOrthogonal = {}
@@ -519,7 +523,7 @@ def getProduct(listOfLists):
 def getInputsByStates(transitions_pairs,states):
     statesIds = [state.id for state in states]
     inputs=[]
-    for pair in transition_pairs:
+    for pair in transitions_pairs:
         source,target = None,None
         if pair[0] in statesIds:
             source = "from_"+states[statesIds.index(pair[0])].name
@@ -527,9 +531,11 @@ def getInputsByStates(transitions_pairs,states):
             target = "_to_"+states[statesIds.index(pair[1])].name
         if source != None and target != None:
             inputs.append(source+target)
+    inputs = sorted(inputs)
     return inputs
 def getInputsByStatesNames(states):
     inputs = ["from_"+state+"_to_"+state2 for state in states for state2 in states if state!=state2 ]
+    inputs = sorted(inputs)
     return inputs
 def matchOrthogonalInputs(orthogonals,inputs):
     inputsCropped = [name.replace("from_","").replace("_to_","") for name in inputs]
@@ -707,19 +713,24 @@ def addTransitionFunctions(system):
     relativeStates = [0 for state in system.states]
     stateNames = [state.name for state in system.states]
     for input_ in system.inputs:
-        next_ = input_.name[input_.name.find("to_")+3:]
-        next_Index = stateNames.index(next_)
-        next_ = copy.deepcopy(relativeStates)
-        next_[next_Index] = 1
-        next_ = tuple(next_)
         states = input_.name[input_.name.find("from_")+5:input_.name.find("to_")-1]
+        print("prev state is: ",states)
         statesIndex = stateNames.index(states)
         states = copy.deepcopy(relativeStates) 
         states[statesIndex] = 1
         states = tuple(states)
+        print("codified prev state is: ",states)
+        next_ = input_.name[input_.name.find("to_")+3:]
+        print("next state is:",next_)
+        next_Index = stateNames.index(next_)
+        next_ = copy.deepcopy(relativeStates)
+        next_[next_Index] = 1
+        next_ = tuple(next_)
+        print("codified next state is:",next_)
         inputs = copy.deepcopy(relativeInput)
         inputs[system.inputs.index(input_)] = 1
         inputs = tuple(inputs)
+        print(inputs)
         system.addTransitionFunction(next_,states,inputs)
     return system
 
@@ -736,7 +747,6 @@ def addReadoutFunctions(system):
         states[outputIndex] = 1
         states = tuple(states)
         system.addReadoutFunction(output_,states)
-    print(system.readoutFunctions)
     return system
 
 
@@ -777,8 +787,6 @@ def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals
             inputsTuples,statesTuples,outputsTuples = addInputsfromDeepHistory(inputsTuples,statesTuples,outputsDictionary)
             system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
             
-
-           # pending, create system when deep History
         else:
             system = createSystem(name,statesTuples,inputsTuples,outputsTuples)
     
@@ -787,21 +795,3 @@ def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals
     
     return system
     
-
-if __name__=="__main__":
-    for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    # for fig in ["Fig3","Fig4"]:
-        print("\nTesting "+fig+"\n")
-        tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
-        root = tree.getroot()
-        regions,model_name = find_state_machine_region(root)
-        states = []
-        transitions = []
-        activities = []
-        pseudostates = []
-        systems=[]
-        for region in regions:
-            pseudostates,states,transitions,activities = search(region,pseudostates,states,transitions,activities)
-            pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory = buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
-            system = buildSystem(model_name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory)
-            # print([input_.name for input_ in system.inputs])

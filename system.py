@@ -96,7 +96,11 @@ class System:
             self.transition(inputs)    
             new = self.currentState
             outputs = self.readoutFunctions[new]
-            experimentTable[i]={"previous states": prev, "inputs": inputs,"new states":new,"outputs":outputs}
+            nameInputs = self.inputs[inputs.index(1)].name
+            nameNewStates = self.states[new.index(1)].name
+            namePrevStates = self.states[prev.index(1)].name
+            nameOutputs =self.outputs[outputs.index(1)].name
+            experimentTable[i]={"previous states": namePrevStates,"new states":nameNewStates, "inputs": nameInputs,"outputs":nameOutputs}
             
         print(pd.DataFrame.from_dict(experimentTable).T)    
     
