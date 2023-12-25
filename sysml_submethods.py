@@ -714,23 +714,18 @@ def addTransitionFunctions(system):
     stateNames = [state.name for state in system.states]
     for input_ in system.inputs:
         states = input_.name[input_.name.find("from_")+5:input_.name.find("to_")-1]
-        print("prev state is: ",states)
         statesIndex = stateNames.index(states)
         states = copy.deepcopy(relativeStates) 
         states[statesIndex] = 1
         states = tuple(states)
-        print("codified prev state is: ",states)
         next_ = input_.name[input_.name.find("to_")+3:]
-        print("next state is:",next_)
         next_Index = stateNames.index(next_)
         next_ = copy.deepcopy(relativeStates)
         next_[next_Index] = 1
         next_ = tuple(next_)
-        print("codified next state is:",next_)
         inputs = copy.deepcopy(relativeInput)
         inputs[system.inputs.index(input_)] = 1
         inputs = tuple(inputs)
-        print(inputs)
         system.addTransitionFunction(next_,states,inputs)
     return system
 

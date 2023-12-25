@@ -5,8 +5,8 @@ from sysml_submethods import *
 
 
 if __name__=="__main__":
-    # for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
-    for fig in ["Fig4"]:
+    for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
+    
         print("\nTesting "+fig+"\n")
         tree = ET.parse(fig+'/com.nomagic.magicdraw.uml_model.model')
         root = tree.getroot()
@@ -22,7 +22,7 @@ if __name__=="__main__":
             system = buildSystem(model_name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory)
             if fig == "Fig1":
                 currentState = (1,0)
-                inputVector = [(0,1),(1,0)]
+                inputVector = [(1,0),(0,1)]
                 system.setCurrentState(currentState)
                 system.runExperiment(inputsVector=inputVector)
             elif fig == "Fig2":
@@ -71,6 +71,12 @@ if __name__=="__main__":
                 system.setCurrentState(currentState)
                 system.runExperiment(inputsVector=inputVector)
             elif fig == "Fig5":
-                pass
+                currentState = (1,0)
+                inputVector = [(1,0)]
+                system.setCurrentState(currentState)
+                system.runExperiment(inputsVector=inputVector)
             elif fig == "Fig6":
-                pass                
+                currentState = (0,1)
+                inputVector = [(0,1)]
+                system.setCurrentState(currentState)
+                system.runExperiment(inputsVector=inputVector)                
