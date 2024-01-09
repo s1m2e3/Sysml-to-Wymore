@@ -573,7 +573,10 @@ def matchOrthogonalOutputs(orthogonals,outputs):
                 outputsOrthogonal[orthogonals.index(orthogonal)]=[]
             for subOrthogonal in orthogonal:
                 if subOrthogonal in name:
+                    
                     outputsOrthogonal[orthogonals.index(orthogonal)].append(outputNames[stateNames.index(name)])
+                    outputsOrthogonal[orthogonals.index(orthogonal)]=sorted(outputsOrthogonal[orthogonals.index(orthogonal)])
+    
     outputsOrthogonal = list(outputsOrthogonal.values())
     return outputsOrthogonal
 def matchNonOrthogonalOutputs(orthogonals,outputs):
@@ -635,13 +638,12 @@ def rearrangeTuplesInputs(tuples):
 
 def createSystemOrthogonal(name,states,inputs,outputs):
     
-    stateTuples = [state for state in states if type(state)==type(tuple())]
+    stateTuples = sorted([state for state in states if type(state)==type(tuple())])
     inputTuples = [input_ for input_ in inputs if type(input_)==type(tuple())]
     outputTuples = [output for output in outputs if type(output)==type(tuple())]
     states = rearrangeTuples(stateTuples)
     inputs = rearrangeTuplesInputs(inputTuples)
     outputs =rearrangeTuples(outputTuples)
-    
     S=[State(state,[0,1])for state in states]
     I=[Input(input_,[0,1])for input_ in inputs]
     O=[Output(output,[0,1])for output in outputs]
