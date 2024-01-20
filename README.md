@@ -7,8 +7,11 @@ Up to the current version, the module can only work with finite state machines t
 In the current version, the module has not been exported to pypi for remote installation so for now; all experiments have to be run locally 
 and in the same folder were this repository is installed. Guide yourself from the sysml_wymore.py which has the experiments of the paper associated with the module.
 In order to use the wymorian constructs and methods that allow the conversion from Sysml to Wymore systems, simply import the submethods:
+```python
 $ from sysml_submethods import *
+```
 Then, import the xml file extract the content of it and convert it to a Wymorian system in the following way:
+
 $tree = ET.parse('yourxmlfilelocation')
 $root = tree.getroot()
 $regions,model_name = find_state_machine_region(root)
