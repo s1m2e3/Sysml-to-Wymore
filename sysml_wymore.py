@@ -1,9 +1,6 @@
 from sysml_submethods import *
 
-        
-
-
-
+      
 if __name__=="__main__":
     for fig in ['Fig1','Fig2','Fig3','Fig4','Fig5','Fig6']:
     

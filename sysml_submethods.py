@@ -194,7 +194,12 @@ def getParents(states):
     parents = [state for state in states if state.parent_id is not None  and state.child_region is not None and len(state.child_region)>0]
     return parents
 def getChildRegions(states):
-    state_regions_child = [state.child_region for state in states if state.child_region is not None and len(state.child_region)>0]
+    state_regions_child = []
+
+    for state in states:
+        if state.child_region is not None and len(state.child_region)>1 and state.child_region not in state_regions_child:
+            state_regions_child.append(state.child_region)
+
     return state_regions_child
 def getChildRegionsExtended(states):
     state_regions_child = [state for state in states if state.child_region is not None and len(state.child_region)>0]
@@ -224,7 +229,14 @@ def findSetParent(states):
     for state in states:
         compatibility = [parent for parent in parents if parent.name in state.name and parent.name != state.name]
         if len(compatibility)>0:
-            state.parent_id = list(np.unique(np.array([parent.parent_id for parent in compatibility])))
+            parents_list = []         
+            for parent in compatibility:
+                if type(parent.parent_id) == type(list()):
+                    parents_list.extend(parent.parent_id )
+                else:
+                    parents_list.append(parent.parent_id )
+            parents_list = list(set(parents_list))
+            state.parent_id = parents_list
     return states
 def clean_states(states):
     
@@ -439,6 +451,54 @@ def addFromStatetoStateByOriginalState(transition_pairs,originalIds,ids):
                 transition_pairs.append(paired)
                 
     return transition_pairs
+def orderOrthogonals(orthogonals,states):
+    states_names = [state.name for state in states]
+    orthogonal_to_states_names = [orthogonal2  for orthogonal in orthogonals for orthogonal2 in orthogonal ]
+    orthogonal_to_states_indexes = []
+    position_string = []
+    for orthogonal_name in orthogonal_to_states_names:
+        sub_list = []
+        sub_position_string = []
+        for name in states_names:
+            if orthogonal_name in name:
+                sub_list.append(states_names.index(name))
+                sub_position_string.append(name.find(orthogonal_name))
+        orthogonal_to_states_indexes.append(sub_list)
+        position_string.append(sub_position_string)
+    position_string = [position for position_ in position_string for position in position_ ]
+    categories = []
+    dictionary = []
+
+    count = 0
+    for num in position_string:
+        
+        if num not in dictionary:
+            count +=1
+            dictionary.append(num)
+            categories.append(count)
+            
+        else: 
+            categories.append(count)
+    
+    for i in range(len(orthogonal_to_states_indexes)):
+        if len(orthogonal_to_states_indexes[i])>1:
+            length = len(orthogonal_to_states_indexes[i])
+            for j in range(length-1):
+                del categories[i+j]
+    new_orthogonals = {}
+
+    for name in orthogonal_to_states_names:
+        for sub_orth in orthogonals:
+            if name in sub_orth:
+                if categories[orthogonal_to_states_names.index(name)] not in new_orthogonals:
+                    new_orthogonals[categories[orthogonal_to_states_names.index(name)]] = [sub_orth]
+                else:
+                    if sub_orth not in new_orthogonals[categories[orthogonal_to_states_names.index(name)]]:
+                        new_orthogonals[categories[orthogonal_to_states_names.index(name)]].append(sub_orth)
+
+
+    return new_orthogonals
+
 def buildStatesTransitionsActivities(pseudostates,states,transitions,activities):
     
     transition_pairs = [(transition.source,transition.target) for transition in transitions]
@@ -492,6 +552,9 @@ def buildStatesTransitionsActivities(pseudostates,states,transitions,activities)
     sortedNames = [state.name for state in states]
     sortedNames = sorted(sortedNames)
     states = [states[sortedNames.index(state.name)] for state in states ]
+    if orthogonals is not None:
+        orthogonals = orderOrthogonals(orthogonals,states)
+
     return pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory
 
 def matchOrthogonalStates(orthogonals,states):
@@ -750,7 +813,6 @@ def addReadoutFunctions(system):
 def buildSystem(name,pseudostates,states,transition_pairs,activities,orthogonals,fork,join,deepHistory):    
     
     if orthogonals is not None:
-        
         nonOrthogonalStates= getStatesNonOrthogonalStates(states,orthogonals)
         inputs = getInputsByStates (transition_pairs,states)
         inputsOrthogonal = matchOrthogonalInputs(orthogonals,inputs)
